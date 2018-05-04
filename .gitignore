@@ -1,0 +1,11 @@
+*
+!.gitignore
+!.atom
+!.tmux*
+!.zshrc
+!tmuxsimple.sh
+!.config/
+!.config/tilda
+!.config/tilda/*
+!.config/nvim
+!.config/nvim/*
