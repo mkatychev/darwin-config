@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/mickus/.oh-my-zsh
+  export ZSH=/home/$USER/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -86,5 +86,5 @@ source $ZSH/oh-my-zsh.sh
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias tmux2p='~/tmuxsimple.sh'
-alias aca='cd /home/mickus/Documents/jsdev/javascript-workbook'
-# export PATH=$PATH:/home/mickus/.cargo/bin/mdbook
+alias aca='cd /home/$USER/Documents/jsdev/javascript-workbook'
+# export PATH=$PATH:/home/$USER/.cargo/bin/mdbook
