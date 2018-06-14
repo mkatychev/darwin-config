@@ -9,6 +9,8 @@
 !.config/tilda/*
 !.config/nvim
 !.config/nvim/*
+!.config/iterm/
+!.config/iterm/*
 !.oh-my-zsh/*
 !com.googlecode.iterm2.plist
 !Library/
