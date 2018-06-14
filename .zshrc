@@ -1,13 +1,15 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/$USER/.oh-my-zsh
-
+export ZSH=/Users/$USER/.oh-my-zsh
+export ZSH_THEME="node"
+export ZSH_DISABLE_COMPFIX=true
 # Set name of the theme to load. Optionally, if you set this to "random"
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -54,7 +56,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -73,7 +75,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -83,8 +85,17 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
-alias tmux2p='~/tmuxsimple.sh'
-alias aca='cd /home/$USER/Documents/jsdev/javascript-workbook'
-# export PATH=$PATH:/home/$USER/.cargo/bin/mdbook
+# PYTHON PATHS
+alias pipup='pip freeze --local | grep -v ^-e | cut -d = -f 2  | xargs -n1 pip install -U'
+# export PATH="$(brew --prefix python)/libexec/bin:$(brew --prefix)/opt/gdal2/bin:$(brew --prefix)/bin:$PATH"
+# export VIRTUALENVWRAPPER_PYTHON=`which python`
+# source `which virtualenvwrapper.sh`
+# export PATH="/usr/local/opt/python@2/bin:$PATH"
+# export PYTHONPATH="/usr/local/lib/python3.6/site-packages"
+# filepath aliasing
+alias cdqa="~/Desktop/QA_Tools/"
+alias cdqau="~/Desktop/QA_Tools/Utilities"
+[[ $TMUX != "" ]] && export TERM="screen-256color"
+
+# initialize theme
+bindkey ^v vi-cmd-mode

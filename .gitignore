@@ -9,3 +9,11 @@
 !.config/tilda/*
 !.config/nvim
 !.config/nvim/*
+!.oh-my-zsh/*
+!com.googlecode.iterm2.plist
+!Library/
+Library/**
+!Library/Application\ Support/
+Library/Application\ Support/**
+!Library/Application\ Support/Spectacle/
+!Library/Application\ Support/Spectacle/*
