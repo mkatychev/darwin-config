@@ -1,0 +1,39 @@
+"*":
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+  core:
+    disabledPackages: [
+      "language-python"
+    ]
+    telemetryConsent: "limited"
+  editor: {}
+  "exception-reporting":
+    userId: "1ab88caa-f070-4887-a1ee-6f755ab5a64f"
+  linter:
+    disabledProviders: [
+      "Flake8"
+    ]
+  "linter-flake8":
+    ignoreErrorCodes: [
+      "E402"
+      "E501"
+    ]
+  "linter-ui-default":
+    panelHeight: 187
+    showPanel: true
+  welcome:
+    showOnStartup: false
+".javascript.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 2
+".python.regexp.source":
+  editor:
+    preferredLineLength: 79
+".python.source":
+  editor:
+    preferredLineLength: 79
+    tabLength: 4
+".shell.source":
+  editor:
+    tabLength: 2

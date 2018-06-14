@@ -1,0 +1,62 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118115-76726-15hirpz.qthyhw7b9/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118115-76726-15hirpz.qthyhw7b9/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118115-76726-15hirpz.qthyhw7b9/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118115-76726-8iati6.q13k6mkj4i"
+    ]
+  ],
+  "_from": "../d-118115-76726-15hirpz.qthyhw7b9/package.tgz",
+  "_id": "revert-buffer@0.6.0",
+  "_inCache": true,
+  "_location": "/revert-buffer",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118115-76726-15hirpz.qthyhw7b9/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118115-76726-15hirpz.qthyhw7b9/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118115-76726-15hirpz.qthyhw7b9/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-118115-76726-15hirpz.qthyhw7b9/package.tgz",
+  "_shasum": "2bd917ef9bfcc96f541e0237cf28827185cd1bfe",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118115-76726-15hirpz.qthyhw7b9/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118115-76726-8iati6.q13k6mkj4i",
+  "bugs": {
+    "url": "https://github.com/atom/revert-buffer/issues"
+  },
+  "dependencies": {
+    "fs-plus": "^2",
+    "temp": "0.6.0"
+  },
+  "description": "Revert a buffer to its on-disk contents",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.39.0"
+  },
+  "homepage": "https://github.com/atom/revert-buffer#readme",
+  "license": "MIT",
+  "main": "./lib/revert-buffer",
+  "name": "revert-buffer",
+  "optionalDependencies": {},
+  "readme": "## Revert Buffer package [![Build Status](https://travis-ci.org/atom/revert-buffer.svg?branch=master)](https://travis-ci.org/atom/revert-buffer)\n\nRevert a buffer to its on-disk contents\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atom/revert-buffer.git"
+  },
+  "version": "0.6.0"
+}

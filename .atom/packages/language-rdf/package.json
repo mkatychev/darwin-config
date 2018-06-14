@@ -1,0 +1,59 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118325-3866-iocitk.20fioa8aor/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118325-3866-iocitk.20fioa8aor/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118325-3866-iocitk.20fioa8aor/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118325-3866-22v05l.ofmylanhfr"
+    ]
+  ],
+  "_from": "../d-118325-3866-iocitk.20fioa8aor/package.tgz",
+  "_id": "language-rdf@0.5.0",
+  "_inCache": true,
+  "_location": "/language-rdf",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118325-3866-iocitk.20fioa8aor/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118325-3866-iocitk.20fioa8aor/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118325-3866-iocitk.20fioa8aor/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-118325-3866-iocitk.20fioa8aor/package.tgz",
+  "_shasum": "bc80a89f361a8ad798776b7c1e2f9a06fc4897be",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118325-3866-iocitk.20fioa8aor/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118325-3866-22v05l.ofmylanhfr",
+  "bugs": {
+    "url": "https://github.com/mjansing/language-rdf/issues"
+  },
+  "dependencies": {},
+  "description": "RDF language support in Atom",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0"
+  },
+  "homepage": "https://github.com/mjansing/language-rdf#readme",
+  "license": "MIT",
+  "main": "./lib/language-rdf",
+  "name": "language-rdf",
+  "optionalDependencies": {},
+  "readme": "# language-rdf package\n\nAdds syntax highlighting to RDF files in Atom. Package supports Turtle (.ttl),\nN-Triples (.nt) and TriG (.trig).\n\nInspired by [SPARQL Sublime Text 2 Package](https://github.com/patchspace/sparql-sublime).\n\nGrammar references:\n\n  * Turtle: http://www.w3.org/TR/turtle/\n  * N-Triple: https://www.w3.org/TR/n-triples/\n  * TriG: https://www.w3.org/TR/trig/\n\nContributions are greatly appreciated. Please fork this repository and open a\npull request to add snippets, make grammar tweaks, etc.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjansing/language-rdf.git"
+  },
+  "version": "0.5.0"
+}

@@ -1,0 +1,60 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+
+
+/*
+ * Examples
+ * (To see them, uncomment and save)
+ */
+
+// style the background color of the tree view
+.tree-view {
+  // background-color: whitesmoke;
+}
+
+// style the background and foreground colors on the atom-text-editor-element itself
+atom-text-editor {
+  // color: white;
+  // background-color: hsl(180, 24%, 12%);
+  font-family: Source Code Pro;
+}
+
+// style UI elements inside atom-text-editor
+atom-text-editor .cursor {
+  // border-color: red;
+}
+
+// atom-text-editor[data-grammar="source python"] .wrap-guide {
+// }
+
+// atom-workspace {
+//     font-family: Source Code Pro;
+// }
+//highlight method calls
+atom-text-editor.editor {
+  .syntax--meta.syntax--function-call.syntax--generic.syntax--python {
+    color: #61afec;
+  }
+  .syntax--keyword.syntax--operator.syntax--comparison.syntax--python {
+    color: #c678dd;
+  }
+  .syntax--keyword.syntax--operator.syntax--unpacking.syntax--python {
+    color: #c678dd;
+  }
+  .syntax--punctuation.syntax--slice.syntax--python {
+    color: #d19a66;
+  }
+ .syntax--storage.syntax--type.syntax--string.syntax--python.string.syntax--quoted.syntax--single.syntax--python.string.syntax--interpolated.syntax--python {
+   color: #ff7e08;
+ }
+
+
+}

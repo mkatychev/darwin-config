@@ -1,0 +1,73 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-117818-46763-1vjs7fs.cggsc3di"
+    ]
+  ],
+  "_from": "../d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+  "_id": "atom-monokai-syntax@0.2.0",
+  "_inCache": true,
+  "_location": "/atom-monokai-syntax",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+  "_shasum": "370fded6abf85923fa1102ea1293bf69e285e768",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-117818-46763-1vjs7fs.cggsc3di",
+  "bugs": {
+    "url": "https://github.com/netroxen/atom-monokai-syntax/issues"
+  },
+  "dependencies": {},
+  "description": "An enhanced version of Kevinsawicki's Monokai syntax theme for Atom.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/netroxen/atom-monokai-syntax#readme",
+  "keywords": [
+    "syntax",
+    "theme"
+  ],
+  "license": "MIT",
+  "name": "atom-monokai-syntax",
+  "optionalDependencies": {},
+  "readme": "# Atom Monokai Syntax\n\nAn enhanced version of Kevinsawicki's Monokai syntax theme for Atom.\n\n![A screenshot of your package](https://dl.dropboxusercontent.com/u/7741113/Atom-Monokai.jpg)\n\nThis theme works well in combination with the following packages:\n\nIcons - <https://atom.io/packages/unfancy-file-icons>\n\nCursor - <https://atom.io/packages/pulsing-cursor>\n\nPython Syntax Highlighting - <https://atom.io/packages/MagicPython>\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netroxen/atom-monokai-syntax.git"
+  },
+  "theme": "syntax",
+  "version": "0.2.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}
