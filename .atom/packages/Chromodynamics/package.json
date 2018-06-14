@@ -1,0 +1,59 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118326-99349-ub02t6.md890y66r"
+    ]
+  ],
+  "_from": "../d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+  "_id": "Chromodynamics@0.0.11",
+  "_inCache": true,
+  "_location": "/Chromodynamics",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+  "_shasum": "35521fc4a8ed4f1c3465ba205fedda6e3e504ac6",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118326-99349-ub02t6.md890y66r",
+  "bugs": {
+    "url": "https://github.com/MagicStack/Chromodynamics/issues"
+  },
+  "dependencies": {},
+  "description": "Syntax Theme",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.13.0"
+  },
+  "homepage": "https://github.com/MagicStack/Chromodynamics#readme",
+  "license": "MIT",
+  "name": "Chromodynamics",
+  "optionalDependencies": {},
+  "readme": "# Chromodynamics\n\nThis is a color theme for Sublime Text and Atom.\n\n![](https://magicstack.github.io/MagicPython/example.png)\n\nThe Python source code in the screenshot is highlighted with\n[MagicPython](https://github.com/MagicStack/MagicPython).\n\n\n\n## Installation Instructions\n\nIn **Sublime Text** install the `Chromodynamics` package with \"Package Control\".\n\nIn **Atom** find the `Chromodynamics` theme, install it, and enable via\n`Themes / Syntax Theme`.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MagicStack/Chromodynamics.git"
+  },
+  "theme": "syntax",
+  "version": "0.0.11"
+}

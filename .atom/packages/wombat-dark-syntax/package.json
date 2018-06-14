@@ -1,0 +1,73 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-3065-o7137g.trfy5pnwmi/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-3065-o7137g.trfy5pnwmi/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-3065-o7137g.trfy5pnwmi/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118326-3065-1y2xqoq.2rnyhf47vi"
+    ]
+  ],
+  "_from": "../d-118326-3065-o7137g.trfy5pnwmi/package.tgz",
+  "_id": "wombat-dark-syntax@1.2.0",
+  "_inCache": true,
+  "_location": "/wombat-dark-syntax",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-3065-o7137g.trfy5pnwmi/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-3065-o7137g.trfy5pnwmi/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-3065-o7137g.trfy5pnwmi/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-118326-3065-o7137g.trfy5pnwmi/package.tgz",
+  "_shasum": "24e9f95821590ee9dd99dfb1327925abd8808986",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-3065-o7137g.trfy5pnwmi/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118326-3065-1y2xqoq.2rnyhf47vi",
+  "bugs": {
+    "url": "https://github.com/promek/wombat-dark-syntax/issues"
+  },
+  "dependencies": {},
+  "description": "Wombat Atom Dark Syntax Theme. ( Python, GoLang, Angular, Javascript, NodeJS, Markdown, PHP, HTML, CSS )",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/promek/wombat-dark-syntax#readme",
+  "keywords": [
+    "python",
+    "golang",
+    "angular",
+    "php",
+    "javascript",
+    "nodejs",
+    "markdown",
+    "html",
+    "css",
+    "wombat",
+    "dark",
+    "syntax"
+  ],
+  "license": "MIT",
+  "name": "wombat-dark-syntax",
+  "optionalDependencies": {},
+  "readme": "# Wombat Dark Syntax Theme\n\nAn [Atom](https://atom.io/) syntax theme. ( Python, GoLang, Angular, Javascript, NodeJS, Markdown, PHP, HTML, CSS )\n\n* Atom port of the Vim [Wombat](http://www.vim.org/scripts/script.php?script_id=1778) color scheme.\n* Converted from the [One Dark Syntax](https://github.com/atom/one-dark-syntax)\n\n## Screenshot\n\n* Python\n\n![python](https://cloud.githubusercontent.com/assets/4887563/8381139/911b05a0-1c32-11e5-9ff5-cd0d5bd78c4d.png)\n\n* HTML\n\n![html](https://cloud.githubusercontent.com/assets/4887563/8381092/6b0ba662-1c32-11e5-80a4-d6642dd4ee59.png)\n\n* CSS\n\n![css](https://cloud.githubusercontent.com/assets/4887563/8381079/5ac7de56-1c32-11e5-80f0-b2dfb832f707.png)\n\n* NodeJS\n\n![nodejs](https://cloud.githubusercontent.com/assets/4887563/8381105/87987a80-1c32-11e5-92e2-bdd09fe407a5.png)\n\n\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/promek/wombat-dark-syntax.git"
+  },
+  "theme": "syntax",
+  "version": "1.2.0"
+}

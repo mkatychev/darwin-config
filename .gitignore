@@ -1,6 +1,7 @@
 *
 !.gitignore
 !.atom
+!.atom/**
 !.tmux*
 !.zshrc
 !tmuxsimple.sh
@@ -19,3 +20,4 @@ Library/**
 Library/Application\ Support/**
 !Library/Application\ Support/Spectacle/
 !Library/Application\ Support/Spectacle/*
+.DS_Store
