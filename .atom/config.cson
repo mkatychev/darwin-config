@@ -1,4 +1,7 @@
 "*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "01d5acb8-3e20-4223-9dfc-51eb888a6673"
   "autocomplete-plus":
     confirmCompletion: "tab"
   core:
@@ -6,7 +9,8 @@
       "language-python"
     ]
     telemetryConsent: "limited"
-  editor: {}
+  editor:
+    fontFamily: "Source Code Pro"
   "exception-reporting":
     userId: "1ab88caa-f070-4887-a1ee-6f755ab5a64f"
   linter:
@@ -21,6 +25,7 @@
   "linter-ui-default":
     panelHeight: 187
     showPanel: true
+  "vim-mode-plus": {}
   welcome:
     showOnStartup: false
 ".javascript.source":
