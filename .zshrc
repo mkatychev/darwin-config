@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=~/.symlinks:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/$USER/.oh-my-zsh
 export ZSH_THEME="node"
@@ -95,7 +95,11 @@ alias pipup='pip freeze --local | grep -v ^-e | cut -d = -f 2  | xargs -n1 pip i
 # filepath aliasing
 alias cdqa="~/Desktop/QA_Tools/"
 alias cdqau="~/Desktop/QA_Tools/Utilities"
+alias cdp="~/Documents/python/"
+alias cdr="~/Documents/rust/"
 [[ $TMUX != "" ]] && export TERM="screen-256color"
 
 # initialize theme
 bindkey ^v vi-cmd-mode
+export PATH="$HOME/.cargo/bin:$PATH"
+

@@ -13,6 +13,8 @@
 !.config/iterm/
 !.config/iterm/*
 !.oh-my-zsh/*
+!.ipython/
+!.ipython/*
 !com.googlecode.iterm2.plist
 !Library/
 Library/**
