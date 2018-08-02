@@ -9,6 +9,7 @@ Plug 'https://github.com/miconda/lucariox.vim.git'
 Plug 'srijs/vim-colors-rusty'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'rakr/vim-one'
 "Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
