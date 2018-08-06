@@ -104,7 +104,7 @@ def configure(repl):
 
     # Enable 24bit True color. (Not all terminals support this. -- maybe check
     # $TERM before changing.)
-    repl.true_color = False
+    repl.true_color = True
 
     # Syntax.
     repl.enable_syntax_highlighting = True
