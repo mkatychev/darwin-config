@@ -103,3 +103,4 @@ alias cdr="~/Documents/rust/"
 bindkey ^v vi-cmd-mode
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export HAXE_STD_PATH="/usr/local/lib/haxe/std"
