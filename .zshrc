@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=~/.symlinks:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=$HOME/.cargo/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/$USER/.oh-my-zsh
 export ZSH_THEME="node"
@@ -93,14 +94,11 @@ alias pipup='pip freeze --local | grep -v ^-e | cut -d = -f 2  | xargs -n1 pip i
 # export PATH="/usr/local/opt/python@2/bin:$PATH"
 # export PYTHONPATH="/usr/local/lib/python3.6/site-packages"
 # filepath aliasing
-alias cdqa="~/Desktop/QA_Tools/"
-alias cdqau="~/Desktop/QA_Tools/Utilities"
 alias cdp="~/Documents/python/"
 alias cdr="~/Documents/rust/"
+alias cdt="~/Documents/triad-ontologies"
+alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox"
 [[ $TMUX != "" ]] && export TERM="screen-256color"
 
 # initialize theme
 bindkey ^v vi-cmd-mode
-export PATH="$HOME/.cargo/bin:$PATH"
-
-export HAXE_STD_PATH="/usr/local/lib/haxe/std"

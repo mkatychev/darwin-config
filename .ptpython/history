@@ -48,3 +48,1464 @@
 
 # 2018-08-06 14:06:27.375708
 +ls
+
+# 2018-08-06 16:12:12.426595
++import winsound
+
+# 2018-08-07 11:15:47.309432
++import crawl_ingestion
+
+# 2018-08-07 11:15:48.759881
++ls
+
+# 2018-08-07 11:15:53.442025
++pwd
+
+# 2018-08-07 11:15:55.763134
++import os
+
+# 2018-08-07 11:16:04.880785
++os.lstat
+
+# 2018-08-07 11:16:06.557249
++os.lstat()
+
+# 2018-08-07 11:17:45.723819
++import crawl_ingestin
+
+# 2018-08-07 11:17:47.976873
++import crawl_ingestion
+
+# 2018-08-07 11:18:01.128290
++os.getcwd()
+
+# 2018-08-07 11:18:08.404753
++from stage_ingestion import crawl_ingestion
+
+# 2018-08-07 11:18:25.724552
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master',
++               '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 11:18:37.271056
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master','/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 11:19:10.865456
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master', '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 11:24:30.334652
++from libutil import reload
+
+# 2018-08-07 11:24:44.468851
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master', '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 11:59:51.584095
++import libutils
+
+# 2018-08-07 11:59:53.579040
++import libutil
+
+# 2018-08-07 12:00:07.962507
++from importlib import reload
+
+# 2018-08-07 12:00:14.818019
++reload(crawl_ingestion)
+
+# 2018-08-07 12:00:56.093874
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master', '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 12:10:54.608858
++reload(crawl_ingestion)
+
+# 2018-08-07 12:11:20.851435
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master', '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 12:16:01.050286
++reload(crawl_ingestion)
+
+# 2018-08-07 12:16:02.329712
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master', '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 12:33:41.842517
++reload(crawl_ingestion)
+
+# 2018-08-07 12:33:44.648008
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master', '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 12:36:22.334408
++reload(crawl_ingestion)
+
+# 2018-08-07 12:36:23.253121
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master', '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 12:37:26.675496
++reload(crawl_ingestion)
+
+# 2018-08-07 12:37:40.659311
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master', '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 12:39:59.354992
++curli
+
+# 2018-08-07 12:43:49.053363
++gen_token = '/Users/indoorgeo/Desktop/geojson_sanitation/stage_ingestion/gen_indoor_token_curl_config.sh ~/.indoor_curl_creds'
+
+# 2018-08-07 12:43:55.818454
++from subprocess import run
+
+# 2018-08-07 12:44:04.413217
++run(gen_token)
+
+# 2018-08-07 12:44:21.653264
++run(' '.join(gen_token))
+
+# 2018-08-07 12:44:33.939994
++run(gen_token)
+
+# 2018-08-07 12:45:01.603851
++gen_token = ['/Users/indoorgeo/Desktop/geojson_sanitation/stage_ingestion/gen_indoor_token_curl_config.sh', '~/.indoor_curl_creds']
+
+# 2018-08-07 12:45:02.706267
++run(gen_token)
+
+# 2018-08-07 12:45:12.330465
++run(gen_token, shell=True)
+
+# 2018-08-07 12:45:55.977716
++gen_token = ['sh', '/Users/indoorgeo/Desktop/geojson_sanitation/stage_ingestion/gen_indoor_token_curl_config.sh', '~/.indoor_curl_creds']
+
+# 2018-08-07 12:46:00.407844
++run(gen_token, shell=True)
+
+# 2018-08-07 12:46:42.846969
++gen_token = ['/Users/indoorgeo/Desktop/geojson_sanitation/stage_ingestion/gen_indoor_token_curl_config.sh', '~/.indoor_curl_creds']
+
+# 2018-08-07 12:46:44.447698
++run(gen_token, shell=True)
+
+# 2018-08-07 12:47:03.116341
++run(gen_token, shell=True) == 1
+
+# 2018-08-07 12:47:09.838318
++run(gen_token, shell=True).process_code
+
+# 2018-08-07 12:48:38.835561
++run(gen_token, shell=True)
+
+# 2018-08-07 12:49:58.438031
++gen_token
+
+# 2018-08-07 12:50:37.338809
++run(' '.join(gen_token), shell=True)
+
+# 2018-08-07 12:50:50.095676
++run(' '.join(gen_token), shell=True).returncode
+
+# 2018-08-07 12:51:09.586053
++g = run(' '.join(gen_token), shell=True).returncode
+
+# 2018-08-07 12:51:12.665396
++g.from_bytes
+
+# 2018-08-07 12:51:44.133256
++' '.join(gen_token)
+
+# 2018-08-07 12:52:28.616056
++g = run('ls')
+
+# 2018-08-07 12:52:33.260191
++g.returncode
+
+# 2018-08-07 12:52:38.708190
++g
+
+# 2018-08-07 12:52:53.793750
++dir(d)
+
+# 2018-08-07 12:52:56.694256
++dir(g)
+
+# 2018-08-07 12:56:08.381425
++g.check_returncode
+
+# 2018-08-07 12:56:09.798044
++g.check_returncode()
+
+# 2018-08-07 12:56:30.788895
++help(g.check_returncode())
+
+# 2018-08-07 12:57:11.727165
++help(g.check_returncode)
+
+# 2018-08-07 12:57:27.695532
++g.wait()
+
+# 2018-08-07 12:57:48.110449
++reload(crawl_ingestion)
+
+# 2018-08-07 12:58:16.240732
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master', '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 13:52:59.265901
++16-8
+
+# 2018-08-07 13:53:02.019165
++14-8
+
+# 2018-08-07 13:58:58.658661
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master', '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 16:05:13.688124
++reload(crawl_ingestion)
+
+# 2018-08-07 16:05:33.918511
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master', '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-07 16:06:05.243081
++new="""
++{
++  "session_id": "141d0490-9a74-11e8-870c-f742d7470afd",
++  "auth_type": "GEO_LDAP",
++  "auth_env": "PROD",
++  "app_id": "indoor-server",
++  "app_type": "SERVER",
++  "app_version": "1.0",
++  "environment": "cprod",
++  "user": {
++    "username": "mkatychev",
++    "user_id": "1563283041",
++    "email": "mkatychev@apple.com",
++    "first_name": "Mikhail",
++    "last_name": "Katychev",
++    "teams": [
++      "group-sourcecatalog",
++      "group-sourcecatalog-prod",
++      "group-spectrum.conflict-islands",
++      "group-spectrum.conflict-islands-prod",
++      "group-spectrum.neutron-edit",
++      "group-spectrum.neutron-edit-prod",
++      "group-spectrum.promote.conflict-islands",
++      "group-spectrum.promote.conflict-islands-prod",
++      "spectrum-users",
++      "fusion-x-editor-production",
++      "indoor-validations",
++      "quark-repo-viewers-production"
++    ],
++    "inherited_teams": [
++      "group-sourcecatalog",
++      "group-spectrum.conflict-islands",
++      "group-spectrum.neutron-edit",
++      "group-spectrum.promote.conflict-islands"
++    ],
++    "direct_teams": [
++      "group-sourcecatalog-prod",
++      "group-spectrum.conflict-islands-prod",
++      "group-spectrum.neutron-edit-prod",
++      "group-spectrum.promote.conflict-islands-prod",
++      "spectrum-users",
++      "fusion-x-editor-production",
++      "indoor-validations",
++      "quark-repo-viewers-production"
++    ],
++    "certifications": []
++  },
++  "auth_token": "eyJhbGciOiJIUzI1NiJ9.Y3Byb2QuMTQxZDA0OTAtOWE3NC0xMWU4LTg3MGMtZjc0MmQ3NDcwYWZk.ONFPQ2pgbcbd1maT8WejobH1nizFNUXZTOPsx8AuBrg",
++  "expires": 1534273197
++}"""
+
+# 2018-08-07 16:06:31.585044
++old="""
++{
++  "session_id": "141d0490-9a74-11e8-870c-f742d7470afd",
++  "auth_type": "GEO_LDAP",
++  "auth_env": "PROD",
++  "app_id": "indoor-server",
++  "app_type": "SERVER",
++  "app_version": "1.0",
++  "environment": "cprod",
++  "user": {
++    "username": "mkatychev",
++    "user_id": "1563283041",
++    "email": "mkatychev@apple.com",
++    "first_name": "Mikhail",
++    "last_name": "Katychev",
++    "attributes": {
++      "indoor": {
++        "role": {
++          "validation": true
++        }
++      }
++    },
++    "teams": [
++      "fusion-x-editor-production",
++      "spectrum-users",
++      "group-sourcecatalog-prod",
++      "group-spectrum.neutron-edit-prod",
++      "indoor-validations",
++      "quark-repo-viewers-production",
++      "group-spectrum.promote.conflict-islands-prod",
++      "group-spectrum.conflict-islands-prod",
++      "group-sourcecatalog",
++      "group-spectrum.promote.conflict-islands",
++      "group-spectrum.conflict-islands",
++      "group-spectrum.neutron-edit"
++    ],
++    "inherited_teams": [
++      "group-sourcecatalog",
++      "group-spectrum.promote.conflict-islands",
++      "group-spectrum.conflict-islands",
++      "group-spectrum.neutron-edit"
++    ],
++    "direct_teams": [
++      "fusion-x-editor-production",
++      "spectrum-users",
++      "group-sourcecatalog-prod",
++      "group-spectrum.neutron-edit-prod",
++      "indoor-validations",
++      "quark-repo-viewers-production",
++      "group-spectrum.promote.conflict-islands-prod",
++      "group-spectrum.conflict-islands-prod"
++    ],
++    "certifications": [],
++    "resources": [
++      {
++        "classpath": "indoor",
++        "realms": [
++          {
++            "realm": "dev",
++            "resource_ids": [
++              "indoor-validation"
++            ]
++          }
++        ]
++      }
++    ]
++  },
++  "auth_token": "eyJhbGciOiJIUzI1NiJ9.Y3Byb2QuMTQxZDA0OTAtOWE3NC0xMWU4LTg3MGMtZjc0MmQ3NDcwYWZk.ONFPQ2pgbcbd1maT8WejobH1nizFNUXZTOPsx8AuBrg",
++  "expires": 1534273197
++}"""
+
+# 2018-08-07 16:06:33.491127
++diff
+
+# 2018-08-07 16:07:15.998024
++import difflib
+
+# 2018-08-07 16:07:25.460189
++difflib.unified_diff
+
+# 2018-08-07 16:07:29.920770
++difflib.unified_diff(new, old)
+
+# 2018-08-07 16:07:32.218876
++difflib.unified_diff(new, old)()
+
+# 2018-08-07 16:07:47.590716
++''.join(difflib.unified_diff(new, old))
+
+# 2018-08-07 16:08:01.139575
++difflib.unified_diff(new, old)
+
+# 2018-08-07 16:08:17.076552
++str(difflib.unified_diff(new, old))
+
+# 2018-08-07 16:10:21.167975
++crawl_ingestion.ingest_subdirs('/Users/indoorgeo/Documents/Master', '/Users/indoorgeo/Documents/Master2')
+
+# 2018-08-08 09:37:28.103474
++import pycurl
+
+# 2018-08-08 09:37:35.425573
++pip
+
+# 2018-08-08 09:37:37.292227
++import pip
+
+# 2018-08-08 09:37:45.807284
++dir(pip)
+
+# 2018-08-08 09:38:01.332260
++from pip import _internal
+
+# 2018-08-08 09:38:10.378604
++dir(_interna)
+
+# 2018-08-08 09:38:14.554399
++dir(_internal)
+
+# 2018-08-08 09:41:31.034100
++g = input('type in something')
+
+# 2018-08-08 09:41:35.267815
++print(g)
+
+# 2018-08-08 10:48:36.064033
++help(input)
+
+# 2018-08-08 10:48:38.838829
++import getpass
+
+# 2018-08-08 10:48:48.624819
++d = getpass.getuser("helo")
+
+# 2018-08-08 10:48:52.933017
++d = getpass.getuser()
+
+# 2018-08-08 10:48:54.026980
++d
+
+# 2018-08-08 10:49:07.130704
++getpass.getpass("helo")
+
+# 2018-08-08 10:51:26.509757
++str({12:'dd'})
+
+# 2018-08-08 10:52:17.461627
++fg
+
+# 2018-08-08 10:52:30.308640
++data
+
+# 2018-08-08 10:52:36.016662
++str(data)
+
+# 2018-08-08 10:52:57.290738
++import json
+
+# 2018-08-08 10:53:03.980317
++json.dump(data)
+
+# 2018-08-08 10:53:10.350260
++json.dumps(data)
+
+# 2018-08-08 10:55:10.627679
++response
+
+# 2018-08-08 10:55:17.267630
++response.data
+
+# 2018-08-08 10:55:24.420743
++response.content
+
+# 2018-08-08 10:56:46.321952
++import requests
+
+# 2018-08-08 10:56:48.005698
++import sjon
+
+# 2018-08-08 10:56:50.466878
++import json
+
+# 2018-08-08 10:56:52.096725
++import requests
++
++headers = {
++    'Content-Type': 'application/json',
++}
++
++data = '{\n  "username": "mkatchev",\n  "password": "L33tninj4@",\n  "app_token": "indoor-server.9744e1cc-1193-4f39-94be-9e94b9d8ca9b",\n  "app_version": "1.0"\n}'
++
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=data)
+
+# 2018-08-08 10:56:54.678171
++response
+
+# 2018-08-08 10:56:57.483976
++response.json()
+
+# 2018-08-08 10:58:03.540473
++data = {
++          'username': username,
++          'password': password,
++          'app_token': 'indoor-server.9744e1cc-1193-4f39-94be-9e94b9d8ca9b',
++          'app_vesion': '1.0'
++          }
++
+
+# 2018-08-08 10:58:16.570766
++username = 'mkatychev'
+
+# 2018-08-08 10:58:24.059306
++password = 'L33tninj4@'
+
+# 2018-08-08 10:58:26.767606
++data = {
++          'username': username,
++          'password': password,
++          'app_token': 'indoor-server.9744e1cc-1193-4f39-94be-9e94b9d8ca9b',
++          'app_vesion': '1.0'
++          }
+
+# 2018-08-08 10:58:34.339690
++json.dumps(data)
+
+# 2018-08-08 10:59:24.519325
++headers = {'Content-type': 'application/json'}
+
+# 2018-08-08 10:59:30.838703
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=json.dumps(data))
+
+# 2018-08-08 10:59:32.973185
++response
+
+# 2018-08-08 10:59:37.044576
++response.json()
+
+# 2018-08-08 11:00:09.790938
++json.dumps(data, indent=4)
+
+# 2018-08-08 11:00:17.565110
++json.dumps(data, indent=2)
+
+# 2018-08-08 11:00:31.801047
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=json.dumps(data, indent=2))
+
+# 2018-08-08 11:00:34.259626
++response
+
+# 2018-08-08 11:00:56.083168
++headers = {'Content-type': 'application/json',}
+
+# 2018-08-08 11:00:59.301746
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=json.dumps(data, indent=2))
+
+# 2018-08-08 11:01:00.643093
++response
+
+# 2018-08-08 11:01:15.342701
++data2 = data = '{\n  "username": "mkatchev",\n  "password": "L33tninj4@",\n  "app_token": "indoor-server.9744e1cc-1193-4f39-94be-9e94b9d8ca9b",\n  "app_version": "1.0"\n}'
+
+# 2018-08-08 11:01:17.230292
++data
+
+# 2018-08-08 11:01:24.336743
++data2 = data = '{\n  "username": "mkatchev",\n  "password": "L33tninj4@",\n  "app_token": "indoor-server.9744e1cc-1193-4f39-94be-9e94b9d8ca9b",\n  "app_version": "1.0"\n}'
+
+# 2018-08-08 11:01:43.280919
++data2 = '{\n  "username": "mkatchev",\n  "password": "L33tninj4@",\n  "app_token": "indoor-server.9744e1cc-1193-4f39-94be-9e94b9d8ca9b",\n  "app_version": "1.0"\n}'
+
+# 2018-08-08 11:01:47.289358
++data2 == data
+
+# 2018-08-08 11:01:55.817914
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=json.dumps(data, indent=2))
+
+# 2018-08-08 11:01:56.993304
++response
+
+# 2018-08-08 11:02:02.785559
++response.json()
+
+# 2018-08-08 11:02:22.437735
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=json.dumps(data2))
+
+# 2018-08-08 11:02:24.996794
++response
+
+# 2018-08-08 11:02:36.989237
++import requests
++
++headers = {
++    'Content-Type': 'application/json',
++}
++
++data = '{\n  "username": "mkatchev",\n  "password": "L33tninj4@",\n  "app_token": "indoor-server.9744e1cc-1193-4f39-94be-9e94b9d8ca9b",\n  "app_version": "1.0"\n}'
++
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=data)
+
+# 2018-08-08 11:02:41.651087
++response
+
+# 2018-08-08 11:02:45.530664
++resonse.json()
+
+# 2018-08-08 11:02:49.896588
++resonse
+
+# 2018-08-08 11:02:56.977863
++response.json(
++)
+
+# 2018-08-08 11:04:01.089122
++import requests
++
++headers = {
++    'Content-Type': 'application/json',
++}
++
++data = '{\n  "username": "mkatychev",\n  "password": "L33tninj4@",\n  "app_token": "indoor-server.9744e1cc-1193-4f39-94be-9e94b9d8ca9b",\n  "app_version": "1.0"\n}'
++
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=data)
+
+# 2018-08-08 11:04:04.142921
++response
+
+# 2018-08-08 11:04:09.215794
++response.json()
+
+# 2018-08-08 11:05:02.396389
++data2 = {
++         'username': username,
++         'password': password,
++         'app_token': 'indoor-server.9744e1cc-1193-4f39-94be-9e94b9d8ca9b',
++         'app_vesion': '1.0'
++         }
++
+
+# 2018-08-08 11:05:07.087103
++data2
+
+# 2018-08-08 11:05:18.537935
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=json.dumps(data2))
+
+# 2018-08-08 11:05:21.109030
++response
+
+# 2018-08-08 11:05:27.387207
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=json.dumps(data))
+
+# 2018-08-08 11:05:30.381930
++response
+
+# 2018-08-08 11:05:32.966067
++data
+
+# 2018-08-08 11:07:19.969801
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=data)
+
+# 2018-08-08 11:07:21.500679
++response
+
+# 2018-08-08 11:07:25.721285
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=data2)
+
+# 2018-08-08 11:07:27.885259
++response
+
+# 2018-08-08 11:07:30.191606
++data2
+
+# 2018-08-08 11:07:47.135476
++response = requests.post('https://plasma-connect.geo.apple.com/api/1/users/authenticate', headers=headers, data=json.dumps(data2))
+
+# 2018-08-08 11:07:49.888621
++response
+
+# 2018-08-08 11:08:03.392716
++data == json.dumps(data2)
+
+# 2018-08-08 11:08:11.105801
++data == json.dumps(data2, indent=2)
+
+# 2018-08-08 11:08:21.202045
++json.dumps(data2, indent=2)
+
+# 2018-08-08 11:08:50.627375
++json.loads(data)
+
+# 2018-08-08 11:08:56.631426
++json.loads(data) == data2
+
+# 2018-08-08 11:09:01.182330
++data
+
+# 2018-08-08 11:09:14.429282
++data2
+
+# 2018-08-08 11:09:58.114928
++json.loads(data)['username'] == data2['username']
+
+# 2018-08-08 11:10:32.037468
++json.loads(data)['password'] == data2['password']
+
+# 2018-08-08 11:10:54.466515
++json.loads(data)['app_token'] == data2['app_token']
+
+# 2018-08-08 11:11:17.662237
++json.loads(data)['app_version'] == data2['app_version']
+
+# 2018-08-08 11:11:28.594066
++data2
+
+# 2018-08-08 11:11:40.214141
++json.loads(data)
+
+# 2018-08-09 10:13:55.593426
++not True
+
+# 2018-08-09 10:14:05.939921
++True and False
+
+# 2018-08-09 10:19:23.109396
++lex, pat*3, sara*2, jeff, eli, me
+
+# 2018-08-09 16:07:58.155997
++j = '^@^@`^A^@^@^@^@^@^@'
+
+# 2018-08-09 16:08:02.618881
++j[0]
+
+# 2018-08-09 16:08:07.162979
++j[0] == '^'
+
+# 2018-08-09 16:08:09.555087
++j[0] == '@'
+
+# 2018-08-09 16:08:13.389584
++j[1] == '@'
+
+# 2018-08-10 10:32:54.966871
++type(None)
+
+# 2018-08-10 10:38:52.788482
++def print_comp(x):print(x)
+
+# 2018-08-10 10:38:59.657691
++print_comp(2 == 3)
+
+# 2018-08-10 11:41:52.301973
++d = {'d': 'iii'}
+
+# 2018-08-10 11:41:59.046860
++d['oo']
+
+# 2018-08-10 13:52:08.899212
++dump_string = False
+
+# 2018-08-10 13:52:14.621512
++lambda x: x
+
+# 2018-08-10 13:52:18.275375
++lambda x: x(2)
+
+# 2018-08-10 13:52:23.088505
++print(lambda x: x(2))
+
+# 2018-08-10 13:52:33.729629
++(lambda x: x)(2)
+
+# 2018-08-10 13:54:08.913914
++dumps = print if dump_string else lambda x: x
+
+# 2018-08-10 13:54:32.204039
++dumps = dict if dump_string else lambda x: x
+
+# 2018-08-10 13:54:36.385213
++dumps(2)
+
+# 2018-08-10 13:56:27.078019
++print('ehhl')*2
+
+# 2018-08-10 13:56:30.993265
++print('ehhl'*2)
+
+# 2018-08-10 13:57:49.608506
++import json
+
+# 2018-08-10 13:57:58.630024
++json.dumps({d:2})
+
+# 2018-08-10 13:58:10.696664
++json.dumps("{d:2}")
+
+# 2018-08-10 13:58:14.036323
++json.dumps({d:2})
+
+# 2018-08-10 13:59:16.616553
++json.dumps([2])
+
+# 2018-08-10 14:18:50.313345
++open('asdfasdf', 'r')
+
+# 2018-08-10 14:19:10.608268
++pwd
+
+# 2018-08-10 14:19:14.273519
++import os
+
+# 2018-08-10 14:19:18.615424
++os.cwd()
+
+# 2018-08-10 14:19:21.809810
++os.getcwd()
+
+# 2018-08-10 14:57:20.246308
++shape =   {
++            "feature_type": "fixture",
++            "geometry": {
++                "coordinates": [
++                    [
++                        [
++                            -87.7403206,
++                            41.7886407
++                        ],
++                        [
++                            -87.7403227,
++                            41.7886342
++                        ],
++                        [
++                            -87.7403276,
++                            41.7886287
++                        ],
++                        [
++                            -87.7403348,
++                            41.7886247
++                        ],
++                        [
++                            -87.7403434,
++                            41.7886229
++                        ],
++                        [
++                            -87.7404906,
++                            41.7886202
++                        ],
++                        [
++                            -87.7404993,
++                            41.7886218
++                        ],
++                        [
++                            -87.7405067,
++                            41.7886255
++                        ],
++                        [
++                            -87.740512,
++                            41.7886308
++                        ],
++                        [
++                            -87.7405145,
++                            41.7886372
++                        ],
++                        [
++                            -87.740516,
++                            41.7886826
++                        ],
++                        [
++                            -87.7405147,
++                            41.7886891
++                        ],
++                        [
++                            -87.7405104,
++                            41.7886949
++                        ],
++                        [
++                            -87.7405038,
++                            41.7886993
++                        ],
++                        [
++                            -87.7404955,
++                            41.7887018
++                        ],
++                        [
++                            -87.740346,
++                            41.7887046
++                        ],
++                        [
++                            -87.7403373,
++                            41.7887031
++                        ],
++                        [
++                            -87.7403299,
++                            41.7886994
++                        ],
++                        [
++                            -87.7403246,
++                            41.788694
++                        ],
++                        [
++                            -87.7403221,
++                            41.7886877
++                        ],
++                        [
++                            -87.7403206,
++                            41.7886407
++                        ]
++                    ]
++                ],
++                "type": "Polygon"
++            },
++            "id": "a68c99fb-16e4-4c5b-b6af-8585a4f3179e",
++            "properties": {
++                "alt_name": null,
++                "anchor_id": null,
++                "category": "baggagecarousel",
++                "display_point": {
++                    "coordinates": [
++                        -87.74041829604903,
++                        41.78866239633489
++                    ],
++                    "type": "Point"
++                },
++                "level_id": "1068ad25-5270-445d-963b-a173bfda5b83",
++                "name": null
++            },
++            "type": "Feature"
++            }
++
+
+# 2018-08-10 14:57:52.185002
++import json
++shape =   json.loads('''{
++            "feature_type": "fixture",
++            "geometry": {
++                "coordinates": [
++                    [
++                        [
++                            -87.7403206,
++                            41.7886407
++                        ],
++                        [
++                            -87.7403227,
++                            41.7886342
++                        ],
++                        [
++                            -87.7403276,
++                            41.7886287
++                        ],
++                        [
++                            -87.7403348,
++                            41.7886247
++                        ],
++                        [
++                            -87.7403434,
++                            41.7886229
++                        ],
++                        [
++                            -87.7404906,
++                            41.7886202
++                        ],
++                        [
++                            -87.7404993,
++                            41.7886218
++                        ],
++                        [
++                            -87.7405067,
++                            41.7886255
++                        ],
++                        [
++                            -87.740512,
++                            41.7886308
++                        ],
++                        [
++                            -87.7405145,
++                            41.7886372
++                        ],
++                        [
++                            -87.740516,
++                            41.7886826
++                        ],
++                        [
++                            -87.7405147,
++                            41.7886891
++                        ],
++                        [
++                            -87.7405104,
++                            41.7886949
++                        ],
++                        [
++                            -87.7405038,
++                            41.7886993
++                        ],
++                        [
++                            -87.7404955,
++                            41.7887018
++                        ],
++                        [
++                            -87.740346,
++                            41.7887046
++                        ],
++                        [
++                            -87.7403373,
++                            41.7887031
++                        ],
++                        [
++                            -87.7403299,
++                            41.7886994
++                        ],
++                        [
++                            -87.7403246,
++                            41.788694
++                        ],
++                        [
++                            -87.7403221,
++                            41.7886877
++                        ],
++                        [
++                            -87.7403206,
++                            41.7886407
++                        ]
++                    ]
++                ],
++                "type": "Polygon"
++            },
++            "id": "a68c99fb-16e4-4c5b-b6af-8585a4f3179e",
++            "properties": {
++                "alt_name": null,
++                "anchor_id": null,
++                "category": "baggagecarousel",
++                "display_point": {
++                    "coordinates": [
++                        -87.74041829604903,
++                        41.78866239633489
++                    ],
++                    "type": "Point"
++                },
++                "level_id": "1068ad25-5270-445d-963b-a173bfda5b83",
++                "name": null
++            },
++            "type": "Feature"
++            }
++''')
+
+# 2018-08-10 14:58:08.480089
++shape
+
+# 2018-08-10 14:58:48.459240
++from shapely import geometry as sg
+
+# 2018-08-10 14:59:06.980434
++sg.shape(shape['geometry'])
+
+# 2018-08-10 15:01:05.877241
++sg.shape(shape['geometry']['coordinates'])
+
+# 2018-08-10 15:03:48.827733
++sg.Point
+
+# 2018-08-10 15:04:01.363471
++help(sg.Point)
+
+# 2018-08-10 15:04:23.039197
++sg.Point(shape['properties']['display_point'])
+
+# 2018-08-10 15:04:31.220929
++sg.point(shape['properties']['display_point'])
+
+# 2018-08-10 15:04:35.461903
++sg.Point(shape['properties']['display_point'])
+
+# 2018-08-10 15:04:40.338432
++shape['properties']['display_point']
+
+# 2018-08-10 15:04:51.393069
++sg.Point(shape['properties']['display_point']['coordinates'])
+
+# 2018-08-10 15:05:05.639132
++sg.shhape(shape['properties']['display_point'])
+
+# 2018-08-10 15:05:08.125168
++sg.shape(shape['properties']['display_point'])
+
+# 2018-08-10 15:05:35.544060
++sg.shape(shape['properties']['display_point']) == sh.Point(shape['properties']['display_point']['coordinates'])
+
+# 2018-08-10 15:05:58.320848
++sg.shape(shape['properties']['display_point']) == sg.Point(shape['properties']['display_point']['coordinates'])
+
+# 2018-08-10 15:10:09.764274
++point = sg.Point(shape['properties']['display_point']['coordinates'])
+
+# 2018-08-10 15:10:18.099766
++point.is_emptys
+
+# 2018-08-10 15:10:19.381008
++point.is_empty
+
+# 2018-08-10 15:11:19.347046
++{"feature_type": "fixture", "geometry": {"coordinates": [[[-87.7403206, 41.7886407], [-87.7403227, 41.7886342], [-87.7403276, 41.7886287], [-87.7403348, 41.7886247], [-87.7403434, 41.7886229], [-87.7404906, 41.7886202], [-87.7404993, 41.7886218], [-87.7405067, 41.7886255], [-87.740512, 41.7886308], [-87.7405145, 41.7886372], [-87.740516, 41.7886826], [-87.7405147, 41.7886891], [-87.7405104, 41.7886949], [-87.7405038, 41.7886993], [-87.7404955, 41.7887018], [-87.740346, 41.7887046], [-87.7403373, 41.7887031], [-87.7403299, 41.7886994], [-87.7403246, 41.788694], [-87.7403221, 41.7886877], [-87.7403206, 41.7886407]]], "type": "Polygon"}, "id": "a68c99fb-16e4-4c5b-b6af-8585a4f3179e", "properties": {"alt_name": null, "anchor_id": null, "category": "baggagecarousel", "display_point": {"coordinates": [-87.74041829604903, 41.78866239633489], "type": "Point"}, "level_id": "1068ad25-5270-445d-963b-a173bfda5b83", "name": null}, "type": "Feature"} == shape
+
+# 2018-08-10 15:11:46.807531
++json.loads('''{"feature_type": "fixture", "geometry": {"coordinates": [[[-87.7403206, 41.7886407], [-87.7403227, 41.7886342], [-87.7403276, 41.7886287], [-87.7403348, 41.7886247], [-87.7403434, 41.7886229], [-87.7404906, 41.7886202], [-87.7404993, 41.7886218], [-87.7405067, 41.7886255], [-87.740512, 41.7886308], [-87.7405145, 41.7886372], [-87.740516, 41.7886826], [-87.7405147, 41.7886891], [-87.7405104, 41.7886949], [-87.7405038, 41.7886993], [-87.7404955, 41.7887018], [-87.740346, 41.7887046], [-87.7403373, 41.7887031], [-87.7403299, 41.7886994], [-87.7403246, 41.788694], [-87.7403221, 41.7886877], [-87.7403206, 41.7886407]]], "type": "Polygon"}, "id": "a68c99fb-16e4-4c5b-b6af-8585a4f3179e", "properties": {"alt_name": null, "anchor_id": null, "category": "baggagecarousel", "display_point": {"coordinates": [-87.74041829604903, 41.78866239633489], "type": "Point"}, "level_id": "1068ad25-5270-445d-963b-a173bfda5b83", "name": null}, "type": "Feature"}''') == shape
+
+# 2018-08-10 15:12:34.162679
++sg.shape(shape)
+
+# 2018-08-10 15:12:38.374043
++shape
+
+# 2018-08-10 15:12:50.930335
++sg.shape(shape['geometry'])
+
+# 2018-08-10 15:13:10.562823
++sg.shape(shape['geometry']).is_empy
+
+# 2018-08-10 15:13:12.098221
++sg.shape(shape['geometry']).is_empty
+
+# 2018-08-10 15:23:15.888992
++sg.shape({'coordinates': [[[-87.7403206, 41.7886407], [-87.7403227, 41.7886342], [-87.7403276, 41.7886287], [-87.7403348, 41.7886247], [-87.7403434, 41.7886229], [-87.7404906, 41.7886202], [-87.7404993, 41.7886218], [-87.7405067, 41.7886255], [-87.740512, 41.7886308], [-87.7405145, 41.7886372], [-87.740516, 41.7886826], [-87.7405147, 41.7886891], [-87.7405104, 41.7886949], [-87.7405038, 41.7886993], [-87.7404955, 41.7887018], [-87.740346, 41.7887046], [-87.7403373, 41.7887031], [-87.7403299, 41.7886994], [-87.7403246, 41.788694], [-87.7403221, 41.7886877], [-87.7403206, 41.7886407]]], 'type': 'Polygon'}
++)
+
+# 2018-08-10 15:23:24.756996
++sg.shape({'coordinates': [[[-87.7403206, 41.7886407], [-87.7403227, 41.7886342], [-87.7403276, 41.7886287], [-87.7403348, 41.7886247], [-87.7403434, 41.7886229], [-87.7404906, 41.7886202], [-87.7404993, 41.7886218], [-87.7405067, 41.7886255], [-87.740512, 41.7886308], [-87.7405145, 41.7886372], [-87.740516, 41.7886826], [-87.7405147, 41.7886891], [-87.7405104, 41.7886949], [-87.7405038, 41.7886993], [-87.7404955, 41.7887018], [-87.740346, 41.7887046], [-87.7403373, 41.7887031], [-87.7403299, 41.7886994], [-87.7403246, 41.788694], [-87.7403221, 41.7886877], [-87.7403206, 41.7886407]]], 'type': 'Polygon'}
++).is_empty
+
+# 2018-08-10 15:30:36.884542
++null_shp = json.load(open('/Users/indoorgeo/Documents/cmia/fixture.geojson', 'r'))
+
+# 2018-08-10 15:30:41.709646
++null_shp
+
+# 2018-08-10 15:30:51.774380
++null_shp['features']
+
+# 2018-08-10 15:30:55.297748
++null_shp['features'][0]
+
+# 2018-08-10 15:31:52.007298
++sg.shape(null_shp['features'][0]['geometry']).is_empty
+
+# 2018-08-10 15:46:14.522584
++null_shp['features']
+
+# 2018-08-10 15:46:16.477469
++null_shp['features'][0]
+
+# 2018-08-10 15:46:20.756580
++null_shp['features'][0]['geometry']
+
+# 2018-08-10 15:53:19.062429
++None.get('dfsdf')
+
+# 2018-08-10 15:56:11.476054
++if None: print('ok')
+
+# 2018-08-13 09:13:41.008038
++264/2
+
+# 2018-08-13 10:02:48.376093
++import pprint
+
+# 2018-08-13 10:03:00.663808
++pprint.pprint(null_shp)
+
+# 2018-08-13 10:08:20.833901
++poly = {'coordinates': [[[-87.7403206, 41.7886407],
++                  [-87.7403227, 41.7886342],
++                  [-87.7403276, 41.7886287],
++                  [-87.7403348, 41.7886247],
++                  [-87.7403434, 41.7886229],
++                  [-87.7404906, 41.7886202],
++                  [-87.7404993, 41.7886218],
++                  [-87.7405067, 41.7886255],
++                  [-87.740512, 41.7886308],
++                  [-87.7405145, 41.7886372],
++                  [-87.740516, 41.7886826],
++                  [-87.7405147, 41.7886891],
++                  [-87.7405104, 41.7886949],
++                  [-87.7405038, 41.7886993],
++                  [-87.7404955, 41.7887018],
++                  [-87.740346, 41.7887046],
++                  [-87.7403373, 41.7887031],
++                  [-87.7403299, 41.7886994],
++                  [-87.7403246, 41.788694],
++                  [-87.7403221, 41.7886877],
++                  [-87.7403206, 41.7886407]]],
++ 'type': 'Polygon'}
+
+# 2018-08-13 10:08:23.961160
++poly
+
+# 2018-08-13 10:08:38.946254
++display_coords ={'coordinates': [[[-87.7403206, 41.7886407],
++                  [-87.7403227, 41.7886342],
++                  [-87.7403276, 41.7886287],
++                  [-87.7403348, 41.7886247],
++                  [-87.7403434, 41.7886229],
++                  [-87.7404906, 41.7886202],
++                  [-87.7404993, 41.7886218],
++                  [-87.7405067, 41.7886255],
++                  [-87.740512, 41.7886308],
++                  [-87.7405145, 41.7886372],
++                  [-87.740516, 41.7886826],
++                  [-87.7405147, 41.7886891],
++                  [-87.7405104, 41.7886949],
++                  [-87.7405038, 41.7886993],
++                  [-87.7404955, 41.7887018],
++                  [-87.740346, 41.7887046],
++                  [-87.7403373, 41.7887031],
++                  [-87.7403299, 41.7886994],
++                  [-87.7403246, 41.788694],
++                  [-87.7403221, 41.7886877],
++                  [-87.7403206, 41.7886407]]],
++ 'type': 'Polygon'}
+
+# 2018-08-13 10:08:49.476200
++display_coords = [-87.74041829604903, 41.78866239633489]
+
+# 2018-08-13 10:09:06.003566
++display_sg = sg.Point(display_coords)
+
+# 2018-08-13 10:09:30.803482
++poly_sg = poly
+
+# 2018-08-13 10:10:00.865904
++poly_sg = sg.shape(poly['geometry']
++)
++poly_sg.contains(display_sg)
+
+# 2018-08-13 10:10:11.574838
++poly_sg = sg.shape(poly['geometry'])
+
+# 2018-08-13 10:10:23.421776
++poly
+
+# 2018-08-13 10:11:38.055141
++poly = {'feature_type': 'fixture',
++ 'geometry': {'coordinates': [[[-87.7403206, 41.7886407],
++                               [-87.7403227, 41.7886342],
++                               [-87.7403276, 41.7886287],
++                               [-87.7403348, 41.7886247],
++                               [-87.7403434, 41.7886229],
++                               [-87.7404906, 41.7886202],
++                               [-87.7404993, 41.7886218],
++                               [-87.7405067, 41.7886255],
++                               [-87.740512, 41.7886308],
++                               [-87.7405145, 41.7886372],
++                               [-87.740516, 41.7886826],
++                               [-87.7405147, 41.7886891],
++                               [-87.7405104, 41.7886949],
++                               [-87.7405038, 41.7886993],
++                               [-87.7404955, 41.7887018],
++                               [-87.740346, 41.7887046],
++                               [-87.7403373, 41.7887031],
++                               [-87.7403299, 41.7886994],
++                               [-87.7403246, 41.788694],
++                               [-87.7403221, 41.7886877],
++                               [-87.7403206, 41.7886407]]],
++              'type': 'Polygon'},
++ 'id': 'a68c99fb-16e4-4c5b-b6af-8585a4f3179e',
++ 'properties': {'alt_name': None,
++                'anchor_id': None,
++                'category': 'baggagecarousel',
++                'display_point': {'coordinates': [-87.74041829604903,
++                                                  41.78866239633489],
++                                  'type': 'Point'},
++                'level_id': '1068ad25-5270-445d-963b-a173bfda5b83',
++                'name': None},
++ 'type': 'Feature'}
+
+# 2018-08-13 10:11:46.547405
++poly['geometry']
+
+# 2018-08-13 10:11:49.921563
++poly_sg = sg.shape(poly['geometry'])
+
+# 2018-08-13 10:12:08.946846
++poly_sg.contains(display_sg)
+
+# 2018-08-13 10:25:36.432428
++import sys
+
+# 2018-08-13 10:25:39.443920
++sys.version
+
+# 2018-08-13 10:25:49.177741
++import shapely
+
+# 2018-08-13 10:25:53.173961
++import gdal
+
+# 2018-08-13 11:34:12.374556
++'ello'
+
+# 2018-08-13 11:34:22.218393
++gen_token_path = 'asdfasdf'
+
+# 2018-08-13 11:34:29.356976
++f'{gen_token_path} ~/.indoor_curl_creds'
+
+# 2018-08-13 11:40:31.203342
++import wurlitzer
+
+# 2018-08-13 11:44:55.271437
++help(wurlitzer)
+
+# 2018-08-13 11:54:17.323721
++help
+
+# 2018-08-13 12:00:29.315569
++help(wurlitzer)
+
+# 2018-08-13 12:10:24.114468
++g = ('input')
+
+# 2018-08-13 12:10:35.866402
++g = input('input')
+
+# 2018-08-13 12:14:20.375692
++sys
+
+# 2018-08-13 12:14:25.409344
++sys.int_info
+
+# 2018-08-13 12:14:29.456831
++sys.version
+
+# 2018-08-13 12:14:33.285543
++sys.version_info
+
+# 2018-08-13 12:15:27.019349
++os.environ
+
+# 2018-08-13 12:15:37.508191
++os.environ.keys()
+
+# 2018-08-13 12:47:23.827494
++g = open('~/.indoor_curl_creds')
+
+# 2018-08-13 12:47:51.036203
++import getuser
+
+# 2018-08-13 12:48:06.583362
++import gettext
+
+# 2018-08-13 12:48:09.040622
++gettext
+
+# 2018-08-13 12:48:14.272322
++gettext.gettext()
+
+# 2018-08-13 12:48:30.431004
++getpass
+
+# 2018-08-13 12:48:34.206485
++import getpass
+
+# 2018-08-13 12:48:36.831906
++getpass.getuser()
+
+# 2018-08-13 12:48:46.603724
++import os
+
+# 2018-08-13 12:49:11.151563
++from os.path import expanduser
+
+# 2018-08-13 12:49:19.187539
++expanduser('~')
+
+# 2018-08-13 12:49:28.497839
++from pathlib import Path
+
+# 2018-08-13 12:49:34.903757
++Path.home()
+
+# 2018-08-13 12:49:45.148040
++os.path.join(Path.home(), 'hello')
+
+# 2018-08-13 12:51:07.880807
++g = open(os.path.join(Path.home(), '.indoor_curl_creds'), 'r')
+
+# 2018-08-13 12:51:10.978190
++g.read()
+
+# 2018-08-13 12:51:22.929804
++g = open(os.path.join(Path.home(), '.isndoor_curl_creds'), 'r')
+
+# 2018-08-13 12:53:33.703551
++g.read()
+
+# 2018-08-13 12:53:49.256812
++with open(os.path.join(Path.home(), '.isndoor_curl_creds'), 'r') as file:
++    word=file
+
+# 2018-08-13 12:54:01.385332
++with open(os.path.join(Path.home(), '.indoor_curl_creds'), 'r') as file:
++    word=file
+
+# 2018-08-13 12:54:03.058797
++word
+
+# 2018-08-13 12:54:15.851389
++word.buffer(0)
+
+# 2018-08-13 12:54:39.955712
++word.readline()
+
+# 2018-08-13 12:54:48.702228
++with open(os.path.join(Path.home(), '.indoor_curl_creds'), 'r') as file:
++    word=file.readline()
+
+# 2018-08-13 12:54:49.744579
++word
+
+# 2018-08-13 12:55:10.998011
++word[:-11]
+
+# 2018-08-13 12:55:13.914691
++word[:11]
+
+# 2018-08-13 12:55:19.358268
++word[::11]
+
+# 2018-08-13 12:55:22.856104
++word[:11]
+
+# 2018-08-13 12:55:25.649655
++word[-1:11]
+
+# 2018-08-13 12:56:28.603300
++word[7]
+
+# 2018-08-13 12:56:35.816435
++word[7:-2]
+
+# 2018-08-13 12:56:38.072668
++word[7:-1]
+
+# 2018-08-13 12:56:43.377643
++word[-11:-1]
+
+# 2018-08-13 13:00:51.868407
++from datetime import datetime
+
+# 2018-08-13 13:00:54.707273
++datetime.now()
+
+# 2018-08-13 13:01:03.170153
++help(datetime.now)
+
+# 2018-08-13 13:01:20.002741
++import time
+
+# 2018-08-13 13:01:24.763020
++time.time()
+
+# 2018-08-13 13:01:28.468835
++int(time.time())
+
+# 2018-08-13 13:02:02.661745
++exit(1, "NO WORK")
+
+# 2018-08-14 15:36:12.692415
++from pytube import Youtube
+
+# 2018-08-14 15:36:17.393966
++from pytube import YouTube
+
+# 2018-08-14 15:36:42.089354
++Youtube('https://www.youtube.com/watch?v=8osRaFTtgHo&feature=youtu.be').streams.first().download()
+
+# 2018-08-14 15:36:53.658839
++YouTube('https://www.youtube.com/watch?v=8osRaFTtgHo&feature=youtu.be').streams.first().download()
+
+# 2018-08-15 13:40:24.064669
++' This'
+
+# 2018-08-15 13:41:09.210036
++' This '
+
+# 2018-08-15 13:41:16.107768
++d =' This '
+
+# 2018-08-15 13:41:19.212077
++d[0]
+
+# 2018-08-15 13:41:25.486898
++d[0] == d[-1]
+
+# 2018-08-20 12:14:39.378600
++flist = ['Address.txt', 'Anchors.geojson', 'BuildingMesh.geojson', 'Buildings.geojson', 'Details.geojson', 'Fixtures.geojson', 'Levels.geojson', 'Manifest.json', 'Occupants.geojson', 'Openings.geojson', 'Points.geojson', 'Sections.geojson', 'Units.geojson', 'Venue.geojson']
++
++any(['Manifest.json']) in flist
+
+# 2018-08-20 12:15:03.356798
++any(['Manifest.json' in flist])
