@@ -58,3 +58,20 @@ atom-text-editor.editor {
 
 
 }
+
+
+.tree-view {
+  font-size:85%;
+}
+
+.list-group li:not(.list-nested-item), .list-tree li:not(.list-nested-item), .list-group li.list-nested-item > .list-item, .list-tree li.list-nested-item > .list-item {
+  line-height:18px;
+}
+
+.list-group .selected:before, .list-tree .selected:before {
+  height:18px;
+}
+
+.list-tree.has-collapsable-children .list-nested-item > .list-tree > li, .list-tree.has-collapsable-children .list-nested-item > .list-group > li {
+  padding-left:8px;
+}

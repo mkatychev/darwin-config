@@ -1,36 +1,39 @@
 "set clipboard+=unnamedplus
+"set termguicolors
 set mouse=n
 set relativenumber number
 set timeoutlen=1000
 set ttimeoutlen=0
+set tabstop=4
+set shiftwidth=4
+set expandtab
+au BufRead,BufNewFile *.rs set filetype=json
 call plug#begin('~/.vim/plugged')
-Plug 'FredKSchott/CoVim'
-Plug 'https://github.com/miconda/lucariox.vim.git'
+Plug 'miconda/lucariox.vim'
 Plug 'srijs/vim-colors-rusty'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'rakr/vim-one'
-"Credit joshdick
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
+Plug 'cespare/vim-toml'
+Plug 'niklasl/vim-rdf'
+Plug 'elzr/vim-json'
+Plug 'rvesse/vim-sparql'
 call plug#end()
 colorscheme one
 set background=dark
+call one#highlight('LineNr', '616162', 'white', '')
 "highlight LineNr ctermfg=white ctermbg=green
 "highlight Normal ctermbg=black
-call one#highlight('LineNr', '616162', 'white', '')
 let g:solarized_termcolors=16
+set viewoptions-=options
+"augroup vimrc
+"    autocmd BufWritePost *.*
+"    \   if expand('%') != '' && &buftype !~ 'nofile'
+"    \|      mkview
+"    \|  endif
+"    autocmd BufRead *.*
+"    \   if expand('%') != '' && &buftype !~ 'nofile'
+"    \|      silent loadview
+"    \|  endif
+"augroup END
