@@ -1,5 +1,5 @@
 "set clipboard+=unnamedplus
-"set termguicolors
+set termguicolors
 set mouse=n
 set relativenumber number
 set timeoutlen=1000
@@ -19,13 +19,17 @@ Plug 'niklasl/vim-rdf'
 Plug 'elzr/vim-json'
 Plug 'rvesse/vim-sparql'
 Plug 'machakann/vim-highlightedyank'
+Plug 'luochen1990/rainbow'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 colorscheme one
 set background=dark
 call one#highlight('LineNr', '616162', 'white', '')
+call one#highlight('Normal', '', '1d2025', 'none')
 "highlight LineNr ctermfg=white ctermbg=green
 "highlight Normal ctermbg=black
-let g:solarized_termcolors=16
+let g:rainbow_active = 1
+let g:solarized_termcolors=256
 let g:highlightedyank_highlight_duration = 200
 set viewoptions-=options
 "augroup vimrc
@@ -43,3 +47,4 @@ set viewoptions-=options
 "                       times, which is not so useful.
 nnoremap <leader>O O<ESC>O
 nnoremap <leader>o o<cr>
+map <C-\> :NERDTreeToggle<CR>
