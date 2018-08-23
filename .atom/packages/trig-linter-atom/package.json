@@ -1,0 +1,88 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118722-60493-j9isjv.naf3xwp14i/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118722-60493-j9isjv.naf3xwp14i/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118722-60493-j9isjv.naf3xwp14i/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118722-60493-1dx6lyn.llt0529"
+    ]
+  ],
+  "_from": "../d-118722-60493-j9isjv.naf3xwp14i/package.tgz",
+  "_id": "trig-linter-atom@0.5.1",
+  "_inCache": true,
+  "_location": "/trig-linter-atom",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118722-60493-j9isjv.naf3xwp14i/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118722-60493-j9isjv.naf3xwp14i/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118722-60493-j9isjv.naf3xwp14i/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-118722-60493-j9isjv.naf3xwp14i/package.tgz",
+  "_shasum": "6e8fcc2d1b6eedd3daf5dcff82313522075fc49e",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118722-60493-j9isjv.naf3xwp14i/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118722-60493-1dx6lyn.llt0529",
+  "atom-package-dependencies": "latest",
+  "bugs": {
+    "url": "https://github.com/clb294/trig-linter-atom/issues"
+  },
+  "dependencies": {
+    "atom-linter": "^8.0.0",
+    "atom-package-deps": "",
+    "js-trig-parser": "git+https://github.com/cambridgesemantics/js-trig-parser.git#validation-fixes"
+  },
+  "description": "Trig linter for atom",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/clb294/trig-linter-atom#readme",
+  "keywords": [
+    "atom",
+    "trig",
+    "rdf",
+    "turtl",
+    "linter",
+    "lint",
+    "syntax"
+  ],
+  "license": "MIT",
+  "main": "./lib/trig-linter",
+  "name": "trig-linter-atom",
+  "optionalDependencies": {},
+  "package-deps": [
+    "language-rdf#mjansing/language-rdf.git",
+    "linter"
+  ],
+  "plugins": [
+    "babel"
+  ],
+  "private": true,
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "readme": "# trig-linter package\n\nA short description of your package.\n\n![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clb294/trig-linter-atom.git"
+  },
+  "version": "0.5.1"
+}

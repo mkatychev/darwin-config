@@ -7,7 +7,6 @@ set ttimeoutlen=0
 set tabstop=4
 set shiftwidth=4
 set expandtab
-au BufRead,BufNewFile *.rs set filetype=json
 call plug#begin('~/.vim/plugged')
 Plug 'miconda/lucariox.vim'
 Plug 'srijs/vim-colors-rusty'
@@ -19,6 +18,7 @@ Plug 'cespare/vim-toml'
 Plug 'niklasl/vim-rdf'
 Plug 'elzr/vim-json'
 Plug 'rvesse/vim-sparql'
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 colorscheme one
 set background=dark
@@ -26,6 +26,7 @@ call one#highlight('LineNr', '616162', 'white', '')
 "highlight LineNr ctermfg=white ctermbg=green
 "highlight Normal ctermbg=black
 let g:solarized_termcolors=16
+let g:highlightedyank_highlight_duration = 200
 set viewoptions-=options
 "augroup vimrc
 "    autocmd BufWritePost *.*
@@ -37,3 +38,8 @@ set viewoptions-=options
 "    \|      silent loadview
 "    \|  endif
 "augroup END
+"" o/O                   Start insert mode with [count] blank lines.
+"                       The default behavior repeats the insertion [count]
+"                       times, which is not so useful.
+nnoremap <leader>O O<ESC>O
+nnoremap <leader>o o<cr>
