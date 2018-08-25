@@ -26,11 +26,21 @@ colorscheme one
 set background=dark
 call one#highlight('LineNr', '616162', 'white', '')
 call one#highlight('Normal', '', '1d2025', 'none')
+call one#highlight('rustModPathSep', '', '1d2025', 'none')
+"call one#highlight('rustDeriveTrait', '616162', '', '')
 "highlight LineNr ctermfg=white ctermbg=green
 "highlight Normal ctermbg=black
 let g:rainbow_active = 0
 let g:solarized_termcolors=256
 let g:highlightedyank_highlight_duration = 200
+let g:rust_conceal_mod_path = 1
+let g:rainbow_conf = {
+\   'separately': {
+\       'rust': {
+\           'parentheses': ['start=/(/ end=/)/', 'start=/</ end=/>/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold'],
+\       }
+\   }
+\}
 set viewoptions-=options
 "augroup vimrc
 "    autocmd BufWritePost *.*
@@ -49,3 +59,6 @@ nnoremap <leader>O O<ESC>O
 nnoremap <leader>o o<cr>
 nnoremap <C-\> :NERDTreeToggle<CR>
 nnoremap <silent><F2> :RainbowToggle<CR>
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
