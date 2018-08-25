@@ -98,6 +98,7 @@ alias cdp="~/Documents/python/"
 alias cdr="~/Documents/rust/"
 alias cdt="~/Documents/triad-ontologies"
 alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox"
+alias gitconf="(mv .git .got || mv .got .git) 2> /dev/null"
 [[ $TMUX != "" ]] && export TERM="screen-256color"
 
 # initialize theme
