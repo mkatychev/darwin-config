@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118713-51012-lw7thc.j95ytit3xr/package.tgz",
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41071-71l5h.wmu0hk6gvi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118713-51012-lw7thc.j95ytit3xr/package.tgz",
-        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118713-51012-lw7thc.j95ytit3xr/package.tgz",
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41071-71l5h.wmu0hk6gvi/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41071-71l5h.wmu0hk6gvi/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118713-51012-1c8dsbr.hedfl59udi"
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118724-41071-bqdx5o.ax29r1wcdi"
     ]
   ],
-  "_from": "../d-118713-51012-lw7thc.j95ytit3xr/package.tgz",
-  "_id": "file-icons@2.1.23",
+  "_from": "../d-118724-41071-71l5h.wmu0hk6gvi/package.tgz",
+  "_id": "file-icons@2.1.24",
   "_inCache": true,
   "_location": "/file-icons",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118713-51012-lw7thc.j95ytit3xr/package.tgz",
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41071-71l5h.wmu0hk6gvi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118713-51012-lw7thc.j95ytit3xr/package.tgz",
-    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118713-51012-lw7thc.j95ytit3xr/package.tgz",
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41071-71l5h.wmu0hk6gvi/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41071-71l5h.wmu0hk6gvi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118713-51012-lw7thc.j95ytit3xr/package.tgz",
-  "_shasum": "6c1dede6c0a8f079e032b05ce86e468e75943e53",
+  "_resolved": "file:../d-118724-41071-71l5h.wmu0hk6gvi/package.tgz",
+  "_shasum": "42ca413223da9652c9590a7ae0c492c7f2cb7114",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118713-51012-lw7thc.j95ytit3xr/package.tgz",
-  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118713-51012-1c8dsbr.hedfl59udi",
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41071-71l5h.wmu0hk6gvi/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118724-41071-bqdx5o.ax29r1wcdi",
   "atomTestRunner": "atom-mocha",
   "bugs": {
     "url": "https://github.com/file-icons/atom/issues"
@@ -151,5 +151,5 @@
     "type": "git",
     "url": "git+https://github.com/file-icons/atom.git"
   },
-  "version": "2.1.23"
+  "version": "2.1.24"
 }
