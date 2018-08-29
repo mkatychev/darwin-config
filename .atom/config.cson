@@ -16,7 +16,6 @@
   linter:
     disabledProviders: [
       "Flake8"
-      "TrigLinter"
     ]
   "linter-flake8":
     ignoreErrorCodes: [
