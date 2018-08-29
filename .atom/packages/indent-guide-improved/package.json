@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11785-4157-10grf3z.z2wp88semi/package.tgz",
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-gs9lj2.lleurkvs4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11785-4157-10grf3z.z2wp88semi/package.tgz",
-        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11785-4157-10grf3z.z2wp88semi/package.tgz",
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-gs9lj2.lleurkvs4i/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-gs9lj2.lleurkvs4i/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-11785-4157-8vygb2.t5ht9y66r"
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-1yy5mms.sfw8nnrk9"
     ]
   ],
-  "_from": "../d-11785-4157-10grf3z.z2wp88semi/package.tgz",
+  "_from": "../d-118729-10684-gs9lj2.lleurkvs4i/package.tgz",
   "_id": "indent-guide-improved@1.4.13",
   "_inCache": true,
   "_location": "/indent-guide-improved",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11785-4157-10grf3z.z2wp88semi/package.tgz",
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-gs9lj2.lleurkvs4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11785-4157-10grf3z.z2wp88semi/package.tgz",
-    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11785-4157-10grf3z.z2wp88semi/package.tgz",
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-gs9lj2.lleurkvs4i/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-gs9lj2.lleurkvs4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11785-4157-10grf3z.z2wp88semi/package.tgz",
+  "_resolved": "file:../d-118729-10684-gs9lj2.lleurkvs4i/package.tgz",
   "_shasum": "8092d0f8906013e2c92bb71e759cbc0d7aaced6f",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11785-4157-10grf3z.z2wp88semi/package.tgz",
-  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-11785-4157-8vygb2.t5ht9y66r",
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-gs9lj2.lleurkvs4i/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-1yy5mms.sfw8nnrk9",
   "author": {
     "name": "Akihiro HARAI"
   },
@@ -63,20 +63,5 @@
     "type": "git",
     "url": "git+https://github.com/harai/indent-guide-improved.git"
   },
-  "version": "1.4.13",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".coffee": [
-        "lib/guides.coffee",
-        "lib/indent-guide-improved-element.coffee",
-        "lib/indent-guide-improved.coffee"
-      ],
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "1.4.13"
 }

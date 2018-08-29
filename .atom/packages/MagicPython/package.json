@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/44/0655dhmx3k1__czf647w0_hm0000gn/T/d-118514-2777-s1cdya.6hb2mrhpvi/package.tgz",
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tg54m4.nv0u23xr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/44/0655dhmx3k1__czf647w0_hm0000gn/T/d-118514-2777-s1cdya.6hb2mrhpvi/package.tgz",
-        "spec": "/private/var/folders/44/0655dhmx3k1__czf647w0_hm0000gn/T/d-118514-2777-s1cdya.6hb2mrhpvi/package.tgz",
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tg54m4.nv0u23xr/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tg54m4.nv0u23xr/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/44/0655dhmx3k1__czf647w0_hm0000gn/T/apm-install-dir-118514-2777-18ntc2m.w9d5lmobt9"
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-1kucl65.c91n3766r"
     ]
   ],
-  "_from": "../d-118514-2777-s1cdya.6hb2mrhpvi/package.tgz",
+  "_from": "../d-118729-10684-1tg54m4.nv0u23xr/package.tgz",
   "_id": "MagicPython@1.0.12",
   "_inCache": true,
   "_location": "/MagicPython",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/44/0655dhmx3k1__czf647w0_hm0000gn/T/d-118514-2777-s1cdya.6hb2mrhpvi/package.tgz",
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tg54m4.nv0u23xr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/44/0655dhmx3k1__czf647w0_hm0000gn/T/d-118514-2777-s1cdya.6hb2mrhpvi/package.tgz",
-    "spec": "/private/var/folders/44/0655dhmx3k1__czf647w0_hm0000gn/T/d-118514-2777-s1cdya.6hb2mrhpvi/package.tgz",
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tg54m4.nv0u23xr/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tg54m4.nv0u23xr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118514-2777-s1cdya.6hb2mrhpvi/package.tgz",
+  "_resolved": "file:../d-118729-10684-1tg54m4.nv0u23xr/package.tgz",
   "_shasum": "e7f66dfd9c4b23bb484c4890fb1cae1d5eff45d0",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/44/0655dhmx3k1__czf647w0_hm0000gn/T/d-118514-2777-s1cdya.6hb2mrhpvi/package.tgz",
-  "_where": "/private/var/folders/44/0655dhmx3k1__czf647w0_hm0000gn/T/apm-install-dir-118514-2777-18ntc2m.w9d5lmobt9",
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tg54m4.nv0u23xr/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-1kucl65.c91n3766r",
   "bugs": {
     "url": "https://github.com/MagicStack/MagicPython/issues"
   },
@@ -118,16 +118,5 @@
     "type": "git",
     "url": "git+https://github.com/MagicStack/MagicPython.git"
   },
-  "version": "1.0.12",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "messages.json",
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "1.0.12"
 }

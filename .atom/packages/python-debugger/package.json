@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-1171027-18805-1by0un.p0drbb7qfr/package.tgz",
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tmnpaq.j93dwy7gb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-1171027-18805-1by0un.p0drbb7qfr/package.tgz",
-        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-1171027-18805-1by0un.p0drbb7qfr/package.tgz",
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tmnpaq.j93dwy7gb9/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tmnpaq.j93dwy7gb9/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-1171027-18805-l3mj0e.bw8us1yvi"
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-l9pcsv.en5ukgldi"
     ]
   ],
-  "_from": "../d-1171027-18805-1by0un.p0drbb7qfr/package.tgz",
+  "_from": "../d-118729-10684-1tmnpaq.j93dwy7gb9/package.tgz",
   "_id": "python-debugger@0.2.0",
   "_inCache": true,
   "_location": "/python-debugger",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-1171027-18805-1by0un.p0drbb7qfr/package.tgz",
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tmnpaq.j93dwy7gb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-1171027-18805-1by0un.p0drbb7qfr/package.tgz",
-    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-1171027-18805-1by0un.p0drbb7qfr/package.tgz",
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tmnpaq.j93dwy7gb9/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tmnpaq.j93dwy7gb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-1171027-18805-1by0un.p0drbb7qfr/package.tgz",
+  "_resolved": "file:../d-118729-10684-1tmnpaq.j93dwy7gb9/package.tgz",
   "_shasum": "bdc8134319c380761a3224a955ef1f69a86b2518",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-1171027-18805-1by0un.p0drbb7qfr/package.tgz",
-  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-1171027-18805-l3mj0e.bw8us1yvi",
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1tmnpaq.j93dwy7gb9/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-l9pcsv.en5ukgldi",
   "activationCommands": {
     "atom-workspace": [
       "python-debugger:toggle",

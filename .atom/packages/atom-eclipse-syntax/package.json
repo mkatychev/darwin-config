@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11857-73795-1aw85l7.7guakmx6r/package.tgz",
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1uerd5y.abj9hehfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11857-73795-1aw85l7.7guakmx6r/package.tgz",
-        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11857-73795-1aw85l7.7guakmx6r/package.tgz",
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1uerd5y.abj9hehfr/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1uerd5y.abj9hehfr/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-11857-73795-iwfdm9.6d7b162yb9"
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-ujxjo4.hv3o1g7gb9"
     ]
   ],
-  "_from": "../d-11857-73795-1aw85l7.7guakmx6r/package.tgz",
+  "_from": "../d-118729-10684-1uerd5y.abj9hehfr/package.tgz",
   "_id": "atom-eclipse-syntax@0.0.6",
   "_inCache": true,
   "_location": "/atom-eclipse-syntax",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11857-73795-1aw85l7.7guakmx6r/package.tgz",
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1uerd5y.abj9hehfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11857-73795-1aw85l7.7guakmx6r/package.tgz",
-    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11857-73795-1aw85l7.7guakmx6r/package.tgz",
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1uerd5y.abj9hehfr/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1uerd5y.abj9hehfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11857-73795-1aw85l7.7guakmx6r/package.tgz",
+  "_resolved": "file:../d-118729-10684-1uerd5y.abj9hehfr/package.tgz",
   "_shasum": "b91b97f3a6c7b2e285785c2d856b3e141fde90cf",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11857-73795-1aw85l7.7guakmx6r/package.tgz",
-  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-11857-73795-iwfdm9.6d7b162yb9",
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-1uerd5y.abj9hehfr/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-ujxjo4.hv3o1g7gb9",
   "bugs": {
     "url": "https://github.com/Niishi/atom-eclipse-syntax/issues"
   },

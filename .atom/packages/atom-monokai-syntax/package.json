@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-g72wzp.tinbpam7vi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
-        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-g72wzp.tinbpam7vi/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-g72wzp.tinbpam7vi/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-117818-46763-1vjs7fs.cggsc3di"
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-1q0tre7.jmiabmaemi"
     ]
   ],
-  "_from": "../d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+  "_from": "../d-118729-10684-g72wzp.tinbpam7vi/package.tgz",
   "_id": "atom-monokai-syntax@0.2.0",
   "_inCache": true,
   "_location": "/atom-monokai-syntax",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-g72wzp.tinbpam7vi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
-    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-g72wzp.tinbpam7vi/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-g72wzp.tinbpam7vi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117818-46763-140g0mm.v05mptx1or/package.tgz",
+  "_resolved": "file:../d-118729-10684-g72wzp.tinbpam7vi/package.tgz",
   "_shasum": "370fded6abf85923fa1102ea1293bf69e285e768",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117818-46763-140g0mm.v05mptx1or/package.tgz",
-  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-117818-46763-1vjs7fs.cggsc3di",
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-g72wzp.tinbpam7vi/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-1q0tre7.jmiabmaemi",
   "bugs": {
     "url": "https://github.com/netroxen/atom-monokai-syntax/issues"
   },
@@ -59,15 +59,5 @@
     "url": "git+https://github.com/netroxen/atom-monokai-syntax.git"
   },
   "theme": "syntax",
-  "version": "0.2.0",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "0.2.0"
 }

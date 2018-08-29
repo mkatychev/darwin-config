@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41115-1kdr1ny.wnqht1emi/package.tgz",
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12ju6uh.r7s4z33di/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41115-1kdr1ny.wnqht1emi/package.tgz",
-        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41115-1kdr1ny.wnqht1emi/package.tgz",
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12ju6uh.r7s4z33di/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12ju6uh.r7s4z33di/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118724-41115-sh2rt.lbmd9529"
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-14nipie.tkc8kqehfr"
     ]
   ],
-  "_from": "../d-118724-41115-1kdr1ny.wnqht1emi/package.tgz",
+  "_from": "../d-118729-10684-12ju6uh.r7s4z33di/package.tgz",
   "_id": "pretty-json@2.0.3",
   "_inCache": true,
   "_location": "/pretty-json",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41115-1kdr1ny.wnqht1emi/package.tgz",
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12ju6uh.r7s4z33di/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41115-1kdr1ny.wnqht1emi/package.tgz",
-    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41115-1kdr1ny.wnqht1emi/package.tgz",
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12ju6uh.r7s4z33di/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12ju6uh.r7s4z33di/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118724-41115-1kdr1ny.wnqht1emi/package.tgz",
+  "_resolved": "file:../d-118729-10684-12ju6uh.r7s4z33di/package.tgz",
   "_shasum": "e5ba831f362e2dce2b387995d8b9dd21d4eef139",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118724-41115-1kdr1ny.wnqht1emi/package.tgz",
-  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118724-41115-sh2rt.lbmd9529",
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12ju6uh.r7s4z33di/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-14nipie.tkc8kqehfr",
   "bugs": {
     "url": "https://github.com/federomero/pretty-json/issues"
   },

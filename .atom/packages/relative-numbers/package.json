@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11829-23555-1y84qmk.qftbakyb9/package.tgz",
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-15q7z31.jszslqsemi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11829-23555-1y84qmk.qftbakyb9/package.tgz",
-        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11829-23555-1y84qmk.qftbakyb9/package.tgz",
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-15q7z31.jszslqsemi/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-15q7z31.jszslqsemi/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-11829-23555-1k9ofr3.hix68hncdi"
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-14fu94t.c3n5lba9k9"
     ]
   ],
-  "_from": "../d-11829-23555-1y84qmk.qftbakyb9/package.tgz",
+  "_from": "../d-118729-10684-15q7z31.jszslqsemi/package.tgz",
   "_id": "relative-numbers@0.9.0",
   "_inCache": true,
   "_location": "/relative-numbers",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11829-23555-1y84qmk.qftbakyb9/package.tgz",
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-15q7z31.jszslqsemi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11829-23555-1y84qmk.qftbakyb9/package.tgz",
-    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11829-23555-1y84qmk.qftbakyb9/package.tgz",
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-15q7z31.jszslqsemi/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-15q7z31.jszslqsemi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11829-23555-1y84qmk.qftbakyb9/package.tgz",
+  "_resolved": "file:../d-118729-10684-15q7z31.jszslqsemi/package.tgz",
   "_shasum": "b21aa1aaf87552fb5187701209650c632eecc3c1",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-11829-23555-1y84qmk.qftbakyb9/package.tgz",
-  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-11829-23555-1k9ofr3.hix68hncdi",
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-15q7z31.jszslqsemi/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-14fu94t.c3n5lba9k9",
   "activationCommands": [],
   "bugs": {
     "url": "https://github.com/justmoon/relative-numbers/issues"

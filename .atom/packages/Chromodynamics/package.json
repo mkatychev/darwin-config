@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-yn0dl5.48vwa02j4i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
-        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-yn0dl5.48vwa02j4i/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-yn0dl5.48vwa02j4i/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118326-99349-ub02t6.md890y66r"
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-eyd51q.7wu1y8pvi"
     ]
   ],
-  "_from": "../d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+  "_from": "../d-118729-10684-yn0dl5.48vwa02j4i/package.tgz",
   "_id": "Chromodynamics@0.0.11",
   "_inCache": true,
   "_location": "/Chromodynamics",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-yn0dl5.48vwa02j4i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
-    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-yn0dl5.48vwa02j4i/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-yn0dl5.48vwa02j4i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
+  "_resolved": "file:../d-118729-10684-yn0dl5.48vwa02j4i/package.tgz",
   "_shasum": "35521fc4a8ed4f1c3465ba205fedda6e3e504ac6",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118326-99349-z1xsn8.31x32l0udi/package.tgz",
-  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118326-99349-ub02t6.md890y66r",
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-yn0dl5.48vwa02j4i/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-eyd51q.7wu1y8pvi",
   "bugs": {
     "url": "https://github.com/MagicStack/Chromodynamics/issues"
   },

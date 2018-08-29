@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118721-78090-4a0nz8.la4m9rudi/package.tgz",
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-7uvcx4.jkn3lerk9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118721-78090-4a0nz8.la4m9rudi/package.tgz",
-        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118721-78090-4a0nz8.la4m9rudi/package.tgz",
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-7uvcx4.jkn3lerk9/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-7uvcx4.jkn3lerk9/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118721-78090-pnfkbr.g3gv0wwmi"
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-1ms67ey.p649ara4i"
     ]
   ],
-  "_from": "../d-118721-78090-4a0nz8.la4m9rudi/package.tgz",
+  "_from": "../d-118729-10684-7uvcx4.jkn3lerk9/package.tgz",
   "_id": "vim-mode-plus-keymaps-for-surround@0.2.1",
   "_inCache": true,
   "_location": "/vim-mode-plus-keymaps-for-surround",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118721-78090-4a0nz8.la4m9rudi/package.tgz",
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-7uvcx4.jkn3lerk9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118721-78090-4a0nz8.la4m9rudi/package.tgz",
-    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118721-78090-4a0nz8.la4m9rudi/package.tgz",
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-7uvcx4.jkn3lerk9/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-7uvcx4.jkn3lerk9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-118721-78090-4a0nz8.la4m9rudi/package.tgz",
+  "_resolved": "file:../d-118729-10684-7uvcx4.jkn3lerk9/package.tgz",
   "_shasum": "2ba69fd1c180c505b61e57b71d6473fda4acca3b",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118721-78090-4a0nz8.la4m9rudi/package.tgz",
-  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118721-78090-pnfkbr.g3gv0wwmi",
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-7uvcx4.jkn3lerk9/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-1ms67ey.p649ara4i",
   "bugs": {
     "url": "https://github.com/t9md/atom-vim-mode-plus-keymaps-for-surround/issues"
   },

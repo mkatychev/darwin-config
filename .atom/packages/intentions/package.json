@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117812-2178-ih8fdn.6sga4f5hfr/package.tgz",
+        "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12zry40.rolj5lv7vi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117812-2178-ih8fdn.6sga4f5hfr/package.tgz",
-        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117812-2178-ih8fdn.6sga4f5hfr/package.tgz",
+        "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12zry40.rolj5lv7vi/package.tgz",
+        "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12zry40.rolj5lv7vi/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-117812-2178-jg1dfn.pm71ll3di"
+      "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-fqbm7p.ro2r6yldi"
     ]
   ],
-  "_from": "../d-117812-2178-ih8fdn.6sga4f5hfr/package.tgz",
+  "_from": "../d-118729-10684-12zry40.rolj5lv7vi/package.tgz",
   "_id": "intentions@1.1.5",
   "_inCache": true,
   "_location": "/intentions",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117812-2178-ih8fdn.6sga4f5hfr/package.tgz",
+    "raw": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12zry40.rolj5lv7vi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117812-2178-ih8fdn.6sga4f5hfr/package.tgz",
-    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117812-2178-ih8fdn.6sga4f5hfr/package.tgz",
+    "rawSpec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12zry40.rolj5lv7vi/package.tgz",
+    "spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12zry40.rolj5lv7vi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117812-2178-ih8fdn.6sga4f5hfr/package.tgz",
+  "_resolved": "file:../d-118729-10684-12zry40.rolj5lv7vi/package.tgz",
   "_shasum": "c8414cacc55c400cc2172716ec3178ccea02abb4",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-117812-2178-ih8fdn.6sga4f5hfr/package.tgz",
-  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-117812-2178-jg1dfn.pm71ll3di",
+  "_spec": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/d-118729-10684-12zry40.rolj5lv7vi/package.tgz",
+  "_where": "/private/var/folders/62/bjb2t_m14771wz6rnmw3h9kh0000gn/T/apm-install-dir-118729-10684-fqbm7p.ro2r6yldi",
   "bugs": {
     "url": "https://github.com/steelbrain/intentions/issues"
   },
@@ -79,115 +79,5 @@
   "scripts": {
     "test": "(apm test) && (flow check) && (eslint . )"
   },
-  "version": "1.1.5",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [
-      {
-        "name": "disposable-event",
-        "version": "1.0.3",
-        "path": "node_modules/disposable-event/lib/index.js"
-      },
-      {
-        "name": "sb-event-kit",
-        "version": "2.0.0",
-        "path": "node_modules/disposable-event/node_modules/sb-event-kit/lib/main.js"
-      },
-      {
-        "name": "escape-html",
-        "version": "1.0.3",
-        "path": "node_modules/escape-html/index.js"
-      },
-      {
-        "name": "sb-event-kit",
-        "version": "3.0.0",
-        "path": "node_modules/sb-event-kit/lib/main.js"
-      },
-      {
-        "name": "vanilla-jsx",
-        "version": "3.0.2",
-        "path": "node_modules/vanilla-jsx/lib/main.js"
-      }
-    ],
-    "extensions": {
-      ".json": [
-        ".eslintrc.json",
-        "node_modules/disposable-event/.eslintrc.json",
-        "node_modules/disposable-event/node_modules/sb-event-kit/package.json",
-        "node_modules/disposable-event/package.json",
-        "node_modules/escape-html/package.json",
-        "node_modules/sb-event-kit/.eslintrc.json",
-        "node_modules/sb-event-kit/package.json",
-        "node_modules/vanilla-jsx/package.json",
-        "package-lock.json",
-        "package.json"
-      ],
-      ".js": [
-        "lib/commands.js",
-        "lib/elements/highlight.js",
-        "lib/elements/list.js",
-        "lib/helpers.js",
-        "lib/index.js",
-        "lib/main.js",
-        "lib/providers-highlight.js",
-        "lib/providers-list.js",
-        "lib/types.js",
-        "lib/validate.js",
-        "lib/view-list.js",
-        "node_modules/disposable-event/decls/jasmine.js",
-        "node_modules/disposable-event/lib/index.js",
-        "node_modules/disposable-event/node_modules/sb-event-kit/lib/composite-disposable.js",
-        "node_modules/disposable-event/node_modules/sb-event-kit/lib/disposable.js",
-        "node_modules/disposable-event/node_modules/sb-event-kit/lib/emitter.js",
-        "node_modules/disposable-event/node_modules/sb-event-kit/lib/main.js",
-        "node_modules/escape-html/index.js",
-        "node_modules/sb-event-kit/decls/jasmine.js",
-        "node_modules/sb-event-kit/lib/composite-disposable.js",
-        "node_modules/sb-event-kit/lib/disposable.js",
-        "node_modules/sb-event-kit/lib/emitter.js",
-        "node_modules/sb-event-kit/lib/helpers.js",
-        "node_modules/sb-event-kit/lib/main.js",
-        "node_modules/vanilla-jsx/lib/main.js",
-        "node_modules/vanilla-jsx/src/main.js"
-      ]
-    },
-    "folders": [
-      {
-        "paths": [
-          "",
-          "decls",
-          "keymaps",
-          "lib",
-          "lib/elements",
-          "spec"
-        ],
-        "dependencies": {
-          "disposable-event": "^1.0.1",
-          "sb-event-kit": "^3.0.0",
-          "vanilla-jsx": "^3.0.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/disposable-event",
-          "node_modules/disposable-event/decls",
-          "node_modules/disposable-event/lib"
-        ],
-        "dependencies": {
-          "sb-event-kit": "^2.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/vanilla-jsx/lib",
-          "node_modules/vanilla-jsx",
-          "node_modules/vanilla-jsx/spec",
-          "node_modules/vanilla-jsx/src"
-        ],
-        "dependencies": {
-          "escape-html": "^1.0.3"
-        }
-      }
-    ]
-  }
+  "version": "1.1.5"
 }
