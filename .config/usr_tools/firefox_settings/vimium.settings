@@ -1,0 +1,14 @@
+unmapAll
+
+map k scrollUp
+map j scrollDown
+map u scrollPageUp
+map d scrollPageDown
+map gg scrollToTop
+map G scrollToBottom
+
+map / enterFindMode
+map n performFind
+map N performBackwardsFind
+
+map gi focusInput

@@ -1,0 +1,4 @@
+#personal-bookmarks .bookmark-item .toolbarbutton-icon {display:none!important;}
+#personal-bookmarks toolbarbutton.bookmark-item {margin:2px!important;}
+#urlbar-container {max-width:75vw!important;}
+#search-container {max-width:200px!important;}

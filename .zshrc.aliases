@@ -1,0 +1,46 @@
+export GPG_TTY=$(tty)
+export cfg=$HOME/.config
+export dl=$HOME/Downloads
+export doc=$HOME/Documents
+export ff=/Applications/Firefox.app/Contents/MacOS/firefox
+export nv=$cfg/nvim
+export py=$HOME/Documents/python/
+export rs=$HOME/Documents/rust/
+export go=$HOME/Documents/go/
+export tool=$cfg/usr_tools
+export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
+alias pipup="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+alias cdp="$HOME/Documents/python/"
+alias cdn="$HOME/Documents/notes/"
+alias gitconf="(mv $HOME/.git $HOME/.got || mv $HOME/.got $HOME/.git) 2> /dev/null"
+alias batt="BAT_PAGER=$HOME/.config/usr_tools/bat_pager.sh bat"
+alias ls=exa
+alias python3=/usr/local/bin/python3
+alias pip=/usr/local/bin/pip3
+alias pyatom="source ~/.config/atomenv/bin/activate"
+alias firefox="open -a Firefox"
+alias ls.='exa -T --all -I=".git"'
+alias lst='exa -T -I=".git"'
+alias cdg='cd $(git rev-parse --show-toplevel)'
+alias gv='git mv'
+
+alias fres="trans fr:es"
+alias fren="trans fr:en"
+alias esfr="trans es:fr"
+alias enes="trans en:es"
+alias enfr="trans en:fr"
+alias esen="trans es:en"
+alias duostrip='pbpaste | sd "[ \n\t]+" " " | pbcopy'
+
+
+alias hist="history 1 -1"
+alias tjobs="for i in `tmux list-panes -a -F "#{pane_pid} #I" | rg -e "(.+) $(tmux display-message -p '#I')" -r '$1'`; do pgrep -P $i; done | xargs ps -p"
+
+
+alias mpva="mpv --no-video --term-osd-bar $@"
+
+gshow() {
+    base=$(basename -- "$1")
+    end="${base##*.}"
+    git show "$1" | bat --language=$end
+}

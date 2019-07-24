@@ -1,0 +1,2 @@
+www.youtube.com##:xpath(//span[contains(text(),"Recommended")]/ancestor::ytd-compact-video-renderer)
+www.youtube.com##.ytp-scroll-min.ytp-pause-overlay

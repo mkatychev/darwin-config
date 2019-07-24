@@ -1,0 +1,1 @@
+/Users/mkatychev/.go/src/github.com/stamblerre/gocode/nvim/autoload/gocomplete.vim
