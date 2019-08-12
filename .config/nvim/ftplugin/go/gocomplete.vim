@@ -1,1 +1,0 @@
-/Users/mkatychev/.go/src/github.com/stamblerre/gocode/nvim/ftplugin/go/gocomplete.vim

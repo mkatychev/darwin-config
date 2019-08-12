@@ -1,3 +1,6 @@
+module_path+=( "/Users/mkatychev/.zplugin/bin/zmodules/Src" )
+zmodload zdharma/zplugin
+
 export HISTFILE=~/.zsh_history # Where it gets saved
 export HISTSIZE=10000
 export SAVEHIST=10000
@@ -66,5 +69,12 @@ zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zplugin ice wait"0" atinit"zpcompinit" lucid
 zplugin light 'zdharma/fast-syntax-highlighting'
 zplugin load 'djui/alias-tips'
+
+zplugin ice wait"0" lucid
+zplugin load 'softmoth/zsh-vim-mode'
+
+MODE_CURSOR_VICMD="green block"
+MODE_CURSOR_VIINS="#20d08a bar"
+MODE_CURSOR_SEARCH="#ff00ff steady underline"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
