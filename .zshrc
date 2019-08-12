@@ -1,4 +1,4 @@
-module_path+=( "/Users/mkatychev/.zplugin/bin/zmodules/Src" )
+module_path+=( "~/.zplugin/bin/zmodules/Src" )
 zmodload zdharma/zplugin
 
 export HISTFILE=~/.zsh_history # Where it gets saved
