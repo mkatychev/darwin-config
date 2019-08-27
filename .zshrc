@@ -1,20 +1,25 @@
-module_path+=( "~/.zplugin/bin/zmodules/Src" )
+module_path+=( "$HOME/.zplugin/bin/zmodules/Src" )
 zmodload zdharma/zplugin
 
-export HISTFILE=~/.zsh_history # Where it gets saved
+export HISTFILE="$HOME/.zsh_history"   # Where it gets saved
 export HISTSIZE=10000
 export SAVEHIST=10000
 setopt AUTO_CD
-setopt append_history # Don't overwrite, append!
-setopt INC_APPEND_HISTORY # Write after each command
-setopt hist_expire_dups_first # Expire duplicate entries first when trimming history.
-setopt hist_fcntl_lock # use OS file locking
-setopt hist_ignore_all_dups # Delete old recorded entry if new entry is a duplicate.
-#setopt hist_lex_words # better word splitting, but more CPU heavy
-setopt hist_reduce_blanks # Remove superfluous blanks before recording entry.
-setopt hist_save_no_dups # Don't write duplicate entries in the history file.
-setopt share_history # share history between multiple shells
-setopt HIST_IGNORE_SPACE # Don't record an entry starting with a space.
+setopt APPEND_HISTORY            # Don't overwrite, append!
+setopt INC_APPEND_HISTORY        # Write after each command
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_FCNTL_LOCK           # use OS file locking
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
+setopt SHARE_HISTORY             # share history between multiple shells
+setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
+setopt AUTO_PUSHD                # pushes the old directory onto the stack
+setopt PUSHD_MINUS               # exchange the meanings of '+' and '-'
+setopt CDABLE_VARS               # expand the expression (allows 'cd -2/tmp')
+autoload -U compinit && compinit # load + start completion
+zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
+setopt hist_lex_words # better word splitting, but more CPU heavy
 export CASE_SENSITIVE="true"
 
 # tab completion highlight
@@ -30,6 +35,7 @@ bindkey ^v vi-cmd-mode
 bindkey "^[[3~" delete-char
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
+bindkey '∏' fzf-completion
 
 ### Added by Zplugin's installer
 source "$HOME/.zplugin/bin/zplugin.zsh"

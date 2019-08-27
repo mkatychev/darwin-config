@@ -99,12 +99,15 @@ let g:LanguageClient_useFloatingHover = 1
 " let g:float_preview#docked = 0
 " let g:float_preview#max_width = 100
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <2-MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gD :call LanguageClient#textDocument_references()<CR>
 nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
 nnoremap <silent> gh :call LanguageClient#explainErrorAtPoint()<CR>
 " autoformat go code on save
 au! BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+au! BufWritePre *.py :call LanguageClient#textDocument_formatting_sync()
 " yaml inline langserver settings
 let settings = json_decode('
 \{
@@ -191,6 +194,16 @@ let g:NERDCompactSexyComs = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 " airline setup
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
@@ -201,8 +214,8 @@ let g:airline#extensions#tabline#right_alt_sep = ''
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#buffer_nr_format = '№%s '
+" let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#tabline#buffer_nr_format = '№%s '
 let airline#extensions#tabline#tabs_label = ''
 let airline#extensions#tabline#show_splits = 0
 "let g:airline_powerline_fonts = 1
@@ -248,9 +261,10 @@ noremap <silent>Ú :tabNext<CR>
 " <M-i>
 noremap <silent>˘ :tabnew<CR> 
 " <M-I>
-noremap <silent>… :bd<CR>
+" <M-W>
+noremap <silent>… :call CloseBuffer()<CR>
+" <M-\>
 noremap <silent>» :NERDTreeToggle<CR>
-" <M-|>
 inoremap <silent>» <Esc>:NERDTreeToggle<CR>
 " https://vim.fandom.com/wiki/Search_for_visually_selected_text
 " Search for selected text, forwards or backwards.
@@ -270,6 +284,13 @@ nnoremap <silent> <F12> :bn<CR>
 " command mode emacs bindings
 cnoremap <C-A> <C-B>
 
+" unnmap middle mouse click
+:imap <2-MiddleMouse> <Nop>
+:map <3-MiddleMouse> <Nop>
+:imap <3-MiddleMouse> <Nop>
+:map <4-MiddleMouse> <Nop>
+:imap <4-MiddleMouse> <Nop>
+
 
 
 
@@ -281,3 +302,36 @@ endfunction
 command! -range=% TabProto call TabProto()
 :command! Camel s#_\(\l\)#\u\1#g
 :command! Snake s#\C\(\<[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g
+
+function! CloseBuffer()
+    let curBuf = bufnr('%')
+    let curTab = tabpagenr()
+    exe 'bnext'
+
+    " If in last buffer, create empty buffer
+    if curBuf == bufnr('%')
+        exe 'enew'
+    endif
+
+    " Loop through tabs
+    for i in range(tabpagenr('$'))
+        " Go to tab (is there a way with inactive tabs?)
+        exe 'tabnext ' . (i + 1)
+        " Store active window nr to restore later
+        let curWin = winnr()
+        " Loop through windows pointing to buffer
+        let winnr = bufwinnr(curBuf)
+        while (winnr >= 0)
+            " Go to window and switch to next buffer
+            exe winnr . 'wincmd w | bnext'
+            " Restore active window
+            exe curWin . 'wincmd w'
+            let winnr = bufwinnr(curBuf)
+        endwhile
+    endfor
+
+    " Close buffer, restore active tab
+    exe 'bd' . curBuf
+    exe 'tabnext ' . curTab  
+endfunction
+
