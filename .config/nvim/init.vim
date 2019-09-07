@@ -247,7 +247,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
             \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 " iterm C-Tab & C-S-Tab mapped to non ASCII chars ¯\\_(ツ)_/¯
-" <C-Tab>
+" <C-Tab> \x09\xe2\x88\x8f
 noremap <silent>∏ :bn<CR>
 inoremap <silent>∏ <Esc>:bn<CR>
 " <C-Shift-Tab>
@@ -261,9 +261,9 @@ noremap <silent>Ú :tabNext<CR>
 " <M-i>
 noremap <silent>˘ :tabnew<CR> 
 " <M-I>
-" <M-W>
+" <M-W> \xe2\x80\a6
 noremap <silent>… :call CloseBuffer()<CR>
-" <M-\>
+" <M-\> \xc2\xbb
 noremap <silent>» :NERDTreeToggle<CR>
 inoremap <silent>» <Esc>:NERDTreeToggle<CR>
 " https://vim.fandom.com/wiki/Search_for_visually_selected_text

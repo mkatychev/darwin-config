@@ -9,6 +9,8 @@
 !.config/nvim/**/*
 !.config/pgcli
 !.config/pgcli/*
+!.config/alacritty
+!.config/alacritty/*
 !.config/rustfmt
 !.config/rustfmt/*
 !.config/usr_tools
