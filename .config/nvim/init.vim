@@ -41,12 +41,10 @@ Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
 Plug 'ap/vim-css-color'
 Plug 'machakann/vim-highlightedyank'
-Plug 'elzr/vim-json'
-Plug 'vimjas/vim-python-pep8-indent'
-Plug 'niklasl/vim-rdf'
+" Plug 'niklasl/vim-rdf'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
-Plug 'rvesse/vim-sparql'
+" Plug 'rvesse/vim-sparql'
 Plug 'tpope/vim-surround'
 Plug 'cespare/vim-toml'
 Plug 'mattn/webapi-vim'
@@ -75,6 +73,11 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'sirtaj/vim-openscad'
 Plug 'plasticboy/vim-markdown'
+Plug 'tyru/open-browser-github.vim'
+Plug 'tyru/open-browser.vim'
+Plug 'racer-rust/vim-racer', { 'do': 'cargo +nightly install racer'}
+Plug 'ncm2/ncm2-racer'
+" Plug 'AndrewRadev/dsf.vim'
 " Plug 'ncm2/float-preview.nvim'
 "Plug 'stephpy/vim-yaml'
 "Plug 'w0rp/ale'
@@ -86,7 +89,7 @@ set hidden
 " LanguageClient
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'go': ['gopls'],
     \ 'yaml': ['yaml-language-server', '--stdio'],
@@ -95,6 +98,7 @@ let g:LanguageClient_hoverPreview = 'Always'
 let g:LanguageClient_useVirtualText = 1
 let g:LanguageClient_changeThrottle = 0.5
 let g:LanguageClient_useFloatingHover = 1
+let g:LanguageClient_settingsPath = "$nv/settings.json"
 " let g:LanguageClient_completionPreferTextEdit = 1
 " let g:float_preview#docked = 0
 " let g:float_preview#max_width = 100
@@ -106,31 +110,8 @@ nnoremap <silent> gD :call LanguageClient#textDocument_references()<CR>
 nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
 nnoremap <silent> gh :call LanguageClient#explainErrorAtPoint()<CR>
 " autoformat go code on save
-au! BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
-au! BufWritePre *.py :call LanguageClient#textDocument_formatting_sync()
+au! BufWritePre *.go,*.py,*.rs :call LanguageClient#textDocument_formatting_sync()
 " yaml inline langserver settings
-let settings = json_decode('
-\{
-\    "yaml": {
-\        "completion": true,
-\        "hover": true,
-\        "validate": true,
-\        "schemas": {
-\            "Kubernetes": "/*"
-\        },
-\        "format": {
-\            "enable": true
-\        }
-\    },
-\    "http": {
-\        "proxyStrictSSL": true
-\    }
-\}')
-augroup LanguageClient_config
-    autocmd!
-    autocmd User LanguageClientStarted call LanguageClient#Notify(
-        \ 'workspace/didChangeConfiguration', {'settings': settings})
-augroup END
 " enable ncm2 on buffer enter
 autocmd BufEnter  *  call ncm2#enable_for_buffer()
 " allow completion on single var match for ncm2
@@ -144,6 +125,7 @@ au! BufNewFile,BufRead *.yaml,*.yml set filetype=yaml
 au! BufNewFile,BufRead *.html,*.xml,*.plist set filetype=xml
 " auto resize split buffers in window resize
 au! VimResized * wincmd =
+" autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color Schemes
@@ -283,6 +265,9 @@ nnoremap <silent> <F12> :bn<CR>
 
 " command mode emacs bindings
 cnoremap <C-A> <C-B>
+" clear highlight
+nnoremap <C-L> :nohl<CR>
+
 
 " unnmap middle mouse click
 :imap <2-MiddleMouse> <Nop>
@@ -290,6 +275,13 @@ cnoremap <C-A> <C-B>
 :imap <3-MiddleMouse> <Nop>
 :map <4-MiddleMouse> <Nop>
 :imap <4-MiddleMouse> <Nop>
+
+" FZF commands
+noremap <C-F>f :Files   <CR>
+noremap <C-F>m :Maps    <CR>
+noremap <C-F>b :Buffers <CR>
+noremap <C-F>h :History:<CR>
+noremap <C-F>c :Commits <CR>
 
 
 

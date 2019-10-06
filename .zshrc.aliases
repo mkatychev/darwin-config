@@ -3,6 +3,7 @@ export cfg=$HOME/.config
 export dl=$HOME/Downloads
 export doc=$HOME/Documents
 export pic=$HOME/Pictures
+export mov=$HOME/Movies
 export ff=/Applications/Firefox.app/Contents/MacOS/firefox
 export nv=$cfg/nvim
 export py=$HOME/Documents/python/
@@ -10,6 +11,7 @@ export rs=$HOME/Documents/rust/
 export go=$HOME/Documents/go/
 export tool=$cfg/usr_tools
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
+
 alias pipup="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 alias cdp="$HOME/Documents/python/"
 alias cdn="$HOME/Documents/notes/"
@@ -32,6 +34,7 @@ alias enes="trans en:es"
 alias enfr="trans en:fr"
 alias esen="trans es:en"
 alias duostrip='pbpaste | sd "[ \n\t]+" " " | pbcopy'
+alias ssh='TERM=xterm-color ssh'
 
 
 alias hist="history 1 -1"
@@ -52,6 +55,10 @@ compdefas () {
   a="$1"
   shift
   compdef "$_comps[$a]" "${(@)*}=$a"
+}
+
+show_colour() {
+    perl -e 'foreach $a(@ARGV){print "\e[48;2;".join(";",unpack("C*",pack("H*",$a)))."m \e[49m "};print "\n"' "$@"
 }
 
 compdefas _git gshow

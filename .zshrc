@@ -4,6 +4,8 @@ zmodload zdharma/zplugin
 export HISTFILE="$HOME/.zsh_history"   # Where it gets saved
 export HISTSIZE=10000
 export SAVEHIST=10000
+export KEYTIMEOUT=1
+
 setopt AUTO_CD
 setopt APPEND_HISTORY            # Don't overwrite, append!
 setopt INC_APPEND_HISTORY        # Write after each command

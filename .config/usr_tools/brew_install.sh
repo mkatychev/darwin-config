@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 brew tap \
-    homebrew/cask-fonts
+    homebrew/cask-fonts \
+    moncho/dry
+
 
 brew install \
 	bat \
@@ -31,7 +33,8 @@ brew install \
     protobuf \
     protoc \
     tldr \
-    ykman
+    ykman \
+    dry
 	
 brew cask install \
 	atom \

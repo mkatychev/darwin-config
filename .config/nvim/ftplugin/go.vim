@@ -1,7 +1,15 @@
-setlocal noexpandtab
-setlocal shiftwidth=4
-setlocal softtabstop=4
-setlocal tabstop=4
+" setlocal noexpandtab
+" setlocal shiftwidth=4
+" setlocal softtabstop=0
+" setlocal tabstop=0
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=4
+set tabstop=4
+
+source $nv/go_textobj.vim
 " setlocal omnifunc=gocomplete#Complete
 " setlocal completeopt-=preview
 
@@ -25,3 +33,4 @@ let g:go_highlight_types = 1
 let g:go_highlight_function_calls = 1
 " let g:go_doc_keywordprg_enabled = 0
 let g:go_def_mapping_enabled = 0
+
