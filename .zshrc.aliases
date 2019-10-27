@@ -42,7 +42,6 @@ alias tjobs="for i in `tmux list-panes -a -F "#{pane_pid} #I" | rg -e "(.+) $(tm
 
 
 alias mpva="mpv --no-video --term-osd-bar $@"
-
 gshow() {
     base=$(basename -- "$1")
     end="${base##*.}"
@@ -61,4 +60,4 @@ show_colour() {
     perl -e 'foreach $a(@ARGV){print "\e[48;2;".join(";",unpack("C*",pack("H*",$a)))."m \e[49m "};print "\n"' "$@"
 }
 
-compdefas _git gshow
+# compdefas __git_complete gco _git_checkout

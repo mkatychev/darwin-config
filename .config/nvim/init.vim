@@ -109,6 +109,7 @@ nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gD :call LanguageClient#textDocument_references()<CR>
 nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
 nnoremap <silent> gh :call LanguageClient#explainErrorAtPoint()<CR>
+nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
 " autoformat go code on save
 au! BufWritePre *.go,*.py,*.rs :call LanguageClient#textDocument_formatting_sync()
 " yaml inline langserver settings
@@ -266,7 +267,7 @@ nnoremap <silent> <F12> :bn<CR>
 " command mode emacs bindings
 cnoremap <C-A> <C-B>
 " clear highlight
-nnoremap <C-L> :nohl<CR>
+nnoremap <silent> <C-L> :nohl<CR>
 
 
 " unnmap middle mouse click

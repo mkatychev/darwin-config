@@ -32,6 +32,7 @@ zstyle ':completion:*' menu select
 #where kubectl &> /dev/null  && source <(kubectl completion zsh)
 [[ -a ~/.zshrc.aliases ]] && source ~/.zshrc.aliases
 [[ -a ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -a ~/.fzf.zsh ]] && source ~/.fzf.zsh
 # initialize theme
 bindkey ^v vi-cmd-mode
 bindkey "^[[3~" delete-char
@@ -77,11 +78,14 @@ zplugin ice wait"0" atinit"zpcompinit" lucid
 zplugin light 'zdharma/fast-syntax-highlighting'
 zplugin load 'djui/alias-tips'
 
-zplugin ice wait"0" lucid
-zplugin load 'softmoth/zsh-vim-mode'
+zplugin snippet https://raw.githubusercontent.com/luiz1361/zsh-vim-mode/master/zsh-vim-mode.plugin.zsh
 
 MODE_CURSOR_VICMD="green block"
 MODE_CURSOR_VIINS="#20d08a bar"
 MODE_CURSOR_SEARCH="#ff00ff steady underline"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -a ~/.zshrc.aliases ]] && source ~/.zshrc.aliases
+[[ -a ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -a ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
+export KEYTIMEOUT=2
