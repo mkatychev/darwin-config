@@ -26,6 +26,7 @@
 !.ptpython/config.py
 !.tmux*
 !.zshrc
+!.fzf.zsh
 !com.googlecode.iterm2.plist
 .DS_Store
 .config/nvim/.netrwhist

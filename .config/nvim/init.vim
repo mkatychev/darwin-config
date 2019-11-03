@@ -283,6 +283,7 @@ noremap <C-F>m :Maps    <CR>
 noremap <C-F>b :Buffers <CR>
 noremap <C-F>h :History:<CR>
 noremap <C-F>c :Commits <CR>
+noremap <C-F>/ :BLines <CR>
 
 
 
