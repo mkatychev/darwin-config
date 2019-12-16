@@ -41,26 +41,19 @@ Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
 Plug 'ap/vim-css-color'
 Plug 'machakann/vim-highlightedyank'
-" Plug 'niklasl/vim-rdf'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
-" Plug 'rvesse/vim-sparql'
 Plug 'tpope/vim-surround'
 Plug 'cespare/vim-toml'
 Plug 'mattn/webapi-vim'
-" Plug 'fatih/vim-go'
 Plug 'Yggdroot/indentLine'
 Plug 'swinman/vim-nc', { 'branch': 'scaled_error' }
-" Plug 'zchee/deoplete-go', { 'do': 'make' }
-" Plug 'Shougo/deoplete.nvim'
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '$GOPATH/src/github.com/stamblerre/gocode/nvim/symlink.sh' }
 Plug 'itchyny/vim-gitbranch'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
@@ -77,6 +70,11 @@ Plug 'tyru/open-browser-github.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'racer-rust/vim-racer', { 'do': 'cargo +nightly install racer'}
 Plug 'ncm2/ncm2-racer'
+" Plug 'fatih/vim-go'
+" Plug 'zchee/deoplete-go', { 'do': 'make' }
+" Plug 'Shougo/deoplete.nvim'
+" Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '$GOPATH/src/github.com/stamblerre/gocode/nvim/symlink.sh' }
+" Plug 'ryanoasis/vim-devicons'
 " Plug 'AndrewRadev/dsf.vim'
 " Plug 'ncm2/float-preview.nvim'
 "Plug 'stephpy/vim-yaml'
@@ -110,6 +108,8 @@ nnoremap <silent> gD :call LanguageClient#textDocument_references()<CR>
 nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
 nnoremap <silent> gh :call LanguageClient#explainErrorAtPoint()<CR>
 nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> g[ :cp<CR>
+nnoremap <silent> g] :cn<CR>
 " autoformat go code on save
 au! BufWritePre *.go,*.py,*.rs :call LanguageClient#textDocument_formatting_sync()
 " yaml inline langserver settings
@@ -284,6 +284,7 @@ noremap <C-F>b :Buffers <CR>
 noremap <C-F>h :History:<CR>
 noremap <C-F>c :Commits <CR>
 noremap <C-F>/ :BLines <CR>
+noremap <C-F>r :Rg <CR>
 
 
 
@@ -292,7 +293,7 @@ function! TabProto() range
     :Tabularize /^\s*\S\+\zs/l0c1l0
     :Tabularize /=/
 endfunction
-
+command! FormatJSON %!python -m json.tool
 command! -range=% TabProto call TabProto()
 :command! Camel s#_\(\l\)#\u\1#g
 :command! Snake s#\C\(\<[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g

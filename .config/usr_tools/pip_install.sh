@@ -6,3 +6,6 @@ pip3 install \
     pytube \
     neovim \
     termtosvg \
+    ptpython \
+    pgcli \
+    youtube-dl

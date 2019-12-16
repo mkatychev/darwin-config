@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+pip3 install \
+    neovim \ 
+    pgcli \ 
+    pyls \ 
+    pynvim \ 
+    icdiff \
