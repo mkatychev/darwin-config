@@ -1,6 +1,7 @@
 *
 !.zshrc.aliases
 !.zprofile
+!.profile
 !*.terminfo
 !.config/
 !.config/iterm/
