@@ -32,44 +32,47 @@ if &term =~ '^tmux' && !has('nvim') | exe "set t_ts=\e]2; t_fs=\7" | endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " '<,'>sort/.*\//
 call plug#begin('~/.vim/plugged')
+Plug 'autozimu/LanguageClient-neovim', { 
+    \ 'branch': 'next', 
+    \ 'do': 'bash install.sh', 
+    \ }
+Plug 'junegunn/fzf.vim'
 Plug 'haya14busa/incsearch.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-go'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-racer'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'roxma/nvim-yarp'
+Plug 'joshdick/onedark.vim'
+Plug 'tyru/open-browser-github.vim'
+Plug 'tyru/open-browser.vim'
 Plug 'vim-python/python-syntax'
 Plug 'luochen1990/rainbow'
 Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
+Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline'
 Plug 'ap/vim-css-color'
-Plug 'machakann/vim-highlightedyank'
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
+Plug 'itchyny/vim-gitbranch'
+Plug 'machakann/vim-highlightedyank'
+Plug 'mtdl9/vim-log-highlighting'
+Plug 'plasticboy/vim-markdown'
+Plug 'swinman/vim-nc', { 'branch': 'scaled_error' }
+Plug 'sirtaj/vim-openscad'
+Plug 'sheerun/vim-polyglot'
+Plug 'uarun/vim-protobuf'
+Plug 'racer-rust/vim-racer', { 'do': 'cargo +nightly install racer'}
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'cespare/vim-toml'
 Plug 'mattn/webapi-vim'
-Plug 'Yggdroot/indentLine'
-Plug 'swinman/vim-nc', { 'branch': 'scaled_error' }
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'itchyny/vim-gitbranch'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'vim-airline/vim-airline'
-Plug 'joshdick/onedark.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'uarun/vim-protobuf'
-Plug 'majutsushi/tagbar'
-Plug 'mtdl9/vim-log-highlighting'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-Plug 'sirtaj/vim-openscad'
-Plug 'plasticboy/vim-markdown'
-Plug 'tyru/open-browser-github.vim'
-Plug 'tyru/open-browser.vim'
-Plug 'racer-rust/vim-racer', { 'do': 'cargo +nightly install racer'}
-Plug 'ncm2/ncm2-racer'
 " Plug 'fatih/vim-go'
 " Plug 'zchee/deoplete-go', { 'do': 'make' }
 " Plug 'Shougo/deoplete.nvim'
