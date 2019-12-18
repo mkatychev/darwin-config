@@ -30,9 +30,6 @@ zstyle ':completion:*' menu select
 #where jira &> /dev/null  && source <(jira --completion-script-zsh)
 #where kx &> /dev/null  && source <(kx complete)
 #where kubectl &> /dev/null  && source <(kubectl completion zsh)
-[[ -a ~/.zshrc.aliases ]] && source ~/.zshrc.aliases
-[[ -a ~/.zshrc.local ]] && source ~/.zshrc.local
-[[ -a ~/.fzf.zsh ]] && source ~/.fzf.zsh
 # initialize theme
 bindkey ^v vi-cmd-mode
 bindkey "^[[3~" delete-char
@@ -59,9 +56,6 @@ zplugin snippet OMZ::plugins/docker/_docker
 zplugin ice wait"0" atinit"zpcompinit" lucid
 zplugin snippet OMZ::plugins/docker-compose/_docker-compose
 
-# BINS
-zplugin ice from"gh-r" as"program"; zplugin load junegunn/fzf-bin
-
 
 # C.
 zplugin ice wait"0" atload"unalias grv" lucid
@@ -84,6 +78,7 @@ MODE_CURSOR_VICMD="green block"
 MODE_CURSOR_VIINS="#20d08a bar"
 MODE_CURSOR_SEARCH="#ff00ff steady underline"
 
+[[ -a ~/.zprofile ]] && source ~/.zprofile
 [[ -a ~/.zshrc.aliases ]] && source ~/.zshrc.aliases
 [[ -a ~/.zshrc.local ]] && source ~/.zshrc.local
 [[ -a ~/.fzf.zsh ]] && source ~/.fzf.zsh

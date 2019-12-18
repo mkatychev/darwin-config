@@ -8,7 +8,6 @@ brew install \
   # bat \
   # ripgrep \
   # zsh-syntax-highlighting \
-  asciinema \
   bitwarden-cli \
   cargo-completion \
   certbot \
@@ -21,7 +20,6 @@ brew install \
   fdupes \
   ffmpeg \
   fontconfig \
-  fzf \
   git \
   glib \
   gnupg \
