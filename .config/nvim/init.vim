@@ -300,6 +300,7 @@ command! FormatJSON %!python -m json.tool
 command! -range=% TabProto call TabProto()
 :command! Camel s#_\(\l\)#\u\1#g
 :command! Snake s#\C\(\<[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g
+command! Doc :set wrap linebreak nolist
 
 function! CloseBuffer()
     let curBuf = bufnr('%')

@@ -79,6 +79,7 @@ MODE_CURSOR_VIINS="#20d08a bar"
 MODE_CURSOR_SEARCH="#ff00ff steady underline"
 
 [[ -a ~/.zprofile ]] && source ~/.zprofile
+[[ -a ~/.profile ]] && source ~/.profile
 [[ -a ~/.zshrc.aliases ]] && source ~/.zshrc.aliases
 [[ -a ~/.zshrc.local ]] && source ~/.zshrc.local
 [[ -a ~/.fzf.zsh ]] && source ~/.fzf.zsh

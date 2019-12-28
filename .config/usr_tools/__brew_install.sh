@@ -27,6 +27,7 @@ brew install \
   icdiff \
   imagemagick \
   jq \
+  mpv \
   neofetch \
   neovim \
   openssl \

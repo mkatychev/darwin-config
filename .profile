@@ -3,6 +3,9 @@ export GOPATH=$HOME/.go
 export RUSTUP_HOME=$HOME/.rustup
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/.symlinks
-export PATH=$PATH:/usr/local/lib/python3.7/site-packages
+export PATH=$CARGO_HOME/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
+export PATH=$HOME/.symlinks:$PATH
+export PATH=/usr/local/lib/python3.7/site-packages:$PATH
+export PATH=/usr/local/lib/ruby/gems/2.6.0/bin:$PATH
+export PATH=/usr/local/opt/ruby/bin:$PATH
