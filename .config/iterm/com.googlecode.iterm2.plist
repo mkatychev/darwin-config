@@ -260,6 +260,13 @@
 			<key>Text</key>
 			<string>[C</string>
 		</dict>
+		<key>0x70-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>22</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
 		<key>0x73-0x100000</key>
 		<dict>
 			<key>Action</key>
@@ -671,7 +678,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>899 387 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1923 -238 650 404 1680 -931 2160 3817 </string>
+	<string>3840 -769 3840 2137 3840 -769 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>3840 -769 3840 2137 3840 -769 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1206,6 +1213,13 @@
 					<key>Text</key>
 					<string>[C</string>
 				</dict>
+				<key>0x6d-0x100000</key>
+				<dict>
+					<key>Action</key>
+					<integer>22</integer>
+					<key>Text</key>
+					<string></string>
+				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
 					<key>Action</key>
@@ -1467,7 +1481,7 @@
 			<key>Prompt Before Closing 2</key>
 			<false/>
 			<key>Right Option Key Sends</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Rows</key>
 			<integer>25</integer>
 			<key>Screen</key>
@@ -2503,14 +2517,14 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.6</string>
-		<string>3.3.2</string>
+		<string>3.3.4</string>
 		<string>3.3.1</string>
 		<string>3.3.3</string>
 		<string>3.3.5</string>
 		<string>3.3.7</string>
 		<string>3.2.9</string>
+		<string>3.3.2</string>
 		<string>3.3.0</string>
-		<string>3.3.4</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
@@ -2529,7 +2543,7 @@
 		<key>screenFrame</key>
 		<string>{{1680, -931}, {2160, 3840}}</string>
 		<key>topLeft</key>
-		<string>{2043, 437}</string>
+		<string>{2141, 416}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -2540,7 +2554,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>C2F52D5E-3EA3-44D0-A2DF-39BA6F470359</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>30</integer>
+	<integer>31</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>586695279.93536103</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -3247,11 +3261,6 @@
 	</dict>
 	<key>NoSyncSaveDocumentAsPathSet_saveDocumentAs:</key>
 	<true/>
-	<key>NoSyncSearchHistory</key>
-	<array>
-		<string>.kubernetes/gcp/production/ns/env-secrets.enc.yaml </string>
-		<string>customercreatecustomer-ff45b.json </string>
-	</array>
 	<key>NoSyncSearchHistory2</key>
 	<array>
 		<string>pret</string>
@@ -3313,10 +3322,12 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-01-17T22:29:41Z</date>
+	<date>2020-01-20T20:29:55Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
+	<false/>
+	<key>Secure Input</key>
 	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>

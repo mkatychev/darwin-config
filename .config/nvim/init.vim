@@ -17,7 +17,6 @@ set timeoutlen=1000
 set ttimeoutlen=0
 set foldlevelstart=99
 set viewoptions-=options
-:filetype on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux Particulars
