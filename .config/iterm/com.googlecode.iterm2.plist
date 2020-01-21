@@ -632,7 +632,7 @@
 	dWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAKgA3TFA0OFRkdV05TLmtleXOj
 	FhcYgAOABIAFoxobHIAGgAeACIAJWklkZW50aWZpZXJVV2lkdGhWSGlkZGVuUTAjQGjA
 	AAAAAAAI0iUmJyhaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0RpY3Rpb25hcnmiJylYTlNP
-	YmplY3TTFA0OKy8doxYXGIADgASABaMwMRyAC4AMgAiACVExI0B5AZ2yLQ5W0iUmNzhe
+	YmplY3TTFA0OKy8doxYXGIADgASABaMwMRyAC4AMgAiACVExI0BzsZ2yLQ5W0iUmNzhe
 	TlNNdXRhYmxlQXJyYXmjNzkpV05TQXJyYXkACAARABoAJAApADIANwBJAEwAUgBUAGMA
 	aQBuAHkAgACDAIUAhwCJAJAAmACcAJ4AoACiAKYAqACqAKwArgC5AL8AxgDIANEA0gDX
 	AOIA6wD4APsBBAELAQ8BEQETARUBGQEbAR0BHwEhASMBLAExAUABRAAAAAAAAAIBAAAA
@@ -671,11 +671,11 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>899 387 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1680 1050 0 0 1680 1027 </string>
+	<string>1923 -238 650 404 1680 -931 2160 3817 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 25 1680 1002 0 0 1680 1027 </string>
+	<string>3840 -769 3840 2137 3840 -769 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>233 78 650 429 0 0 1680 1027 </string>
+	<string>233 94 650 404 0 0 1680 1027 </string>
 	<key>NeverWarnAboutMeta</key>
 	<true/>
 	<key>NeverWarnAboutMeta_selection</key>
@@ -984,6 +984,8 @@
 			<key>Description</key>
 			<string>Default</string>
 			<key>Disable Window Resizing</key>
+			<true/>
+			<key>Draw Powerline Glyphs</key>
 			<true/>
 			<key>Flashing Bell</key>
 			<false/>
@@ -1523,9 +1525,9 @@
 			<key>Transparency</key>
 			<real>0.093976046954314718</real>
 			<key>Unicode Normalization</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Unicode Version</key>
-			<integer>8</integer>
+			<integer>9</integer>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -2501,16 +2503,18 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.6</string>
-		<string>3.3.4</string>
+		<string>3.3.2</string>
 		<string>3.3.1</string>
 		<string>3.3.3</string>
 		<string>3.3.5</string>
-		<string>3.3.0</string>
-		<string>3.3.2</string>
+		<string>3.3.7</string>
 		<string>3.2.9</string>
+		<string>3.3.0</string>
+		<string>3.3.4</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
+		<string>Menlo</string>
 		<string>Hack Nerd Font</string>
 	</array>
 	<key>NoSyncFrame_SessionsPreferences</key>
@@ -2523,9 +2527,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1680, 1050}}</string>
+		<string>{{1680, -931}, {2160, 3840}}</string>
 		<key>topLeft</key>
-		<string>{269, 595}</string>
+		<string>{2043, 437}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -2536,7 +2540,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>C2F52D5E-3EA3-44D0-A2DF-39BA6F470359</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>19</integer>
+	<integer>30</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>586695279.93536103</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -3273,11 +3277,6 @@
 			<key>Action</key>
 			<string>kContextMenuPointerAction</string>
 		</dict>
-		<key>Button,2,1,,</key>
-		<dict>
-			<key>Action</key>
-			<string>kPasteFromClipboardPointerAction</string>
-		</dict>
 		<key>Gesture,ThreeFingerSwipeDown,,</key>
 		<dict>
 			<key>Action</key>
@@ -3314,11 +3313,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-11-27T17:41:29Z</date>
+	<date>2020-01-17T22:29:41Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
-	<true/>
+	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
@@ -3343,6 +3342,8 @@
 	<integer>1</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
+	<key>ThreeFingerEmulates</key>
+	<true/>
 	<key>UKCrashReporterLastCrashReportDate</key>
 	<real>1564910976</real>
 	<key>UseBorder</key>
@@ -3356,7 +3357,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.6</string>
+	<string>3.3.7</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

@@ -15,94 +15,97 @@ set tabstop=4
 set termguicolors
 set timeoutlen=1000
 set ttimeoutlen=0
-set t_8b=[48;2;%lu;%lu;%lum
-set t_8f=[38;2;%lu;%lu;%lum
 set foldlevelstart=99
 set viewoptions-=options
-"set cedit
+:filetype on
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tmux Particulars
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Intelligently navigate tmux panes and Vim splits using the same keys.
 " See https://sunaku.github.io/tmux-select-pane.html for documentation.
 let progname = substitute($VIM, '.*[/\\]', '', '')
 set title titlestring=%{progname}\ %f\ +%l\ #%{tabpagenr()}.%{winnr()}
 if &term =~ '^tmux' && !has('nvim') | exe "set t_ts=\e]2; t_fs=\7" | endif
-:filetype on
+" auto resize split buffers in window resize
+au! VimResized * wincmd =
+set t_8b=[48;2;%lu;%lu;%lum
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
+set t_8f=[38;2;%lu;%lu;%lum
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " '<,'>sort/.*\//
 call plug#begin('~/.vim/plugged')
-Plug 'autozimu/LanguageClient-neovim', { 
-    \ 'branch': 'next', 
-    \ 'do': 'bash install.sh', 
-    \ }
-Plug 'junegunn/fzf.vim'
-Plug 'haya14busa/incsearch.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Language Client
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-go'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-racer'
+Plug 'roxma/nvim-yarp'
+Plug 'racer-rust/vim-racer', { 'do': 'cargo +nightly install racer'}
+" searching
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/incsearch.vim'
+" Git
+Plug 'tyru/open-browser-github.vim'
+Plug 'tyru/open-browser.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'roxma/nvim-yarp'
-Plug 'joshdick/onedark.vim'
-Plug 'tyru/open-browser-github.vim'
-Plug 'tyru/open-browser.vim'
-Plug 'vim-python/python-syntax'
-Plug 'luochen1990/rainbow'
-Plug 'rust-lang/rust.vim'
-Plug 'godlygeek/tabular'
-Plug 'majutsushi/tagbar'
-Plug 'vim-airline/vim-airline'
-Plug 'ap/vim-css-color'
-Plug 'tpope/vim-fugitive'
+Plug 'mattn/webapi-vim'
 Plug 'itchyny/vim-gitbranch'
-Plug 'machakann/vim-highlightedyank'
+" display
+Plug 'joshdick/onedark.vim'
+Plug 'vim-python/python-syntax', { 'for': 'python' }
+Plug 'luochen1990/rainbow'
+Plug 'ap/vim-css-color'
+Plug 'rust-lang/rust.vim'
+" syntax
+Plug 'kevinoid/vim-jsonc'
 Plug 'mtdl9/vim-log-highlighting'
 Plug 'plasticboy/vim-markdown'
-Plug 'swinman/vim-nc', { 'branch': 'scaled_error' }
+Plug 'swinman/vim-nc', { 'branch': 'scaled_error' } " G-Code highlighting
 Plug 'sirtaj/vim-openscad'
 Plug 'sheerun/vim-polyglot'
 Plug 'uarun/vim-protobuf'
-Plug 'racer-rust/vim-racer', { 'do': 'cargo +nightly install racer'}
+Plug 'cespare/vim-toml'
+" motions
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'cespare/vim-toml'
-Plug 'mattn/webapi-vim'
-" Plug 'fatih/vim-go'
-" Plug 'zchee/deoplete-go', { 'do': 'make' }
-" Plug 'Shougo/deoplete.nvim'
-" Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '$GOPATH/src/github.com/stamblerre/gocode/nvim/symlink.sh' }
+Plug 'tpope/vim-fugitive'
+Plug 'machakann/vim-highlightedyank'
+" misc
+Plug 'godlygeek/tabular'
+Plug 'majutsushi/tagbar', { 'do': 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags' }
+Plug 'vim-airline/vim-airline'
+" Python
+Plug 'Yggdroot/indentLine'
 " Plug 'ryanoasis/vim-devicons'
 " Plug 'AndrewRadev/dsf.vim'
 " Plug 'ncm2/float-preview.nvim'
-"Plug 'stephpy/vim-yaml'
-"Plug 'w0rp/ale'
 call plug#end()
-
-set hidden
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LanguageClient
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'rust': ['ra_lsp_server'],
+    \ 'python': ['pyls'],
     \ 'go': ['gopls'],
     \ 'yaml': ['yaml-language-server', '--stdio'],
     \ }
 let g:LanguageClient_hoverPreview = 'Always'
-let g:LanguageClient_useVirtualText = 1
+let g:LanguageClient_useVirtualText = 'Diagnostics'
 let g:LanguageClient_changeThrottle = 0.5
 let g:LanguageClient_useFloatingHover = 1
 let g:LanguageClient_settingsPath = "$nv/settings.json"
-" let g:LanguageClient_completionPreferTextEdit = 1
-" let g:float_preview#docked = 0
-" let g:float_preview#max_width = 100
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <2-MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_definition()<CR>
@@ -127,9 +130,6 @@ set completeopt=menuone,noinsert,noselect
 au! BufNewFile,BufRead *.json,*.geojson set filetype=json
 au! BufNewFile,BufRead *.yaml,*.yml set filetype=yaml
 au! BufNewFile,BufRead *.html,*.xml,*.plist set filetype=xml
-" auto resize split buffers in window resize
-au! VimResized * wincmd =
-" autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color Schemes
@@ -159,19 +159,21 @@ call onedark#extend_highlight('Comment', {'gui': 'italic'})
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc Global Vars
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" :checkhealth paths
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python2'
+" markdown config
 let g:polyglot_disabled = ['md']
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_fenced_languages = ['rust', 'go']
-let g:deoplete#enable_at_startup = 1
 let g:highlightedyank_highlight_duration = 200
-let g:python3_host_prog = '/usr/local/bin/python3'
-let g:python_host_prog = '/usr/local/bin/python2'
 let g:rainbow_active = 0
 let g:vim_json_syntax_conceal = 0
+" NERDTree/Comment setup
 let g:NERDCustomDelimiters = { 'sparql': { 'left': '#'} }
-let g:NERDCustomDelimiters = { 'yaml': { 'left': '# '} }
-let g:NERDCustomDelimiters = { 'openscad': { 'left': '// '} }
+let g:NERDCustomDelimiters = { 'yaml': { 'left': '#'} }
+let g:NERDCustomDelimiters = { 'openscad': { 'left': '//'} }
 let g:netrw_fastbrowse = 0
 let g:NERDSpaceDelims=1
 let g:NERDDefaultAlign = 'left'
@@ -200,8 +202,6 @@ let g:airline#extensions#tabline#right_alt_sep = ''
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-" let g:airline#extensions#tabline#buffer_nr_show = 1
-" let g:airline#extensions#tabline#buffer_nr_format = '№%s '
 let airline#extensions#tabline#tabs_label = ''
 let airline#extensions#tabline#show_splits = 0
 "let g:airline_powerline_fonts = 1
@@ -215,6 +215,7 @@ let g:airline#extensions#branch#displayed_head_limit = 10
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Don't lose visual selection when indenting
 vmap > >gv
 vmap < <gv
 noremap Y y$ 
@@ -226,13 +227,13 @@ nmap <C-y> "*y
 
 noremap <silent><F2> :RainbowToggle<CR>
 inoremap <silent><F2> <Esc>:RainbowToggle<CR>a
+
+" Yank entire buffer
 noremap <silent><F4> gg"*yG<CR>
+" Overwrite entire buffer with clipboard
 noremap <silent><F5> :%d<CR>"*P<CR>
-" Print object syntax inheritance
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-" iterm C-Tab & C-S-Tab mapped to non ASCII chars ¯\\_(ツ)_/¯
+
+" iTerm C-Tab & C-S-Tab mapped to non ASCII chars ¯\\_(ツ)_/¯
 " <C-Tab> \x09\xe2\x88\x8f
 noremap <silent>∏ :bn<CR>
 inoremap <silent>∏ <Esc>:bn<CR>
@@ -252,20 +253,9 @@ noremap <silent>… :call CloseBuffer()<CR>
 " <M-\> \xc2\xbb
 noremap <silent>» :NERDTreeToggle<CR>
 inoremap <silent>» <Esc>:NERDTreeToggle<CR>
-" https://vim.fandom.com/wiki/Search_for_visually_selected_text
-" Search for selected text, forwards or backwards.
-vnoremap <silent> * :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy/<C-R><C-R>=substitute(
-  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-vnoremap <silent> # :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy?<C-R><C-R>=substitute(
-  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
 
-nnoremap <silent> <F12> :bn<CR>
+" fuzzy buffer search
+map z/ <Plug>(incsearch-fuzzy-/)
 
 " command mode emacs bindings
 cnoremap <C-A> <C-B>
@@ -289,19 +279,47 @@ noremap <C-F>c :Commits <CR>
 noremap <C-F>/ :BLines <CR>
 noremap <C-F>r :Rg <CR>
 
+noremap <C-\> :TagbarToggle <CR>
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Functions
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Print object syntax inheritance
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-function! TabProto() range
-    :Tabularize /^\s*\S\+\zs/l0c1l0
-    :Tabularize /=/
-endfunction
-command! FormatJSON %!python -m json.tool
-command! -range=% TabProto call TabProto()
+" https://vim.fandom.com/wiki/Search_for_visually_selected_text
+" Search for selected text, forwards or backwards.
+" forwards
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+"backwards
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+" Obsolete with clang-format
+" function! TabProto() range
+"     :Tabularize /^\s*\S\+\zs/l0c1l0
+"     :Tabularize /=/
+" endfunction
+
 :command! Camel s#_\(\l\)#\u\1#g
 :command! Snake s#\C\(\<[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g
+" Prevent wrapping from breaking up words
 command! Doc :set wrap linebreak nolist
 
+" The function switches all windows pointing to the current buffer (that you are closing)
+" to the next buffer (or a new buffer if the current buffer is the last one).
+"
+" https://stackoverflow.com/questions/4298910/vim-close-buffer-but-not-split-windowanswer-29236158
 function! CloseBuffer()
     let curBuf = bufnr('%')
     let curTab = tabpagenr()
