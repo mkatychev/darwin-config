@@ -16,7 +16,7 @@ set termguicolors
 set timeoutlen=1000
 set ttimeoutlen=0
 set foldlevelstart=99
-set viewoptions-=options
+set viewoptions-=options,folds
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux Particulars
@@ -75,6 +75,7 @@ Plug 'sirtaj/vim-openscad'
 Plug 'sheerun/vim-polyglot'
 Plug 'uarun/vim-protobuf'
 Plug 'cespare/vim-toml'
+Plug 'laggardkernel/vim-one'
 " motions
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -102,7 +103,6 @@ let g:LanguageClient_serverCommands = {
     \ }
 let g:LanguageClient_hoverPreview = 'Always'
 let g:LanguageClient_useVirtualText = 'Diagnostics'
-let g:LanguageClient_changeThrottle = 0.5
 let g:LanguageClient_useFloatingHover = 1
 let g:LanguageClient_settingsPath = "$nv/settings.json"
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
@@ -110,9 +110,10 @@ nnoremap <silent> <MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_ho
 nnoremap <silent> <2-MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gD :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
+" nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
 nnoremap <silent> gh :call LanguageClient#explainErrorAtPoint()<CR>
 nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
+" go to next error declaration
 nnoremap <silent> g[ :cp<CR>
 nnoremap <silent> g] :cn<CR>
 " autoformat go code on save
@@ -149,11 +150,11 @@ call onedark#extend_highlight('Normal',
 call onedark#extend_highlight('Comment', {'gui': 'italic'})
 
 "colorscheme one
-"let g:one_allow_italics = 1
-"call one#highlight('LineNr', 'f2bf93', '230f38', '')
-"call one#highlight('CursorLineNr', '616162', 'ffffff', '')
-"call one#highlight('Normal', '', '1d2025', 'none')
-"call one#highlight('vimLineComment', '', '', 'italic')
+let g:one_allow_italics = 1
+" call one#highlight('LineNr', 'f2bf93', '230f38', '')
+" call one#highlight('CursorLineNr', '616162', 'ffffff', '')
+" call one#highlight('Normal', '', '1d2025', 'none')
+" call one#highlight('vimLineComment', '', '', 'italic')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc Global Vars
@@ -217,7 +218,7 @@ let g:airline#extensions#branch#displayed_head_limit = 10
 " Don't lose visual selection when indenting
 vmap > >gv
 vmap < <gv
-noremap Y y$ 
+noremap Y y$
 " system clipboard Put/Yank
 map <C-P> "*P
 nmap <C-p> "*p
@@ -270,6 +271,20 @@ nnoremap <silent> <C-L> :nohl<CR>
 :imap <4-MiddleMouse> <Nop>
 
 " FZF commands
+let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'bat --style=numbers --color=always {} | head -500']}, <bang>0)
+
 noremap <C-F>f :Files   <CR>
 noremap <C-F>m :Maps    <CR>
 noremap <C-F>b :Buffers <CR>
@@ -277,6 +292,7 @@ noremap <C-F>h :History:<CR>
 noremap <C-F>c :Commits <CR>
 noremap <C-F>/ :BLines <CR>
 noremap <C-F>r :Rg <CR>
+noremap <C-F>g :GGrep <CR>
 
 noremap <C-\> :TagbarToggle <CR>
 
@@ -296,12 +312,6 @@ vnoremap <silent> * :<C-U>
   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
   \gvy/<C-R><C-R>=substitute(
   \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-"backwards
-vnoremap <silent> # :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy?<C-R><C-R>=substitute(
-  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " Obsolete with clang-format
@@ -351,3 +361,33 @@ function! CloseBuffer()
     exe 'tabnext ' . curTab  
 endfunction
 
+" https://developpaper.com/use-the-floating-window-of-neovim-to-make-you-fall-in-love-with-fzf-again/
+function! OpenFloatingWin()
+  let height = &lines - 3
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  let col = float2nr((&columns - width) / 2)
+
+  "Set the position, size, etc. of the floating window.
+  "The size configuration here may not be so flexible, and there's room for further improvement.
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': height * 0.3,
+        \ 'col': col + 30,
+        \ 'width': width * 2 / 3,
+        \ 'height': height / 2
+        \ }
+
+  let buf = nvim_create_buf(v:false, v:true)
+  let win = nvim_open_win(buf, v:true, opts)
+
+  "Set Floating Window Highlighting
+  call setwinvar(win, '&winhl', 'Normal:Pmenu')
+
+  setlocal
+        \ buftype=nofile
+        \ nobuflisted
+        \ bufhidden=hide
+        \ nonumber
+        \ norelativenumber
+        \ signcolumn=no
+endfunction

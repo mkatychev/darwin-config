@@ -26,6 +26,10 @@ alias ls.='exa -T --all -I=".git"'
 alias lst='exa -T -I=".git"'
 alias cdg='cd $(git rev-parse --show-toplevel)'
 alias gv='git mv'
+alias bzf="fzf --height 60% --preview \
+    'bat --style=numbers --color=always {} | head -500' \
+    --layout reverse --color 'preview-bg:#223344,border:#778899' --info inline"
+
 
 alias fres="trans fr:es"
 alias fren="trans fr:en"

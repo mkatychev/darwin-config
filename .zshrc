@@ -87,5 +87,5 @@ MODE_CURSOR_SEARCH="#ff00ff steady underline"
 export KEYTIMEOUT=2
 export FZF_CTRL_T_COMMAND="fd --type f"
 export FZF_ALT_C_COMMAND="fd --type d"
-export FZF_DEFAULT_COMMAND="fd --type f --exclude .git"
+export FZF_DEFAULT_COMMAND="fd --type f --exclude .git --hidden --follow"
 
