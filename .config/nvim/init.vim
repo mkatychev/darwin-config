@@ -1,6 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 set expandtab
 set hidden
 set mouse=a
@@ -17,6 +18,8 @@ set timeoutlen=1000
 set ttimeoutlen=0
 set foldlevelstart=99
 set viewoptions-=options,folds
+" Make Russian work in normal mode.
+set langmap=АБСДЕФГЧИЙКЛМНОПЯРСТУВШХЫЗ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,абсдефгчийклмнопярстувшхыз;abcdefghijklmnopqrstuvwxyz
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux Particulars
@@ -85,8 +88,9 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar', { 'do': 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags' }
 Plug 'vim-airline/vim-airline'
+Plug 'rust-lang/rust.vim'
 " Python
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 " Plug 'ryanoasis/vim-devicons'
 " Plug 'AndrewRadev/dsf.vim'
 " Plug 'ncm2/float-preview.nvim'
@@ -96,15 +100,18 @@ call plug#end()
 " LanguageClient
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['ra_lsp_server'],
+    \ 'rust': ['rust-analyzer'],
     \ 'python': ['pyls'],
     \ 'go': ['gopls'],
     \ 'yaml': ['yaml-language-server', '--stdio'],
     \ }
 let g:LanguageClient_hoverPreview = 'Always'
 let g:LanguageClient_useVirtualText = 'Diagnostics'
+let g:LanguageClient_diagnosticsList = 'Location'
 let g:LanguageClient_useFloatingHover = 1
-let g:LanguageClient_settingsPath = "$nv/settings.json"
+let g:LanguageClient_loadSettings = 1
+let g:LanguageClient_settingsPath = s:path . '/settings.json'
+let g:LanguageClient_trace = "verbose"
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <2-MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_definition()<CR>
@@ -117,7 +124,8 @@ nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> g[ :cp<CR>
 nnoremap <silent> g] :cn<CR>
 " autoformat go code on save
-au! BufWritePre *.go,*.py,*.rs :call LanguageClient#textDocument_formatting_sync()
+au! BufWritePre *.go,*.py, :call LanguageClient#textDocument_formatting_sync()
+" au! BufWritePre *.go,*.py,*.rs :call LanguageClient#textDocument_formatting_sync()
 " yaml inline langserver settings
 " enable ncm2 on buffer enter
 autocmd BufEnter  *  call ncm2#enable_for_buffer()
