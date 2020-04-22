@@ -61,7 +61,7 @@ zplugin snippet OMZ::plugins/docker-compose/_docker-compose
 zplugin ice wait"0" atload"unalias grv" lucid
 zplugin snippet OMZ::plugins/git/git.plugin.zsh
 
-zplugin light $tool/zsh_plugin
+zplugin light $tool/zsh_plugin 
 
 # D.
 zplugin ice wait"0" lucid
@@ -78,6 +78,7 @@ MODE_CURSOR_VICMD="green block"
 MODE_CURSOR_VIINS="#20d08a bar"
 MODE_CURSOR_SEARCH="#ff00ff steady underline"
 
+[[ -a ~/.fzf.git.zsh ]] && source ~/.fzf.git.zsh
 [[ -a ~/.zprofile ]] && source ~/.zprofile
 [[ -a ~/.profile ]] && source ~/.profile
 [[ -a ~/.zshrc.aliases ]] && source ~/.zshrc.aliases

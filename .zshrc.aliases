@@ -43,6 +43,7 @@ alias ssh='TERM=xterm-color ssh'
 
 alias hist="history 1 -1"
 alias tjobs="for i in `tmux list-panes -a -F "#{pane_pid} #I" | rg -e "(.+) $(tmux display-message -p '#I')" -r '$1'`; do pgrep -P $i; done | xargs ps -p"
+alias k=kubectl
 
 
 alias mpva="mpv --no-video --term-osd-bar $@"
@@ -78,3 +79,15 @@ show_colour() {
 }
 
 # compdefas __git_complete gco _git_checkout
+fsw() {
+  fzf-git::inside_work_tree || { fzf-git::info "Not a git repository"; return 1; }
+  [[ "$#" -ge 1 ]] && { git switch "$@"; return "$?"; }
+
+  local opts="
+    $FZF_GIT_DEFAULT_OPTS
+    --reverse
+  "
+  branch=$(fzf-git::list_all_branches | \
+    FZF_DEFAULT_OPTS="$opts" fzf )
+  [[ -n "$branch" ]] && git switch "$branch"
+}

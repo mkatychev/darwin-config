@@ -104,6 +104,8 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ 'go': ['gopls'],
     \ 'yaml': ['yaml-language-server', '--stdio'],
+    \ 'sql': ['sql-language-server', 'up', '--method', 'stdio'],
+    \ 'javascript': ['javascript-typescript-stdio'],
     \ }
 let g:LanguageClient_hoverPreview = 'Always'
 let g:LanguageClient_useVirtualText = 'Diagnostics'
@@ -117,15 +119,17 @@ nnoremap <silent> <MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_ho
 nnoremap <silent> <2-MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gD :call LanguageClient#textDocument_references()<CR>
-" nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
+nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
 nnoremap <silent> gh :call LanguageClient#explainErrorAtPoint()<CR>
 nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
+" refresh langserver
+noremap <leader>r :call LanguageClient#exit() <bar> :call LanguageClient#startServer() <CR>
 " go to next error declaration
 nnoremap <silent> g[ :cp<CR>
 nnoremap <silent> g] :cn<CR>
 " autoformat go code on save
-au! BufWritePre *.go,*.py, :call LanguageClient#textDocument_formatting_sync()
-" au! BufWritePre *.go,*.py,*.rs :call LanguageClient#textDocument_formatting_sync()
+" au! BufWritePre *.go,*.py, :call LanguageClient#textDocument_formatting_sync()
+au! BufWritePre *.go,*.py,*.rs :call LanguageClient#textDocument_formatting_sync()
 " yaml inline langserver settings
 " enable ncm2 on buffer enter
 autocmd BufEnter  *  call ncm2#enable_for_buffer()
@@ -167,6 +171,7 @@ let g:one_allow_italics = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc Global Vars
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:openbrowser_github_select_current_line = 1
 " :checkhealth paths
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/local/bin/python2'
@@ -179,6 +184,8 @@ let g:highlightedyank_highlight_duration = 200
 let g:rainbow_active = 0
 let g:vim_json_syntax_conceal = 0
 " NERDTree/Comment setup
+" If more than one window and previous buffer was NERDTree, go back to it.
+autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 let g:NERDCustomDelimiters = { 'sparql': { 'left': '#'} }
 let g:NERDCustomDelimiters = { 'yaml': { 'left': '#'} }
 let g:NERDCustomDelimiters = { 'openscad': { 'left': '//'} }
@@ -399,3 +406,18 @@ function! OpenFloatingWin()
         \ norelativenumber
         \ signcolumn=no
 endfunction
+
+augroup markdown_language_client_commands
+    autocmd!
+    autocmd WinLeave __LanguageClient__ ++nested call <SID>fixLanguageClientHover()
+augroup END
+
+function! s:fixLanguageClientHover()
+    setlocal modifiable
+    setlocal nonu nornu
+    setlocal conceallevel=2
+    normal i
+    setlocal nonu nornu
+    setlocal nomodifiable
+endfunction
+
