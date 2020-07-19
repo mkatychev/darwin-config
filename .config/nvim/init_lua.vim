@@ -42,13 +42,14 @@ set t_8f=[38;2;%lu;%lu;%lum
 " '<,'>sort/.*\//
 call plug#begin('~/.vim/plugged')
 " Language Client
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+Plug 'neovim/nvim-lsp'
+" Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-go'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-racer'
-Plug 'roxma/nvim-yarp', {'do': 'go get -u github.com/nsf/gocode' }
+Plug 'roxma/nvim-yarp'
 Plug 'racer-rust/vim-racer', { 'do': 'cargo +nightly install racer'}
 " searching
 Plug 'junegunn/fzf.vim'
@@ -79,7 +80,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'uarun/vim-protobuf'
 Plug 'cespare/vim-toml'
 Plug 'laggardkernel/vim-one'
-Plug 'ron-rs/ron.vim'
 " motions
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -96,41 +96,45 @@ Plug 'rust-lang/rust.vim'
 " Plug 'AndrewRadev/dsf.vim'
 " Plug 'ncm2/float-preview.nvim'
 call plug#end()
+lua require'nvim_lsp'
+lua require'nvim_lsp'.rust_analyzer.setup{capabilities={textDocument={hover={contentFormat={"plaintext";}}}}}
+" lua require'nvim_lsp'.gopls.setup{}
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LanguageClient
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rust-analyzer'],
-    \ 'python': ['pyls'],
-    \ 'go': ['gopls'],
-    \ 'yaml': ['yaml-language-server', '--stdio'],
-    \ 'sql': ['sql-language-server', 'up', '--method', 'stdio'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ }
-let g:LanguageClient_hoverPreview = 'Always'
-let g:LanguageClient_useVirtualText = 'Diagnostics'
-let g:LanguageClient_diagnosticsList = 'Location'
-let g:LanguageClient_useFloatingHover = 1
-let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_settingsPath = s:path . '/settings.json'
-let g:LanguageClient_trace = "verbose"
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <2-MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gD :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
-nnoremap <silent> gh :call LanguageClient#explainErrorAtPoint()<CR>
-nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
-" refresh langserver
-noremap <leader>r :call LanguageClient#exit() <bar> :call LanguageClient#startServer() <CR>
+" let g:LanguageClient_serverCommands = {
+"     \ 'rust': ['rust-analyzer'],
+"     \ 'python': ['pyls'],
+"     \ 'go': ['gopls'],
+"     \ 'yaml': ['yaml-language-server', '--stdio'],
+"     \ 'sql': ['sql-language-server', 'up', '--method', 'stdio'],
+"     \ 'javascript': ['javascript-typescript-stdio'],
+"     \ }
+" let g:LanguageClient_hoverPreview = 'Always'
+" let g:LanguageClient_useVirtualText = 'Diagnostics'
+" let g:LanguageClient_diagnosticsList = 'Location'
+" let g:LanguageClient_useFloatingHover = 1
+" let g:LanguageClient_loadSettings = 1
+" let g:LanguageClient_settingsPath = s:path . '/settings.json'
+" let g:LanguageClient_trace = "verbose"
+" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> <MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> <2-MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> gD :call LanguageClient#textDocument_references()<CR>
+" nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
+" nnoremap <silent> gh :call LanguageClient#explainErrorAtPoint()<CR>
+" nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
+" " refresh langserver
+" noremap <leader>r :call LanguageClient#exit() <bar> :call LanguageClient#startServer() <CR>
 " go to next error declaration
 nnoremap <silent> g[ :cp<CR>
 nnoremap <silent> g] :cn<CR>
 " autoformat go code on save
 " au! BufWritePre *.go,*.py, :call LanguageClient#textDocument_formatting_sync()
-au! BufWritePre *.go,*.py,*.rs :call LanguageClient#textDocument_formatting_sync()
+" au! BufWritePre *.go,*.py,*.rs :call LanguageClient#textDocument_formatting_sync()
 " yaml inline langserver settings
 " enable ncm2 on buffer enter
 autocmd BufEnter  *  call ncm2#enable_for_buffer()
@@ -335,24 +339,11 @@ vnoremap <silent> * :<C-U>
 "     :Tabularize /^\s*\S\+\zs/l0c1l0
 "     :Tabularize /=/
 " endfunction
-"
-function! Sqlf() range
-    :! sqlformat -a -k upper - 
-endfunction
 
 :command! Camel s#_\(\l\)#\u\1#g
 :command! Snake s#\C\(\<[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g
 " Prevent wrapping from breaking up words
 command! Doc :set wrap linebreak nolist
-command! Ls :!ls
-
-function! Format(formatter) range
-    execute a:firstline. "," . a:lastline . "!" . a:formatter
-endfunction
-
-command! -range=% Jq <line1>,<line2>call Format("jq")
-
-command! -range=% Sqlf <line1>,<line2>call Format("sqlformat -a -k upper -")
 
 " The function switches all windows pointing to the current buffer (that you are closing)
 " to the next buffer (or a new buffer if the current buffer is the last one).
@@ -421,19 +412,17 @@ function! OpenFloatingWin()
         \ signcolumn=no
 endfunction
 
-augroup markdown_language_client_commands
-    autocmd!
-    autocmd WinLeave __LanguageClient__ ++nested call <SID>fixLanguageClientHover()
-augroup END
+" augroup markdown_language_client_commands
+"     autocmd!
+"     autocmd WinLeave __LanguageClient__ ++nested call <SID>fixLanguageClientHover()
+" augroup END
 
-function! s:fixLanguageClientHover()
-    setlocal modifiable
-    setlocal nonu nornu
-    setlocal conceallevel=2
-    normal i
-    setlocal nonu nornu
-    setlocal nomodifiable
-endfunction
+" function! s:fixLanguageClientHover()
+"     setlocal modifiable
+"     setlocal nonu nornu
+"     setlocal conceallevel=2
+"     normal i
+"     setlocal nonu nornu
+"     setlocal nomodifiable
+" endfunction
 
-
-" makro =0f"lyi"$v%"0pysiw}ysa}"a$

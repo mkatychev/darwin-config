@@ -2,9 +2,10 @@
 ##zmodload zdharma/zinit
 fpath+=~/.zfunc
 
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000000
-SAVEHIST=10000000
+export HISTFILE="$HOME/.zsh_history"   # Where it gets saved
+export HISTSIZE=99999
+export SAVEHIST=99999
+export HISTFILESIZE=999999
 export KEYTIMEOUT=1
 
 setopt APPEND_HISTORY            # Don't overwrite, append!
@@ -56,7 +57,6 @@ zinit snippet OMZ::plugins/docker/_docker
 
 zinit ice wait"0" atinit"zpcompinit" lucid
 zinit snippet OMZ::plugins/docker-compose/_docker-compose
-zinit snippet OMZ::plugins/kubectl
 
 
 # C.
@@ -94,5 +94,3 @@ export KEYTIMEOUT=2
 export FZF_CTRL_T_COMMAND="fd --type f"
 export FZF_ALT_C_COMMAND="fd --type d"
 export FZF_DEFAULT_COMMAND="fd --type f --exclude .git --hidden --follow"
-
-### End of Zinit's installer chunk
