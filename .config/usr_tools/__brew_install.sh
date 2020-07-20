@@ -5,11 +5,7 @@ brew tap \
 
 
 brew install \
-  # bat \
-  # ripgrep \
-  # zsh-syntax-highlighting \
-  bitwarden-cli \
-  cargo-completion \
+  bat \
   certbot \
   clang-format \
   coreutils \
@@ -33,10 +29,12 @@ brew install \
   openssl \
   openssl@1.1 \
   protobuf \
+  pgcli \
   protoc \
   python \
   rclone \
   readline \
+  rg \
   rustup-init \
   screenfetch \
   shellcheck \
@@ -45,11 +43,16 @@ brew install \
   tig \
   tldr \
   tmux \
+  tokei \
   translate-shell \
   ykman \
-  zsh \
+  zsh
+
+brew install --HEAD neovim
+brew install cargo-completion
   
 brew cask install \
+  alacritty \
   atom \
   borgbackup \
   contexts \
@@ -66,4 +69,3 @@ brew cask install \
   slack \
   spectacle \
   spotify
-  table-tool \

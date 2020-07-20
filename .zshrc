@@ -1,24 +1,24 @@
-module_path+=( "$HOME/.zplugin/bin/zmodules/Src" )
-zmodload zdharma/zplugin
+##module_path+=( "$HOME/.zinit/bin/zmodules/Src" )
+##zmodload zdharma/zinit
 
-export HISTFILE="$HOME/.zsh_history"   # Where it gets saved
-export HISTSIZE=10000
-export SAVEHIST=10000
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000000
+SAVEHIST=10000000
 export KEYTIMEOUT=1
 
-setopt AUTO_CD
 setopt APPEND_HISTORY            # Don't overwrite, append!
-setopt INC_APPEND_HISTORY        # Write after each command
+setopt AUTO_CD
+setopt AUTO_PUSHD                # pushes the old directory onto the stack
+setopt CDABLE_VARS               # expand the expression (allows 'cd -2/tmp')
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
 setopt HIST_FCNTL_LOCK           # use OS file locking
 setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
-setopt SHARE_HISTORY             # share history between multiple shells
-setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
-setopt AUTO_PUSHD                # pushes the old directory onto the stack
+setopt INC_APPEND_HISTORY        # Write after each command
 setopt PUSHD_MINUS               # exchange the meanings of '+' and '-'
-setopt CDABLE_VARS               # expand the expression (allows 'cd -2/tmp')
+setopt SHARE_HISTORY             # share history between multiple shells
 autoload -U compinit && compinit # load + start completion
 zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
 setopt hist_lex_words # better word splitting, but more CPU heavy
@@ -37,42 +37,43 @@ bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
 ### Added by Zplugin's installer
-source "$HOME/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zplugin's installer chunk
 # A.
 setopt promptsubst
-ZPLGM[MUTE_WARNINGS]=1
+ZINIT[MUTE_WARNINGS]=1
 # B.
-zplugin ice wait"0" lucid
-zplugin snippet OMZ::lib/git.zsh
+zinit ice wait"0" lucid
+zinit snippet OMZ::lib/git.zsh
 
-zplugin load zdharma/history-search-multi-word
+zinit load zdharma/history-search-multi-word
 
-zplugin ice wait"0" atinit"zpcompinit" lucid
-zplugin snippet OMZ::plugins/docker/_docker
+zinit ice wait"0" atinit"zpcompinit" lucid
+zinit snippet OMZ::plugins/docker/_docker
 
-zplugin ice wait"0" atinit"zpcompinit" lucid
-zplugin snippet OMZ::plugins/docker-compose/_docker-compose
+zinit ice wait"0" atinit"zpcompinit" lucid
+zinit snippet OMZ::plugins/docker-compose/_docker-compose
 
 
 # C.
-zplugin ice wait"0" atload"unalias grv" lucid
-zplugin snippet OMZ::plugins/git/git.plugin.zsh
+zinit ice wait"0" atload"unalias grv" lucid
+zinit snippet OMZ::plugins/git/git.plugin.zsh
 
-zplugin light $tool/zsh_plugin 
+zinit light $tool/zsh_plugin 
 
 # D.
-zplugin ice wait"0" lucid
-zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+zinit ice wait"0" lucid
+zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
 # F.
-zplugin ice wait"0" atinit"zpcompinit" lucid
-zplugin light 'zdharma/fast-syntax-highlighting'
-zplugin load 'djui/alias-tips'
+zinit ice wait"0" atinit"zpcompinit" lucid
+zinit light 'zdharma/fast-syntax-highlighting'
+zinit load 'djui/alias-tips'
+zinit load 'hschne/fzf-git'
 
-zplugin snippet https://raw.githubusercontent.com/luiz1361/zsh-vim-mode/master/zsh-vim-mode.plugin.zsh
+zinit snippet https://raw.githubusercontent.com/luiz1361/zsh-vim-mode/master/zsh-vim-mode.plugin.zsh
 
 MODE_CURSOR_VICMD="green block"
 MODE_CURSOR_VIINS="#20d08a bar"
@@ -90,3 +91,4 @@ export FZF_CTRL_T_COMMAND="fd --type f"
 export FZF_ALT_C_COMMAND="fd --type d"
 export FZF_DEFAULT_COMMAND="fd --type f --exclude .git --hidden --follow"
 
+### End of Zinit's installer chunk

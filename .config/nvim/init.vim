@@ -48,7 +48,7 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-go'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-racer'
-Plug 'roxma/nvim-yarp'
+Plug 'roxma/nvim-yarp', {'do': 'go get -u github.com/nsf/gocode' }
 Plug 'racer-rust/vim-racer', { 'do': 'cargo +nightly install racer'}
 " searching
 Plug 'junegunn/fzf.vim'

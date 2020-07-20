@@ -2,8 +2,7 @@
 
 pip3 install \
   asciinema \
-  neovim \ 
-  pgcli \ 
-  pyls \ 
-  pynvim \ 
-  icdiff \
+  neovim \
+  pyls \
+  pynvim \
+  icdiff

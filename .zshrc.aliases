@@ -39,6 +39,7 @@ alias enfr="trans en:fr"
 alias esen="trans es:en"
 alias duostrip='pbpaste | sd "[ \n\t]+" " " | pbcopy'
 alias ssh='TERM=xterm-color ssh'
+alias nv=nvim
 
 
 alias hist="history 1 -1"
