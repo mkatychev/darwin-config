@@ -45,6 +45,7 @@ alias nv=nvim
 alias hist="history 1 -1"
 alias tjobs="for i in `tmux list-panes -a -F "#{pane_pid} #I" | rg -e "(.+) $(tmux display-message -p '#I')" -r '$1'`; do pgrep -P $i; done | xargs ps -p"
 alias k=kubectl
+alias kgp="kubectl get pods"
 
 
 alias mpva="mpv --no-video --term-osd-bar $@"
@@ -53,13 +54,6 @@ gshow() {
     end="${base##*.}"
     git show "$1" | bat --language=$end
     # bat --language=$end
-}
-
-compdefas () {
-  local a
-  a="$1"
-  shift
-  compdef "$_comps[$a]" "${(@)*}=$a"
 }
 
 cronp () {cat << EOF
@@ -79,16 +73,6 @@ show_colour() {
     perl -e 'foreach $a(@ARGV){print "\e[48;2;".join(";",unpack("C*",pack("H*",$a)))."m \e[49m "};print "\n"' "$@"
 }
 
-# compdefas __git_complete gco _git_checkout
-fsw() {
-  fzf-git::inside_work_tree || { fzf-git::info "Not a git repository"; return 1; }
-  [[ "$#" -ge 1 ]] && { git switch "$@"; return "$?"; }
-
-  local opts="
-    $FZF_GIT_DEFAULT_OPTS
-    --reverse
-  "
-  branch=$(fzf-git::list_all_branches | \
-    FZF_DEFAULT_OPTS="$opts" fzf )
-  [[ -n "$branch" ]] && git switch "$branch"
+kclean() {
+    kubectl get pods | grep "$1" | cut -d' ' -f 1 | xargs kubectl delete pod
 }

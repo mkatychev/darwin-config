@@ -339,6 +339,15 @@ vnoremap <silent> * :<C-U>
 :command! Snake s#\C\(\<[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g
 " Prevent wrapping from breaking up words
 command! Doc :set wrap linebreak nolist
+command! Ls :!ls
+
+function! Format(formatter) range
+    execute a:firstline. "," . a:lastline . "!" . a:formatter
+endfunction
+
+command! -range=% Jq <line1>,<line2>call Format("jq")
+
+command! -range=% Sqlf <line1>,<line2>call Format("sqlformat -a -k upper -")
 
 " The function switches all windows pointing to the current buffer (that you are closing)
 " to the next buffer (or a new buffer if the current buffer is the last one).

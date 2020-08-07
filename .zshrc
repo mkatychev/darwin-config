@@ -1,5 +1,6 @@
 ##module_path+=( "$HOME/.zinit/bin/zmodules/Src" )
 ##zmodload zdharma/zinit
+fpath+=~/.zfunc
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
@@ -55,6 +56,7 @@ zinit snippet OMZ::plugins/docker/_docker
 
 zinit ice wait"0" atinit"zpcompinit" lucid
 zinit snippet OMZ::plugins/docker-compose/_docker-compose
+zinit snippet OMZ::plugins/kubectl
 
 
 # C.
@@ -69,9 +71,10 @@ zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
 # F.
 zinit ice wait"0" atinit"zpcompinit" lucid
+zinit light 'Aloxaf/fzf-tab'
+# zinit light 'bonnefoa/kubectl-fzf'
 zinit light 'zdharma/fast-syntax-highlighting'
 zinit load 'djui/alias-tips'
-zinit load 'hschne/fzf-git'
 
 zinit snippet https://raw.githubusercontent.com/luiz1361/zsh-vim-mode/master/zsh-vim-mode.plugin.zsh
 
@@ -79,6 +82,7 @@ MODE_CURSOR_VICMD="green block"
 MODE_CURSOR_VIINS="#20d08a bar"
 MODE_CURSOR_SEARCH="#ff00ff steady underline"
 
+# [[ -a ~/.zfunc/_cargo ]] && source ~/.zfunc/_cargo
 [[ -a ~/.fzf.git.zsh ]] && source ~/.fzf.git.zsh
 [[ -a ~/.zprofile ]] && source ~/.zprofile
 [[ -a ~/.profile ]] && source ~/.profile

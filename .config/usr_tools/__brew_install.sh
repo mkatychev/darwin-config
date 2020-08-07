@@ -35,6 +35,7 @@ brew install \
   rclone \
   readline \
   rg \
+  jq \
   rustup-init \
   screenfetch \
   shellcheck \
