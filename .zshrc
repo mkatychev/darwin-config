@@ -21,7 +21,7 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt INC_APPEND_HISTORY        # Write after each command
 setopt PUSHD_MINUS               # exchange the meanings of '+' and '-'
 setopt SHARE_HISTORY             # share history between multiple shells
-autoload -U compinit && compinit # load + start completion
+autoload -Uz compinit && compinit # load + start completion
 zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
 setopt hist_lex_words # better word splitting, but more CPU heavy
 export CASE_SENSITIVE="true"
@@ -29,9 +29,9 @@ export CASE_SENSITIVE="true"
 # tab completion highlight
 zstyle ':completion:*' menu select
 
-#where jira &> /dev/null  && source <(jira --completion-script-zsh)
-#where kx &> /dev/null  && source <(kx complete)
-#where kubectl &> /dev/null  && source <(kubectl completion zsh)
+command -v jira &> /dev/null  && source <(jira --completion-script-zsh)
+# command -v kx &> /dev/null  && source <(kx complete)
+command -v kubectl &> /dev/null  && source <(kubectl completion zsh)
 # initialize theme
 bindkey ^v vi-cmd-mode
 bindkey "^[[3~" delete-char
