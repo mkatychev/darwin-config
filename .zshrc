@@ -29,14 +29,6 @@ export CASE_SENSITIVE="true"
 # tab completion highlight
 zstyle ':completion:*' menu select
 
-command -v jira &> /dev/null  && source <(jira --completion-script-zsh)
-# command -v kx &> /dev/null  && source <(kx complete)
-command -v kubectl &> /dev/null  && source <(kubectl completion zsh)
-# initialize theme
-bindkey ^v vi-cmd-mode
-bindkey "^[[3~" delete-char
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
 
 ### Added by Zplugin's installer
 source "$HOME/.zinit/bin/zinit.zsh"
@@ -50,7 +42,16 @@ ZINIT[MUTE_WARNINGS]=1
 zinit ice wait"0" lucid
 zinit snippet OMZ::lib/git.zsh
 
-zinit load zdharma/history-search-multi-word
+zinit snippet https://raw.githubusercontent.com/softmoth/zsh-vim-mode/master/zsh-vim-mode.plugin.zsh
+# zinit load zdharma/history-search-multi-word
+command -v jira &> /dev/null  && source <(jira --completion-script-zsh)
+# command -v kx &> /dev/null  && source <(kx complete)
+command -v kubectl &> /dev/null  && source <(kubectl completion zsh)
+# initialize theme
+# bindkey ^v vi-cmd-mode
+bindkey "^[[3~" delete-char
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
 zinit ice wait"0" atinit"zpcompinit" lucid
 zinit snippet OMZ::plugins/docker/_docker
@@ -62,7 +63,6 @@ zinit snippet OMZ::plugins/docker-compose/_docker-compose
 # C.
 zinit ice wait"0" atload"unalias grv" lucid
 zinit snippet OMZ::plugins/git/git.plugin.zsh
-
 zinit light $tool/zsh_plugin 
 
 # D.
@@ -72,11 +72,8 @@ zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 # F.
 zinit ice wait"0" atinit"zpcompinit" lucid
 zinit light 'Aloxaf/fzf-tab'
-# zinit light 'bonnefoa/kubectl-fzf'
 zinit light 'zdharma/fast-syntax-highlighting'
 zinit load 'djui/alias-tips'
-
-zinit snippet https://raw.githubusercontent.com/luiz1361/zsh-vim-mode/master/zsh-vim-mode.plugin.zsh
 
 MODE_CURSOR_VICMD="green block"
 MODE_CURSOR_VIINS="#20d08a bar"

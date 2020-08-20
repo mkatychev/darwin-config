@@ -10,7 +10,7 @@ export py=$HOME/Documents/python
 export rs=$HOME/Documents/rust
 export go=$HOME/Documents/go
 export tool=$cfg/usr_tools
-export notes=$doc/notes
+export nt=$doc/notes
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 alias pipup="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
@@ -59,7 +59,7 @@ gshow() {
 }
 alias sqlf="sqlformat -a -k upper -"
 
-cronp () {cat << EOF
+cronp() { cat << EOF
 # ┌───────────── minute (0 - 59)
 # │ ┌───────────── hour (0 - 23)
 # │ │ ┌───────────── day of the month (1 - 31)
