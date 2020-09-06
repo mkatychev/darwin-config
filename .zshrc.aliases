@@ -48,6 +48,7 @@ alias hist="history 1 -1"
 alias tjobs="for i in `tmux list-panes -a -F "#{pane_pid} #I" | rg -e "(.+) $(tmux display-message -p '#I')" -r '$1'`; do pgrep -P $i; done | xargs ps -p"
 alias k=kubectl
 alias kgp="kubectl get pods"
+alias doco="docker-compose"
 
 
 alias mpva="mpv --no-video --term-osd-bar $@"
