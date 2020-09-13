@@ -20,6 +20,8 @@ set foldlevelstart=99
 set viewoptions-=options,folds
 " Make Russian work in normal mode.
 set langmap=АБСДЕФГЧИЙКЛМНОПЯРСТУВШХЫЗ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,абсдефгчийклмнопярстувшхыз;abcdefghijklmnopqrstuvwxyz
+set signcolumn=number
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux Particulars
@@ -65,6 +67,8 @@ Plug 'mattn/webapi-vim'
 Plug 'itchyny/vim-gitbranch'
 " display
 Plug 'joshdick/onedark.vim'
+" Plug 'blueyed/vim-diminactive'
+" Plug 'laggardkernel/vim-one'
 Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'luochen1990/rainbow'
 Plug 'ap/vim-css-color'
@@ -89,6 +93,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar', { 'do': 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags' }
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'rust-lang/rust.vim'
 " Python
 " Plug 'Yggdroot/indentLine'
@@ -146,7 +151,7 @@ au! BufNewFile,BufRead *.html,*.xml,*.plist set filetype=xml
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color Schemes
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme onedark
 
 let g:onedark_terminal_italics=1
@@ -157,17 +162,17 @@ call onedark#extend_highlight('LineNr',
 call onedark#extend_highlight('CursorLineNr',
             \ {'fg': { 'gui': '#616162'},'bg': { 'gui': '#ffffff'}
             \ })
-call onedark#extend_highlight('Normal',
-            \ {'bg': { 'gui': '#1d2025'}
-            \ })
+call onedark#extend_highlight('Normal', {'bg': { 'gui': '#1d2025'} })
 call onedark#extend_highlight('Comment', {'gui': 'italic'})
-
-"colorscheme one
-let g:one_allow_italics = 1
+call onedark#extend_highlight('ErrorMsg', {'fg': { 'gui': '#d73a49'} })
+" colorscheme one
+" let g:one_allow_italics = 1
 " call one#highlight('LineNr', 'f2bf93', '230f38', '')
 " call one#highlight('CursorLineNr', '616162', 'ffffff', '')
 " call one#highlight('Normal', '', '1d2025', 'none')
 " call one#highlight('vimLineComment', '', '', 'italic')
+highlight! link ALEErrorSign LineNr
+highlight! link ALEError ErrorMsg
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc Global Vars
@@ -225,6 +230,7 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.branch = ''
+let g:airline_theme='bubblegum'
 " truncate lengthy branch names
 let g:airline#extensions#branch#displayed_head_limit = 10
 
@@ -285,6 +291,7 @@ nnoremap <silent> <C-L> :nohl<CR>
 :imap <3-MiddleMouse> <Nop>
 :map <4-MiddleMouse> <Nop>
 :imap <4-MiddleMouse> <Nop>
+nmap =j :%!python3.10 -m json.tool --indent 2<CR>
 
 " FZF commands
 let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
@@ -434,6 +441,20 @@ function! s:fixLanguageClientHover()
     setlocal nonu nornu
     setlocal nomodifiable
 endfunction
+
+
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * 
+  \ if !&readonly && &modifiable
+  \|     setlocal relativenumber
+  \| endif
+
+  autocmd WinLeave *
+  \ if !&readonly && &modifiable
+  \|     setlocal norelativenumber
+  \| endif
+augroup END
 
 
 " makro =0f"lyi"$v%"0pysiw}ysa}"a$
