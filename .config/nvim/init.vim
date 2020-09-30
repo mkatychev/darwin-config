@@ -22,6 +22,10 @@ set viewoptions-=options,folds
 set langmap=АБСДЕФГЧИЙКЛМНОПЯРСТУВШХЫЗ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,абсдефгчийклмнопярстувшхыз;abcdefghijklmnopqrstuvwxyz
 set signcolumn=number
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Prelude configs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:polyglot_disabled = ['md']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux Particulars
@@ -151,7 +155,7 @@ au! BufNewFile,BufRead *.html,*.xml,*.plist set filetype=xml
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color Schemes
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme onedark
 
 let g:onedark_terminal_italics=1
@@ -182,7 +186,6 @@ let g:openbrowser_github_select_current_line = 1
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/local/bin/python2'
 " markdown config
-let g:polyglot_disabled = ['md']
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_fenced_languages = ['rust', 'go']
@@ -264,7 +267,7 @@ noremap <silent>Ø :bp<CR>
 inoremap <silent>Ø <Esc>:bp<CR>
 " <M-[>
 " noremap <silent>Æ :tabnext<CR> 
-noremap <silent>Æ :NERDTree <bar> :wincmd p <bar> :NERDTreeFind<CR>
+noremap <silent><leader>[ :NERDTree <bar> :wincmd p <bar> :NERDTreeFind<CR>
 noremap <silent>Ú :tabNext<CR> 
 " <M-]>
 " <M-i>
@@ -273,8 +276,8 @@ noremap <silent>˘ :tabnew<CR>
 " <M-W> \xe2\x80\a6
 noremap <silent>… :call CloseBuffer()<CR>
 " <M-\> \xc2\xbb
-noremap <silent>» :NERDTreeToggle<CR>
-inoremap <silent>» <Esc>:NERDTreeToggle<CR>
+noremap <silent><leader>] :NERDTreeToggle<CR>
+inoremap <silent><leader>]<Esc>:NERDTreeToggle<CR>
 
 " fuzzy buffer search
 map z/ <Plug>(incsearch-fuzzy-/)
@@ -455,6 +458,9 @@ augroup CursorLineOnlyInActiveWindow
   \|     setlocal norelativenumber
   \| endif
 augroup END
+
+" https://stackoverflow.com/questions/63906439/how-to-disable-line-numbers-in-neovim-terminal
+autocmd TermOpen * setlocal nonumber norelativenumber
 
 
 " makro =0f"lyi"$v%"0pysiw}ysa}"a$

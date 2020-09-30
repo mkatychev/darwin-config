@@ -1,0 +1,29 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Mikhail Katychev
+	email = mkatych@gmail.com
+	signingKey = 9E8549CD2CEB5E59
+[core]
+	excludesfile = ~/.config/.gitignore_global
+	; pager = bat
+    ; pager = bat -p
+[pull]
+	rebase = true
+[commit]
+	gpgSign = true
+[gpg]
+	program = gpg
+[pager]
+    diff = bat -p --paging=always --pager=\"less\"
+    log = bat -p -l gitlog --paging=always --pager=\"less\"
+[alias]
+    ; bshow = "!f() { git show $1 | bat -l \"$(echo $1 | sd '.*\.(.*)' \$1)\" }; f"
+    alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+; [url "git@github.com:"]
+;     insteadOf = https://github.com/
+[credential]
+	; https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:x-oauth-basic@github.com
+	; https://mkatychev:XXXXXXXXXXXXXXXXXXXX@gitlab.com
+	helper = store

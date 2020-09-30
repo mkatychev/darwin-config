@@ -2,6 +2,7 @@ export CARGO_HOME=$HOME/.cargo
 export GOPATH=$HOME/.go
 export RUSTUP_HOME=$HOME/.rustup
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
+export EDITOR=nvim
 
 export PATH=$CARGO_HOME/bin:$PATH
 export PATH=$GOPATH/bin:$PATH

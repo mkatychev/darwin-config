@@ -17,6 +17,7 @@
 !.config/usr_tools
 !.config/usr_tools/**/*
 !.gitignore
+!.gitconfig
 !.ipython/
 !.ipython/*
 !.ipython/profile_default/
