@@ -568,7 +568,7 @@ key_bindings:
   # vim shit
   - { key: C,          mods: Command,        chars: "\x0c"         }
   - { key: Slash,      mods: Command,        chars: "\x5c\x63\x20" }
-  - { key: Backslash,  mods: Command,        chars: "\xc2\xbb"     }
+  - { key: Backslash,  mods: Command,        chars: "\xc2"     }
   - { key: Tab,        mods: Control|Shift,  chars: "Ø"            }
   - { key: Tab,        mods: Control,        chars: "∏"            }
   #

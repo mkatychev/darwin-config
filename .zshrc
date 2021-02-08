@@ -42,7 +42,6 @@ ZINIT[MUTE_WARNINGS]=1
 zinit ice wait"0" lucid
 zinit snippet OMZ::lib/git.zsh
 
-zinit snippet https://raw.githubusercontent.com/softmoth/zsh-vim-mode/master/zsh-vim-mode.plugin.zsh
 # zinit load zdharma/history-search-multi-word
 command -v jira &> /dev/null  && source <(jira --completion-script-zsh)
 # command -v kx &> /dev/null  && source <(kx complete)
@@ -74,6 +73,7 @@ zinit ice wait"0" atinit"zpcompinit" lucid
 zinit light 'Aloxaf/fzf-tab'
 zinit light 'zdharma/fast-syntax-highlighting'
 zinit load 'djui/alias-tips'
+zinit snippet https://raw.githubusercontent.com/softmoth/zsh-vim-mode/master/zsh-vim-mode.plugin.zsh
 
 MODE_CURSOR_VICMD="green block"
 MODE_CURSOR_VIINS="#20d08a bar"

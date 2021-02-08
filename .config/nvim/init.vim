@@ -21,11 +21,12 @@ set viewoptions-=options,folds
 " Make Russian work in normal mode.
 set langmap=АБСДЕФГЧИЙКЛМНОПЯРСТУВШХЫЗ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,абсдефгчийклмнопярстувшхыз;abcdefghijklmnopqrstuvwxyz
 set signcolumn=number
+set nocompatible
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Prelude configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:polyglot_disabled = ['md']
+let g:polyglot_disabled = ['md', 'sensible', 'toml']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux Particulars
@@ -75,7 +76,7 @@ Plug 'joshdick/onedark.vim'
 " Plug 'laggardkernel/vim-one'
 Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'luochen1990/rainbow'
-Plug 'ap/vim-css-color'
+" Plug 'ap/vim-css-color'
 Plug 'rust-lang/rust.vim'
 " syntax
 Plug 'kevinoid/vim-jsonc'
@@ -85,7 +86,7 @@ Plug 'swinman/vim-nc', { 'branch': 'scaled_error' } " G-Code highlighting
 Plug 'sirtaj/vim-openscad'
 Plug 'sheerun/vim-polyglot'
 Plug 'uarun/vim-protobuf'
-Plug 'cespare/vim-toml'
+Plug 'mkatychev/vim-toml'
 Plug 'laggardkernel/vim-one'
 Plug 'ron-rs/ron.vim'
 " motions
@@ -93,6 +94,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'machakann/vim-highlightedyank'
+" Plug 'triglav/vim-visual-increment'
 " misc
 Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar', { 'do': 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags' }
@@ -156,35 +158,42 @@ au! BufNewFile,BufRead *.html,*.xml,*.plist set filetype=xml
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color Schemes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme onedark
 
 let g:onedark_terminal_italics=1
 let g:onedark_termcolors=256
-call onedark#extend_highlight('LineNr',
-            \ {'fg': { 'gui': '#f2bf93'},'bg': { 'gui': '#230f38'}
-            \ })
-call onedark#extend_highlight('CursorLineNr',
-            \ {'fg': { 'gui': '#616162'},'bg': { 'gui': '#ffffff'}
-            \ })
-call onedark#extend_highlight('Normal', {'bg': { 'gui': '#1d2025'} })
-call onedark#extend_highlight('Comment', {'gui': 'italic'})
-call onedark#extend_highlight('ErrorMsg', {'fg': { 'gui': '#d73a49'} })
+
+augroup colorextend
+    autocmd!
+    autocmd ColorScheme * call onedark#extend_highlight('LineNr',{'fg':{'gui':'#f2bf93'},'bg':{'gui':'#230f38'}})
+    autocmd ColorScheme * call onedark#extend_highlight('CursorLineNr',{'fg':{'gui':'#616162'},'bg':{'gui':'#ffffff'}})
+    autocmd ColorScheme * call onedark#extend_highlight('Normal',{'bg':{'gui':'#1d2025'}})
+    autocmd ColorScheme * call onedark#extend_highlight('Normal',{'bg':{'gui':'#1d2025'}})
+    autocmd ColorScheme * call onedark#set_highlight('Title',{'fg':{'cterm': '114', 'gui':'#56b6c2'}})
+    autocmd ColorScheme * call onedark#set_highlight('ErrorMsg',{'fg':{'cterm': '204', 'gui':'#d73a49'}})
+augroup END
+
+highlight! link ALEErrorSign LineNr
+highlight! link ALEError ErrorMsg
+
+
+
+
 " colorscheme one
 " let g:one_allow_italics = 1
 " call one#highlight('LineNr', 'f2bf93', '230f38', '')
 " call one#highlight('CursorLineNr', '616162', 'ffffff', '')
 " call one#highlight('Normal', '', '1d2025', 'none')
 " call one#highlight('vimLineComment', '', '', 'italic')
-highlight! link ALEErrorSign LineNr
-highlight! link ALEError ErrorMsg
+colorscheme onedark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc Global Vars
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:openbrowser_github_select_current_line = 1
 " :checkhealth paths
-let g:python3_host_prog = '/usr/local/bin/python3'
-let g:python_host_prog = '/usr/local/bin/python2'
+let g:python3_host_prog = 'python3'
+let g:python_host_prog = 'python2'
+let g:ruby_host_prog = 'ruby'
 " markdown config
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
@@ -266,7 +275,7 @@ inoremap <silent>∏ <Esc>:bn<CR>
 noremap <silent>Ø :bp<CR>
 inoremap <silent>Ø <Esc>:bp<CR>
 " <M-[>
-" noremap <silent>Æ :tabnext<CR> 
+" noremap <silent>Â :NERDTree <bar> :wincmd p <bar> :NERDTreeFind<CR>
 noremap <silent><leader>[ :NERDTree <bar> :wincmd p <bar> :NERDTreeFind<CR>
 noremap <silent>Ú :tabNext<CR> 
 " <M-]>
@@ -364,6 +373,8 @@ command! -range=% Jq <line1>,<line2>call Format("jq")
 
 command! -range=% Sqlf <line1>,<line2>call Format("sqlformat -a -k upper -")
 
+command! -range=% Shf <line1>,<line2>call Format("shfmt -i 2")
+
 " The function switches all windows pointing to the current buffer (that you are closing)
 " to the next buffer (or a new buffer if the current buffer is the last one).
 "
@@ -433,7 +444,7 @@ endfunction
 
 augroup markdown_language_client_commands
     autocmd!
-    autocmd WinLeave __LanguageClient__ ++nested call <SID>fixLanguageClientHover()
+    autocmd WinLeave __LCNHover__ ++nested call <SID>fixLanguageClientHover()
 augroup END
 
 function! s:fixLanguageClientHover()

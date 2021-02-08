@@ -3,6 +3,7 @@ export GOPATH=$HOME/.go
 export RUSTUP_HOME=$HOME/.rustup
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 export EDITOR=nvim
+export GOCACHE_PATH="~/Library/Caches/go-build"
 
 export PATH=$CARGO_HOME/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
