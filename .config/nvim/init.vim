@@ -26,7 +26,6 @@ set nocompatible
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Prelude configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:polyglot_disabled = ['md', 'sensible', 'toml']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux Particulars
@@ -42,6 +41,7 @@ set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
 set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
+let g:polyglot_disabled = ['sensible']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -52,7 +52,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-go'
+Plug 'ncm2/ncm2-go', {'do': 'go get -u github.com/fatih/motion' }
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-racer'
 Plug 'roxma/nvim-yarp', {'do': 'go get -u github.com/nsf/gocode' }
@@ -73,7 +73,7 @@ Plug 'itchyny/vim-gitbranch'
 " display
 Plug 'joshdick/onedark.vim'
 " Plug 'blueyed/vim-diminactive'
-" Plug 'laggardkernel/vim-one'
+" Plug 'rakr/vim-one'
 Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'luochen1990/rainbow'
 " Plug 'ap/vim-css-color'
@@ -87,7 +87,6 @@ Plug 'sirtaj/vim-openscad'
 Plug 'sheerun/vim-polyglot'
 Plug 'uarun/vim-protobuf'
 Plug 'mkatychev/vim-toml'
-Plug 'laggardkernel/vim-one'
 Plug 'ron-rs/ron.vim'
 " motions
 Plug 'tpope/vim-repeat'
@@ -172,19 +171,22 @@ augroup colorextend
     autocmd ColorScheme * call onedark#set_highlight('ErrorMsg',{'fg':{'cterm': '204', 'gui':'#d73a49'}})
 augroup END
 
+colorscheme onedark
+
 highlight! link ALEErrorSign LineNr
 highlight! link ALEError ErrorMsg
 
 
 
-
-" colorscheme one
 " let g:one_allow_italics = 1
+" colorscheme one
 " call one#highlight('LineNr', 'f2bf93', '230f38', '')
 " call one#highlight('CursorLineNr', '616162', 'ffffff', '')
 " call one#highlight('Normal', '', '1d2025', 'none')
-" call one#highlight('vimLineComment', '', '', 'italic')
-colorscheme onedark
+" call one#highlight('Title', '56b6c2', '', '')
+" call one#highlight('LineComment', '', '', 'italic')
+" call one#highlight('ErrorMsg', 'd73a49', '', '')
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc Global Vars
@@ -278,6 +280,7 @@ inoremap <silent>Ø <Esc>:bp<CR>
 " noremap <silent>Â :NERDTree <bar> :wincmd p <bar> :NERDTreeFind<CR>
 noremap <silent><leader>[ :NERDTree <bar> :wincmd p <bar> :NERDTreeFind<CR>
 noremap <silent>Ú :tabNext<CR> 
+noremap <D-i> dd<CR>
 " <M-]>
 " <M-i>
 noremap <silent>˘ :tabnew<CR> 
@@ -293,6 +296,7 @@ map z/ <Plug>(incsearch-fuzzy-/)
 
 " command mode emacs bindings
 cnoremap <C-A> <C-B>
+inoremap <C-A> <C-B>
 " clear highlight
 nnoremap <silent> <C-L> :nohl<CR>
 

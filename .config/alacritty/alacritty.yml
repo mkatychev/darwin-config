@@ -613,6 +613,8 @@ key_bindings:
   - { key: Back,      mods: Alt,  chars: "\x1b\x7f"   }
   - { key: C,         mods: Alt,  chars: "\x1bc"      }
   - { key: D,         mods: Alt,  chars: "\x1bd"      }
+  - { key: F,         mods: Alt,  chars: "\x1bf"      }
+  - { key: B,         mods: Alt,  chars: "\x1bb"      }
   - { key: F5,        mods: Alt,  chars: "\x1b[15;6~" }
   - { key: F6,        mods: Alt,  chars: "\x1b[17;6~" }
   - { key: F7,        mods: Alt,  chars: "\x1b[18;6~" }

@@ -80,6 +80,11 @@ show_colour() {
 kclean() {
     kubectl get pods | grep "$1" | cut -d' ' -f 1 | xargs kubectl delete pod
 } 
+
+kge() {
+    kubectl get event --field-selector involvedObject.name="$1"
+}
+
 jqfmt() {
     for i in *.json; do D=$(jq . -M $i); echo $D > $i ; done
 }

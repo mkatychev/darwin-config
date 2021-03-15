@@ -1,6 +1,6 @@
 "call onedark#GetColors()
-"call one#highlight('rustModPathSep', '', '1d2025', 'none')
-"call onedark#extend_highlight('rustModPathSep', {'fg': s:colors.white})
+" call one#highlight('rustModPathSep', '', '1d2025', 'none')
+" call onedark#extend_highlight('rustModPathSep', {'fg': s:colors.white})
 set autoindent
 " set nofoldenable
 let g:rustfmt_command = 'rustfmt +nightly'
