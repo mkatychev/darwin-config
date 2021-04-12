@@ -3,6 +3,10 @@ brew tap \
   homebrew/cask-fonts \
   moncho/dry
 
+# brew install --build-from-source --HEAD neovim
+# https://github.com/nvim-treesitter/nvim-treesitter/pulls
+
+
 
 brew install \
   bat \

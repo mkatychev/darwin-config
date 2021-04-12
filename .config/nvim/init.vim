@@ -20,7 +20,8 @@ set foldlevelstart=99
 set viewoptions-=options,folds
 " Make Russian work in normal mode.
 set langmap=АБСДЕФГЧИЙКЛМНОПЯРСТУВШХЫЗ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,абсдефгчийклмнопярстувшхыз;abcdefghijklmnopqrstuvwxyz
-set signcolumn=number
+" set signcolumn=number # hides current line if error on line, follow up
+set signcolumn=yes
 set nocompatible
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -74,11 +75,10 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'joshdick/onedark.vim'
 " Plug 'blueyed/vim-diminactive'
 " Plug 'rakr/vim-one'
-Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'luochen1990/rainbow'
 " Plug 'ap/vim-css-color'
-Plug 'rust-lang/rust.vim'
 " syntax
+" Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'kevinoid/vim-jsonc'
 Plug 'mtdl9/vim-log-highlighting'
 Plug 'plasticboy/vim-markdown'
@@ -99,7 +99,6 @@ Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar', { 'do': 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'rust-lang/rust.vim'
 " Python
 " Plug 'Yggdroot/indentLine'
 " Plug 'ryanoasis/vim-devicons'
@@ -119,7 +118,7 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ }
 let g:LanguageClient_hoverPreview = 'Always'
-let g:LanguageClient_useVirtualText = 'Diagnostics'
+let g:LanguageClient_useVirtualText = 'No'
 let g:LanguageClient_diagnosticsList = 'Location'
 let g:LanguageClient_useFloatingHover = 1
 let g:LanguageClient_loadSettings = 1
@@ -131,13 +130,14 @@ nnoremap <silent> <2-MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gD :call LanguageClient#textDocument_references()<CR>
 nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
+nnoremap <silent> gC :call LanguageClient#clearDocumentHighlight()<CR>
 nnoremap <silent> gh :call LanguageClient#explainErrorAtPoint()<CR>
 nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
 " refresh langserver
 noremap <leader>r :call LanguageClient#exit() <bar> :call LanguageClient#startServer() <CR>
 " go to next error declaration
-nnoremap <silent> g[ :cp<CR>
-nnoremap <silent> g] :cn<CR>
+nnoremap <silent> g[ :call LanguageClient_diagnosticsPrevious()<CR>
+nnoremap <silent> g] :call LanguageClient_diagnosticsNext()<CR>
 " autoformat go code on save
 " au! BufWritePre *.go,*.py, :call LanguageClient#textDocument_formatting_sync()
 au! BufWritePre *.go,*.py,*.rs :call LanguageClient#textDocument_formatting_sync()
@@ -146,6 +146,28 @@ au! BufWritePre *.go,*.py,*.rs :call LanguageClient#textDocument_formatting_sync
 autocmd BufEnter  *  call ncm2#enable_for_buffer()
 " allow completion on single var match for ncm2
 set completeopt=menuone,noinsert,noselect
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tree-sitter
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+"   highlight = {
+"     enable = true,              -- false will disable the whole extension
+"   },
+"   incremental_selection = {
+"     enable = true,
+"     keymaps = {
+"       init_selection = "gnn",
+"       node_incremental = "grn",
+"       scope_incremental = "grc",
+"       node_decremental = "grm",
+"     },
+"   },
+" }
+" EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype Aliases
@@ -316,6 +338,11 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
+command! -bang -nargs=* Rguu
+  \ call fzf#vim#grep(
+  \   'rg -uu --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
@@ -360,7 +387,7 @@ vnoremap <silent> * :<C-U>
 " endfunction
 "
 function! Sqlf() range
-    :! sqlformat -a -k upper - 
+    :! sql-formatter
 endfunction
 
 :command! Camel s#_\(\l\)#\u\1#g
@@ -375,7 +402,7 @@ endfunction
 
 command! -range=% Jq <line1>,<line2>call Format("jq")
 
-command! -range=% Sqlf <line1>,<line2>call Format("sqlformat -a -k upper -")
+command! -range=% Sqlf <line1>,<line2>call Format("sql-formatter")
 
 command! -range=% Shf <line1>,<line2>call Format("shfmt -i 2")
 
@@ -428,7 +455,8 @@ function! OpenFloatingWin()
         \ 'row': height * 0.3,
         \ 'col': col + 30,
         \ 'width': width * 2 / 3,
-        \ 'height': height / 2
+        \ 'height': height/2,
+        \ 'style': 'minimal',
         \ }
 
   let buf = nvim_create_buf(v:false, v:true)

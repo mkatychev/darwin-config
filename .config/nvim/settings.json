@@ -1,41 +1,54 @@
 {
-    "http": {
-        "proxyStrictSSL": true
-    },
-    "pyls": {
-        "configurationSources": [
-            "flake8"
-        ],
-        "plugins": {
-            "autopep8": {
-                "enabled": false
-            },
-            "pycodestyle": {
-                "enabled": false
-            },
-            "pydocstyle": {
-                "enabled": false
-            },
-            "pylint": {
-                "enabled": false
-            },
-            "pyflakes": {
-                "enabled": true
-            },
-            "yapf": {
-                "enabled": false
-            }
-        }
-    },
-    "yaml": {
-        "completion": true,
-        "format": {
-            "enable": true
-        },
-        "hover": true,
-        "schemas": {
-            "Kubernetes": "/*"
-        },
-        "validate": true
+  "http": {
+    "proxyStrictSSL": true
+  },
+  "pyls": {
+    "configurationSources": [
+      "flake8"
+    ],
+    "plugins": {
+      "autopep8": {
+        "enabled": false
+      },
+      "pycodestyle": {
+        "enabled": false
+      },
+      "pydocstyle": {
+        "enabled": false
+      },
+      "pylint": {
+        "enabled": false
+      },
+      "pyflakes": {
+        "enabled": true
+      },
+      "yapf": {
+        "enabled": false
+      }
     }
+  },
+  "yaml": {
+    "completion": true,
+    "format": {
+      "enable": true
+    },
+    "hover": true,
+    "schemas": {
+      "Kubernetes": "/*"
+    },
+    "validate": true
+  },
+  "rust-analyzer": {
+    "rustfmt": {
+      "extraArgs": [
+        "+nightly"
+      ]
+    },
+    "cargo": {
+      "loadOutDirsFromCheck": true
+    },
+    "procMacro": {
+      "enable": true
+    }
+  }
 }
