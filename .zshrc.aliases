@@ -86,7 +86,7 @@ kge() {
 }
 
 jqfmt() {
-    for i in *.json; do D=$(jq . -M $i); echo $D > $i ; done
+    for i in $1; do D=$(jq . -M $i); echo $D > $i ; done
 }
 
 batdiff() {
@@ -98,4 +98,8 @@ dclean() {
     docker image prune -f
     docker network prune -f
     docker volume prune -f
+}
+
+len() {
+    python3 -c "print(len(\"$1\"))"
 }

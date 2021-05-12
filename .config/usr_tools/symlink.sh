@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-ln -s $tool/spectacle_shortcuts.json Library/Application\ Support/Spectacle/Shortcuts.json
+RECTANGLE_PLIST="$HOME/Library/Preferences/com.knollsoft.Rectangle.plist"
+
+link_rectangle() {
+  ln -s "$tool/prefs/com.knollsoft.Rectangle.plist" "$RECTANGLE_PLIST"
+}
+
+rm "$RECTANGLE_PLIST"; link_rectangle
