@@ -5,6 +5,8 @@
 !*.terminfo
 !.config/
 !.config/iterm/
+!.config/bat/
+!.config/bat/*
 !.config/iterm/*
 !.config/nvim
 !.config/nvim/**/*
