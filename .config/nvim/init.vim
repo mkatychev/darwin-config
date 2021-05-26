@@ -53,10 +53,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-go', {'do': 'go get -u github.com/fatih/motion' }
+Plug 'ncm2/ncm2-go', {'do': 'go get -u github.com/fatih/motion; go get -u github.com/nsf/gocode' }
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-racer'
-Plug 'roxma/nvim-yarp', {'do': 'go get -u github.com/nsf/gocode' }
+Plug 'roxma/nvim-yarp', {'do': '/usr/bin/python2 -m pip install pynvim' }
 Plug 'racer-rust/vim-racer', { 'do': 'cargo +nightly install racer'}
 " searching
 Plug 'junegunn/fzf.vim'
@@ -124,6 +124,7 @@ let g:LanguageClient_useFloatingHover = 1
 let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_settingsPath = s:path . '/settings.json'
 let g:LanguageClient_trace = "verbose"
+let g:LanguageClient_preferredMarkupKind = ['markdown']
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <2-MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_definition()<CR>
@@ -380,22 +381,13 @@ vnoremap <silent> * :<C-U>
   \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
-" Obsolete with clang-format
-" function! TabProto() range
-"     :Tabularize /^\s*\S\+\zs/l0c1l0
-"     :Tabularize /=/
-" endfunction
-"
-function! Sqlf() range
-    :! sql-formatter
-endfunction
-
 :command! Camel s#_\(\l\)#\u\1#g
 :command! Snake s#\C\(\<[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g
 " Prevent wrapping from breaking up words
 command! Doc :set wrap linebreak nolist
 command! Ls :!ls
 
+" Formatters
 function! Format(formatter) range
     execute a:firstline. "," . a:lastline . "!" . a:formatter
 endfunction

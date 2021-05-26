@@ -21,7 +21,7 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt INC_APPEND_HISTORY        # Write after each command
 setopt PUSHD_MINUS               # exchange the meanings of '+' and '-'
 setopt SHARE_HISTORY             # share history between multiple shells
-autoload -Uz compinit && compinit # load + start completion
+autoload -Uz compinit && compinit -i # load + start completion
 zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
 setopt hist_lex_words # better word splitting, but more CPU heavy
 export CASE_SENSITIVE="true"
@@ -75,11 +75,13 @@ zinit light 'zdharma/fast-syntax-highlighting'
 zinit load 'djui/alias-tips'
 zinit snippet https://raw.githubusercontent.com/softmoth/zsh-vim-mode/master/zsh-vim-mode.plugin.zsh
 
+zinit ice lucid nocompile
+zinit load MenkeTechnologies/zsh-cargo-completion
+
 MODE_CURSOR_VICMD="green block"
 MODE_CURSOR_VIINS="#20d08a bar"
 MODE_CURSOR_SEARCH="#ff00ff steady underline"
 
-# [[ -a ~/.zfunc/_cargo ]] && source ~/.zfunc/_cargo
 [[ -a ~/.fzf.git.zsh ]] && source ~/.fzf.git.zsh
 [[ -a ~/.zprofile ]] && source ~/.zprofile
 [[ -a ~/.profile ]] && source ~/.profile

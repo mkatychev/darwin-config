@@ -8,13 +8,10 @@ brew tap \
 
 
 
-brew install \
-  bat \
-  certbot \
+brew install certbot
   clang-format \
   coreutils \
   dry \
-  exa \
   exercism \
   exiftool \
   fdupes \
@@ -24,31 +21,24 @@ brew install \
   glib \
   gnupg \
   golang \
-  icdiff \
   imagemagick \
   jq \
   mpv \
   neofetch \
-  neovim \
   openssl \
   openssl@1.1 \
-  protobuf \
   pgcli \
+  protobuf \
   protoc \
   python \
   rclone \
   readline \
-  rg \
-  jq \
-  rustup-init \
   screenfetch \
   shellcheck \
   sops \
   syncthing \
   tig \
-  tldr \
   tmux \
-  tokei \
   translate-shell \
   ykman \
   zsh
@@ -56,8 +46,7 @@ brew install \
 brew install --HEAD neovim
 brew install cargo-completion
   
-brew cask install \
-  alacritty \
+brew -- cask install \
   atom \
   borgbackup \
   contexts \
@@ -70,7 +59,6 @@ brew cask install \
   karabiner-elements \
   macdown \
   monodraw \
+  rectangle \
   signal \
-  slack \
-  spectacle \
   spotify
