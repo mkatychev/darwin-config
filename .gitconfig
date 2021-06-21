@@ -1,21 +1,25 @@
 # This is Git's per-user configuration file.
 [user]
-	name = Mikhail Katychev
-	email = mkatych@gmail.com
-	signingKey = 9E8549CD2CEB5E59
+    name = Mikhail Katychev
+    email = mkatych@gmail.com
+    signingKey = 9E8549CD2CEB5E59
 [core]
-	excludesfile = ~/.config/.gitignore_global
-	; pager = bat
+    excludesfile = ~/.config/.gitignore_global
+    ; pager = bat
     ; pager = bat -p
 [pull]
-	rebase = true
+    rebase = true
 [commit]
-	gpgSign = true
+    gpgSign = true
 [gpg]
-	program = gpg
+    program = gpg
 [pager]
-    diff = bat -p --paging=always --pager=\"less\"
-    log = bat -p -l gitlog --paging=always --pager=\"less\"
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+[interactive]
+    diffFilter = delta --color-only
 [alias]
     ; bshow = "!f() { git show $1 | bat -l \"$(echo $1 | sd '.*\.(.*)' \$1)\" }; f"
     alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
@@ -24,6 +28,21 @@
 ; [url "git@github.com:"]
 ;     insteadOf = https://github.com/
 [credential]
-	; https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:x-oauth-basic@github.com
-	; https://mkatychev:XXXXXXXXXXXXXXXXXXXX@gitlab.com
-	helper = store
+    ; https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:x-oauth-basic@github.com
+    ; https://mkatychev:XXXXXXXXXXXXXXXXXXXX@gitlab.com
+    helper = store
+[diff]
+    colorMoved = default
+[delta]
+    features = line-numbers decorations
+    line-numbers = true
+    minus-style = "syntax #340001"
+    navigate = true
+    plus-style = "syntax #012800"
+    side-by-side = false
+    syntax-theme = Monokai Extended
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = yellow box

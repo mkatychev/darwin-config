@@ -42,7 +42,7 @@ set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
 set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
-let g:polyglot_disabled = ['sensible']
+" let g:polyglot_disabled = ['sensible', 'rust', 'go']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -53,7 +53,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-go', {'do': 'go get -u github.com/fatih/motion; go get -u github.com/nsf/gocode' }
+Plug 'ncm2/ncm2-go', {'do': 'go get -u github.com/nsf/gocode' }
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-racer'
 Plug 'roxma/nvim-yarp', {'do': '/usr/bin/python2 -m pip install pynvim' }
@@ -78,13 +78,14 @@ Plug 'joshdick/onedark.vim'
 Plug 'luochen1990/rainbow'
 " Plug 'ap/vim-css-color'
 " syntax
-" Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'ARM9/arm-syntax-vim'
 Plug 'kevinoid/vim-jsonc'
 Plug 'mtdl9/vim-log-highlighting'
 Plug 'plasticboy/vim-markdown'
 Plug 'swinman/vim-nc', { 'branch': 'scaled_error' } " G-Code highlighting
 Plug 'sirtaj/vim-openscad'
-Plug 'sheerun/vim-polyglot'
 Plug 'uarun/vim-protobuf'
 Plug 'mkatychev/vim-toml'
 Plug 'ron-rs/ron.vim'
@@ -115,7 +116,11 @@ let g:LanguageClient_serverCommands = {
     \ 'go': ['gopls'],
     \ 'yaml': ['yaml-language-server', '--stdio'],
     \ 'sql': ['sql-language-server', 'up', '--method', 'stdio'],
-    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript': ['typescript-language-server', '--stdio'],
+    \ 'php': ['tcp://127.0.0.1:11111'],
+    \ 'c': ['clangd', '--background-index', '--clang-tidy', '--cross-file-rename'],
+    \ 'cpp': ['clangd'],
+    \ 'objc': ['clangd'],
     \ }
 let g:LanguageClient_hoverPreview = 'Always'
 let g:LanguageClient_useVirtualText = 'No'
@@ -134,6 +139,7 @@ nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
 nnoremap <silent> gC :call LanguageClient#clearDocumentHighlight()<CR>
 nnoremap <silent> gh :call LanguageClient#explainErrorAtPoint()<CR>
 nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> gA :call LanguageClient#textDocument_codeAction()<CR>
 " refresh langserver
 noremap <leader>r :call LanguageClient#exit() <bar> :call LanguageClient#startServer() <CR>
 " go to next error declaration
@@ -152,23 +158,79 @@ set completeopt=menuone,noinsert,noselect
 " Tree-sitter
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-"   highlight = {
-"     enable = true,              -- false will disable the whole extension
-"   },
-"   incremental_selection = {
-"     enable = true,
-"     keymaps = {
-"       init_selection = "gnn",
-"       node_incremental = "grn",
-"       scope_incremental = "grc",
-"       node_decremental = "grm",
-"     },
-"   },
-" }
-" EOF
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gni",
+      node_incremental = "gnn",
+      scope_incremental = "gno",
+      node_decremental = "gnd",
+    },
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+        ["al"] = "@loop.outer",
+        ["il"] = "@loop.inner",
+        ["ib"] = "@conditional.inner",
+        ["ab"] = "@conditional.outer",
+        ["iC"] = "@call.inner",
+        ["aC"] = "@call.outer",
+        ["ip"] = "@parameter.inner",
+        ["ap"] = "@parameter.outer",
+        ["it"] = "@statement.inner",
+        ["at"] = "@statement.outer",
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true, -- whether to set jumps in the jumplist
+      goto_next_start = {
+        ["]f"] = "@function.outer",
+        ["]c"] = "@class.outer",
+        ["]r"] = "@parameter.outer",
+      },
+      goto_next_end = {
+        ["]ef"] = "@function.outer",
+        ["]ec"] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[f"] = "@function.outer",
+        ["[c"] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[ef"] = "@function.outer",
+        ["[ec"] = "@class.outer",
+      },
+    },
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<leader>ir"] = "@parameter.inner",
+        ["<leader>af"] = "@function.outer",
+        ["<leader>if"] = "@function.inner",
+      },
+      swap_previous = {
+        ["<leader>Ir"] = "@parameter.inner",
+        ["<leader>Af"] = "@function.outer",
+        ["<leader>If"] = "@function.inner",
+      },
+    },
+  },
+}
+EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype Aliases
@@ -176,6 +238,7 @@ set completeopt=menuone,noinsert,noselect
 au! BufNewFile,BufRead *.json,*.geojson set filetype=json
 au! BufNewFile,BufRead *.yaml,*.yml set filetype=yaml
 au! BufNewFile,BufRead *.html,*.xml,*.plist set filetype=xml
+au BufNewFile,BufRead *.s,*.S set filetype=arm | set tabstop=8
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color Schemes
@@ -271,6 +334,8 @@ let g:airline_theme='bubblegum'
 " truncate lengthy branch names
 let g:airline#extensions#branch#displayed_head_limit = 10
 
+autocmd FileType rs let b:surround_11="Option<\r>"
+autocmd FileType rs let b:surround_114="Result<\r>"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -394,7 +459,7 @@ endfunction
 
 command! -range=% Jq <line1>,<line2>call Format("jq")
 
-command! -range=% Sqlf <line1>,<line2>call Format("sql-formatter")
+command! -range=% Sqlf <line1>,<line2>call Format("sql-formatter -l mysql -u")
 
 command! -range=% Shf <line1>,<line2>call Format("shfmt -i 2")
 

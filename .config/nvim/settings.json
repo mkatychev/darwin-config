@@ -50,5 +50,8 @@
     "procMacro": {
       "enable": true
     }
+  },
+  "gopls.env": {
+    "GOFLAGS": "-tags=integration"
   }
 }

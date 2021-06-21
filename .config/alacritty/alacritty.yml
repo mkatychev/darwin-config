@@ -114,7 +114,7 @@ font:
     style: Italic
 
   # Point size
-  size: 11.0
+  size: 16.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -273,11 +273,11 @@ cursor:
   # the style of the active value of the normal cursor.
   #
   # See `cursor.style` for available options.
-  #vi_mode_style: None
+  vi_mode_style: Block
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  #unfocused_hollow: true
+  unfocused_hollow: true
 
   # Thickness of the cursor relative to the cell width as floating point number
   # from `0.0` to `1.0`.
@@ -756,6 +756,7 @@ key_bindings:
 
   # (macOS only)
   - { key: B,      mods: Command, mode: ~Vi, chars: "\x0c"            }
+  - { key: F,      mods: Command|Shift, action: ToggleSimpleFullscreen            }
 
 #debug:
   # Display the time it takes to redraw each frame.
