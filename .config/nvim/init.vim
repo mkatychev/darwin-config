@@ -89,6 +89,7 @@ Plug 'sirtaj/vim-openscad'
 Plug 'uarun/vim-protobuf'
 Plug 'mkatychev/vim-toml'
 Plug 'ron-rs/ron.vim'
+Plug 'pest-parser/pest.vim'
 " motions
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -96,6 +97,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'machakann/vim-highlightedyank'
 " Plug 'triglav/vim-visual-increment'
 " misc
+Plug 'glacambre/firenvim'
 Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar', { 'do': 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags' }
 Plug 'vim-airline/vim-airline'
@@ -147,7 +149,7 @@ nnoremap <silent> g[ :call LanguageClient_diagnosticsPrevious()<CR>
 nnoremap <silent> g] :call LanguageClient_diagnosticsNext()<CR>
 " autoformat go code on save
 " au! BufWritePre *.go,*.py, :call LanguageClient#textDocument_formatting_sync()
-au! BufWritePre *.go,*.py,*.rs :call LanguageClient#textDocument_formatting_sync()
+au! BufWritePre *.go,*.py,*.rs,*.js :call LanguageClient#textDocument_formatting_sync()
 " yaml inline langserver settings
 " enable ncm2 on buffer enter
 autocmd BufEnter  *  call ncm2#enable_for_buffer()
@@ -533,7 +535,7 @@ endfunction
 
 augroup markdown_language_client_commands
     autocmd!
-    autocmd WinLeave __LCNHover__ ++nested call <SID>fixLanguageClientHover()
+    autocmd WinLeave __LCNHover__,__LCNExplainError__ ++nested call <SID>fixLanguageClientHover()
 augroup END
 
 function! s:fixLanguageClientHover()
