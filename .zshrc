@@ -43,7 +43,7 @@ zinit ice wait"0" lucid
 zinit snippet OMZ::lib/git.zsh
 
 # zinit load zdharma/history-search-multi-word
-command -v jira &> /dev/null  && source <(jira --completion-script-zsh)
+# command -v jira &> /dev/null  && source <(jira --completion-script-zsh)
 # command -v kx &> /dev/null  && source <(kx complete)
 command -v kubectl &> /dev/null  && source <(kubectl completion zsh)
 # initialize theme
@@ -93,3 +93,5 @@ export KEYTIMEOUT=2
 export FZF_CTRL_T_COMMAND="fd --type f"
 export FZF_ALT_C_COMMAND="fd --type d"
 export FZF_DEFAULT_COMMAND="fd --type f --exclude .git --hidden --follow"
+
+# eval "$(starship init zsh)"

@@ -180,20 +180,22 @@ require'nvim-treesitter.configs'.setup {
       enable = true,
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-        ["al"] = "@loop.outer",
-        ["il"] = "@loop.inner",
-        ["ib"] = "@conditional.inner",
-        ["ab"] = "@conditional.outer",
-        ["iC"] = "@call.inner",
         ["aC"] = "@call.outer",
-        ["ip"] = "@parameter.inner",
+        ["ab"] = "@conditional.outer",
+        ["ac"] = "@class.outer",
+        ["af"] = "@function.outer",
+        ["ar"] = "@frame.outer",
+        ["al"] = "@loop.outer",
         ["ap"] = "@parameter.outer",
-        ["it"] = "@statement.inner",
         ["at"] = "@statement.outer",
+        ["iC"] = "@call.inner",
+        ["ib"] = "@conditional.inner",
+        ["ic"] = "@class.inner",
+        ["if"] = "@function.inner",
+        ["ir"] = "@frame.inner",
+        ["il"] = "@loop.inner",
+        ["ip"] = "@parameter.inner",
+        ["it"] = "@statement.inner",
       },
     },
     move = {
@@ -287,7 +289,7 @@ let g:ruby_host_prog = 'ruby'
 " markdown config
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
-let g:vim_markdown_fenced_languages = ['rust', 'go']
+let g:vim_markdown_fenced_languages = ['rust', 'go', 'python']
 let g:highlightedyank_highlight_duration = 200
 let g:rainbow_active = 0
 let g:vim_json_syntax_conceal = 0
@@ -438,6 +440,10 @@ noremap <C-\> :TagbarToggle <CR>
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
             \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" https://vim.fandom.com/wiki/Swapping_characters,_words_and_lines
+" To use gw to swap the current word with the next, without changing cursor position: (See note.)
+:nnoremap <silent> gw dWWPBB
 
 " https://vim.fandom.com/wiki/Search_for_visually_selected_text
 " Search for selected text, forwards or backwards.

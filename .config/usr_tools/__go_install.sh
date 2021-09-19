@@ -9,4 +9,6 @@ go get github.com/junegunn/fzf
 go get get github.com/mikefarah/yq/v4 
 go get github.com/sqs/goreturns
 go get github.com/rclone/rclone
+ go get mvdan.cc/fdroidcl
+
 GO111MODULE=on go get golang.org/x/tools/gopls@latest

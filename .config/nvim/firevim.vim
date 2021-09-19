@@ -7,7 +7,7 @@ set timeoutlen=1000
 set noruler
 set laststatus=0
 set langmap=АБСДЕФГЧИЙКЛМНОПЯРСТУВШХЫЗ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,абсдефгчийклмнопярстувшхыз;abcdefghijklmnopqrstuvwxyz
-set guifont=Fira_Code:h9
+set guifont=Fira_Code:h18
 
 call plug#begin('/Users/mkatychev/.vim/plugged')
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }

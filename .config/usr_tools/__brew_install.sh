@@ -46,7 +46,7 @@ brew install certbot
 brew install --HEAD neovim
 brew install cargo-completion
   
-brew -- cask install \
+brew install --cask \
   atom \
   borgbackup \
   contexts \
