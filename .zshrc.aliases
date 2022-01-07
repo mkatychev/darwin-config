@@ -6,11 +6,17 @@ export pic=$HOME/Pictures
 export mov=$HOME/Movies
 export ff=/Applications/Firefox.app/Contents/MacOS/firefox
 export nv=$cfg/nvim
+export nvl=$cfg/nvim/lua/init.lua
+export nvv=$cfg/nvim/init.vim
+export zsha=$HOME/.zshrc.aliases
+export zshl=$HOME/.zshrc.local
+export atty=$cfg/alacritty/alacritty.yml
 export py=$doc/python
 export rs=$doc/rust
 export go=$doc/go
 export tool=$cfg/usr_tools
 export nt=$doc/notes
+export js=$doc/js
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 alias pipup="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
@@ -32,35 +38,39 @@ alias bzf="fzf --height 60% --preview \
     'bat --style=numbers --color=always {} | head -500' \
     --layout reverse --color 'preview-bg:#223344,border:#778899' --info inline"
 
-
 alias fres="trans fr:es"
 alias fren="trans fr:en"
 alias esfr="trans es:fr"
 alias enes="trans en:es"
 alias enfr="trans en:fr"
+alias enru="trans en:ru"
+alias ruen="trans ru:en"
 alias esen="trans es:en"
 alias duostrip='pbpaste | sd "[ \n\t]+" " " | pbcopy'
 alias ssh='TERM=xterm-color ssh'
 alias nv=nvim
-
+alias py=python3
+alias zq="zoxide query"
 
 alias hist="history 1 -1"
-alias tjobs="for i in `tmux list-panes -a -F "#{pane_pid} #I" | rg -e "(.+) $(tmux display-message -p '#I')" -r '$1'`; do pgrep -P $i; done | xargs ps -p"
+alias tjobs="for i in $(tmux list-panes -a -F "#{pane_pid} #I" | rg -e "(.+) $(tmux display-message -p '#I')" -r '$1'); do pgrep -P $i; done | xargs ps -p"
 alias k=kubectl
+alias kb=kubie
 alias kgp="kubectl get pods"
 alias doco="docker-compose"
-
+alias rust-musl-builder='docker run --rm -it -v "$(pwd)":/home/rust/src aarch64-x-compile'
 
 alias mpva="mpv --no-video --term-osd-bar $@"
 gshow() {
-    base=$(basename -- "$1")
-    end="${base##*.}"
-    git show "$1" | bat --language=$end
-    # bat --language=$end
+  base=$(basename -- "$1")
+  end="${base##*.}"
+  git show "$1" | bat --language=$end
+  # bat --language=$end
 }
 alias sqlf="sqlformat -a -k upper -"
 
-cronp() { cat << EOF
+cronp() {
+  cat <<EOF
 # ┌───────────── minute (0 - 59)
 # │ ┌───────────── hour (0 - 23)
 # │ │ ┌───────────── day of the month (1 - 31)
@@ -74,32 +84,72 @@ EOF
 }
 
 show_colour() {
-    perl -e 'foreach $a(@ARGV){print "\e[48;2;".join(";",unpack("C*",pack("H*",$a)))."m \e[49m "};print "\n"' "$@"
+  perl -e 'foreach $a(@ARGV){print "\e[48;2;".join(";",unpack("C*",pack("H*",$a)))."m \e[49m "};print "\n"' "$@"
 }
 
 kclean() {
-    kubectl get pods | grep "$1" | cut -d' ' -f 1 | xargs kubectl delete pod
-} 
+  kubectl get pods | grep "$1" | cut -d' ' -f 1 | xargs kubectl delete pod
+}
 
 kge() {
-    kubectl get event --field-selector involvedObject.name="$1"
+  kubectl get event --field-selector involvedObject.name="$1"
 }
 
 jqfmt() {
-    for i in $1; do D=$(jq . -M $i); echo $D > $i ; done
+  for i in $1; do
+    D=$(jq . -M $i)
+    echo $D >$i
+  done
 }
 
 batdiff() {
-    git diff --name-only --diff-filter=d 2>/dev/null | xargs bat --diff
+  git diff --name-only --diff-filter=d 2>/dev/null | xargs bat --diff
 }
 
 dclean() {
-    docker container prune -f
-    docker image prune -f
-    docker network prune -f
-    docker volume prune -f
+  docker container prune -f
+  docker image prune -f
+  docker network prune -f
+  docker volume prune -f
 }
 
 len() {
-    python3 -c "print(len(\"$1\"))"
+  echo ${#1}
+}
+
+gcode() {
+  case "$1" in
+  center)
+    gcode G0 X117 Y117
+    ;;
+  heat)
+    gcode M104 S205 && gcode M140 S60
+    ;;
+  cool)
+    gcode M104 S0 && gcode M140 S0
+    ;;
+  kill)
+    gcode M112
+    ;;
+  *)
+    octoprint-cli gcode "$*"
+    ;;
+  esac
+
+}
+
+kube-cfg-get() {
+  local query
+  case "$1" in
+  clusters | users) local query=".$1[].name" ;;
+  context | current-context | ctx) local query=".current-context" ;;
+  contexts | ctxs) local query=".contexts[].name" ;;
+  *) {
+    local key="$1"
+    local name="$2"
+    local query=".${key}s[] | select (.name == \"$name\")"
+  } ;;
+  esac
+
+  yq e "$query" ~/.kube/config
 }

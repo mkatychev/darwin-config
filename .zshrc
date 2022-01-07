@@ -46,6 +46,7 @@ zinit snippet OMZ::lib/git.zsh
 # command -v jira &> /dev/null  && source <(jira --completion-script-zsh)
 # command -v kx &> /dev/null  && source <(kx complete)
 command -v kubectl &> /dev/null  && source <(kubectl completion zsh)
+command -v eksctl &> /dev/null  && source <(eksctl completion zsh)
 # initialize theme
 # bindkey ^v vi-cmd-mode
 bindkey "^[[3~" delete-char
@@ -67,6 +68,7 @@ zinit light $tool/zsh_plugin
 # D.
 zinit ice wait"0" lucid
 zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+zinit snippet OMZ::plugins/aws/aws.plugin.zsh
 
 # F.
 zinit ice wait"0" atinit"zpcompinit" lucid
@@ -95,3 +97,7 @@ export FZF_ALT_C_COMMAND="fd --type d"
 export FZF_DEFAULT_COMMAND="fd --type f --exclude .git --hidden --follow"
 
 # eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+export PNPM_HOME="/Users/mkatychev/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"

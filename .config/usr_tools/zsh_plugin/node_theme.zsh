@@ -17,7 +17,8 @@ prompt_status()
 }
 
 # PROMPT='$(prompt_status)$YELLOW%c $(git_prompt_info) $RESET '
-PROMPT='$(prompt_status)$YELLOW%c$(git_prompt_info 2> /dev/null)$RESET '
+PROMPT='$(prompt_status)$YELLOW%c$(git_prompt_info 2> /dev/null)$RESET 
+$ '
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" $CYAN"
 ZSH_THEME_GIT_PROMPT_SUFFIX=""

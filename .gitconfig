@@ -10,14 +10,14 @@
 [pull]
     rebase = true
 [commit]
-    gpgSign = true
+	gpgsign = true
 [gpg]
     program = gpg
 [pager]
-    diff = delta
-    log = delta
-    reflog = delta
-    show = delta
+    diff = delta --features basic
+    log = delta --features default
+    reflog = delta --features default
+    show = delta --features default
 [interactive]
     diffFilter = delta --color-only
 [alias]
@@ -33,7 +33,7 @@
     helper = store
 [diff]
     colorMoved = default
-[delta]
+[delta "default"]
     features = line-numbers decorations
     line-numbers = true
     minus-style = "syntax #340001"
@@ -46,3 +46,13 @@
     file-style = bold yellow ul
     file-decoration-style = none
     hunk-header-decoration-style = yellow box
+
+[delta "basic"]
+    commit-decoration-style = omit
+    syntax-theme = Monokai
+    keep-plus-minus-markers = true
+    line-numbers = false
+    file-style = blue
+    hunk-header-file-style = omit
+    hunk-header-style = omit
+    commit-style = omit

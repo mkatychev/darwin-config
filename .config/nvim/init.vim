@@ -6,11 +6,27 @@ set expandtab
 set hidden
 set mouse=a
 
+let g:rnu = get(g:, 'rnu', 1)
 " Relative number implementation
-set relativenumber number
+if g:rnu
+    set relativenumber number
+    au! InsertLeave * set relativenumber
+    au! InsertEnter * set relativenumber!
+    augroup CursorLineOnlyInActiveNormalWindow
+      autocmd!
+      autocmd VimEnter,WinEnter,BufWinEnter * 
+      \ if !&readonly && &modifiable
+      \|     setlocal relativenumber
+      \| endif
+      autocmd WinLeave *
+      \ if !&readonly && &modifiable
+      \|     setlocal norelativenumber
+      \| endif
+    augroup END
+else
+    set number
+endif
 " allow absolute numbers in insert mode
-au! InsertLeave * set relativenumber
-au! InsertEnter * set relativenumber!
 set shiftwidth=4
 set tabstop=4
 set termguicolors
@@ -28,14 +44,6 @@ set nocompatible
 " Prelude configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tmux Particulars
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Intelligently navigate tmux panes and Vim splits using the same keys.
-" See https://sunaku.github.io/tmux-select-pane.html for documentation.
-let progname = substitute($VIM, '.*[/\\]', '', '')
-set title titlestring=%{progname}\ %f\ +%l\ #%{tabpagenr()}.%{winnr()}
-if &term =~ '^tmux' && !has('nvim') | exe "set t_ts=\e]2; t_fs=\7" | endif
 " auto resize split buffers in window resize
 au! VimResized * wincmd =
 set t_8b=[48;2;%lu;%lu;%lum
@@ -50,14 +58,6 @@ set t_8f=[38;2;%lu;%lu;%lum
 " '<,'>sort/.*\//
 call plug#begin('~/.vim/plugged')
 " Language Client
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-go', {'do': 'go get -u github.com/nsf/gocode' }
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-racer'
-Plug 'roxma/nvim-yarp', {'do': '/usr/bin/python2 -m pip install pynvim' }
-Plug 'racer-rust/vim-racer', { 'do': 'cargo +nightly install racer'}
 " searching
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -73,6 +73,7 @@ Plug 'mattn/webapi-vim'
 Plug 'itchyny/vim-gitbranch'
 " display
 Plug 'joshdick/onedark.vim'
+" Plug 'Th3Whit3Wolf/one-nvim'
 " Plug 'blueyed/vim-diminactive'
 " Plug 'rakr/vim-one'
 Plug 'luochen1990/rainbow'
@@ -80,6 +81,7 @@ Plug 'luochen1990/rainbow'
 " syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/playground'
 Plug 'ARM9/arm-syntax-vim'
 Plug 'kevinoid/vim-jsonc'
 Plug 'mtdl9/vim-log-highlighting'
@@ -90,6 +92,7 @@ Plug 'uarun/vim-protobuf'
 Plug 'mkatychev/vim-toml'
 Plug 'ron-rs/ron.vim'
 Plug 'pest-parser/pest.vim'
+Plug 'dcharbon/vim-flatbuffers'
 " motions
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -106,140 +109,64 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'Yggdroot/indentLine'
 " Plug 'ryanoasis/vim-devicons'
 " Plug 'AndrewRadev/dsf.vim'
-" Plug 'ncm2/float-preview.nvim'
+" Rust
+" Tmux
+Plug 'sunaku/tmux-navigate'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LanguageClient
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rust-analyzer'],
-    \ 'python': ['pyls'],
-    \ 'go': ['gopls'],
-    \ 'yaml': ['yaml-language-server', '--stdio'],
-    \ 'sql': ['sql-language-server', 'up', '--method', 'stdio'],
-    \ 'javascript': ['typescript-language-server', '--stdio'],
-    \ 'php': ['tcp://127.0.0.1:11111'],
-    \ 'c': ['clangd', '--background-index', '--clang-tidy', '--cross-file-rename'],
-    \ 'cpp': ['clangd'],
-    \ 'objc': ['clangd'],
-    \ }
-let g:LanguageClient_hoverPreview = 'Always'
-let g:LanguageClient_useVirtualText = 'No'
-let g:LanguageClient_diagnosticsList = 'Location'
-let g:LanguageClient_useFloatingHover = 1
-let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_settingsPath = s:path . '/settings.json'
-let g:LanguageClient_trace = "verbose"
-let g:LanguageClient_preferredMarkupKind = ['markdown']
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <2-MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gD :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
-nnoremap <silent> gC :call LanguageClient#clearDocumentHighlight()<CR>
-nnoremap <silent> gh :call LanguageClient#explainErrorAtPoint()<CR>
-nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> gA :call LanguageClient#textDocument_codeAction()<CR>
-" refresh langserver
-noremap <leader>r :call LanguageClient#exit() <bar> :call LanguageClient#startServer() <CR>
-" go to next error declaration
-nnoremap <silent> g[ :call LanguageClient_diagnosticsPrevious()<CR>
-nnoremap <silent> g] :call LanguageClient_diagnosticsNext()<CR>
-" autoformat go code on save
-" au! BufWritePre *.go,*.py, :call LanguageClient#textDocument_formatting_sync()
-au! BufWritePre *.go,*.py,*.rs,*.js :call LanguageClient#textDocument_formatting_sync()
-" yaml inline langserver settings
-" enable ncm2 on buffer enter
-autocmd BufEnter  *  call ncm2#enable_for_buffer()
+lua require('init')
+" let g:LanguageClient_serverCommands = {
+"     \ 'rust': ['rust-analyzer'],
+"     \ 'python': ['pyls'],
+"     \ 'go': ['gopls'],
+"     \ 'yaml': ['yaml-language-server', '--stdio'],
+"     \ 'sql': ['sql-language-server', 'up', '--method', 'stdio'],
+"     \ 'svelte': ['svelteserver', '--stdio'],
+"     \ 'javascript': ['typescript-language-server', '--stdio'],
+"     \ 'typescript': ['typescript-language-server', '--stdio'],
+"     \ 'php': ['tcp://127.0.0.1:11111'],
+"     \ 'c': ['clangd', '--background-index', '--clang-tidy', '--cross-file-rename'],
+"     \ 'cpp': ['clangd'],
+"     \ 'objc': ['clangd'],
+"     \ }
+" let g:LanguageClient_hoverPreview = 'Always'
+" let g:LanguageClient_useVirtualText = 'No'
+" let g:LanguageClient_diagnosticsList = 'Location'
+" let g:LanguageClient_useFloatingHover = 1
+" let g:LanguageClient_loadSettings = 1
+" let g:LanguageClient_settingsPath = s:path . '/settings.json'
+" let g:LanguageClient_trace = "verbose"
+" let g:LanguageClient_preferredMarkupKind = ['markdown']
+" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> <MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> <2-MiddleMouse> <LeftMouse> :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> gD :call LanguageClient#textDocument_references()<CR>
+" nnoremap <silent> gH :call LanguageClient#textDocument_documentHighlight()<CR>
+" nnoremap <silent> gC :call LanguageClient#clearDocumentHighlight()<CR>
+" nnoremap <silent> gh :call LanguageClient#explainErrorAtPoint()<CR>
+" nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
+" nnoremap <silent> gA :call LanguageClient#textDocument_codeAction()<CR>
+" " refresh langserver
+" noremap <leader>r :call LanguageClient#exit() <bar> :call LanguageClient#startServer() <CR>
+" " go to next error declaration
+" nnoremap <silent> g[ :call LanguageClient_diagnosticsPrevious()<CR>
+" nnoremap <silent> g] :call LanguageClient_diagnosticsNext()<CR>
+" " autoformat go code on save
+" " au! BufWritePre *.go,*.py, :call LanguageClient#textDocument_formatting_sync()
+au! BufWritePre *.go,*.rs :lua vim.lsp.buf.formatting_sync()
+" " yaml inline langserver settings
 " allow completion on single var match for ncm2
 set completeopt=menuone,noinsert,noselect
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tree-sitter
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "gni",
-      node_incremental = "gnn",
-      scope_incremental = "gno",
-      node_decremental = "gnd",
-    },
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["aC"] = "@call.outer",
-        ["ab"] = "@conditional.outer",
-        ["ac"] = "@class.outer",
-        ["af"] = "@function.outer",
-        ["ar"] = "@frame.outer",
-        ["al"] = "@loop.outer",
-        ["ap"] = "@parameter.outer",
-        ["at"] = "@statement.outer",
-        ["iC"] = "@call.inner",
-        ["ib"] = "@conditional.inner",
-        ["ic"] = "@class.inner",
-        ["if"] = "@function.inner",
-        ["ir"] = "@frame.inner",
-        ["il"] = "@loop.inner",
-        ["ip"] = "@parameter.inner",
-        ["it"] = "@statement.inner",
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        ["]f"] = "@function.outer",
-        ["]c"] = "@class.outer",
-        ["]r"] = "@parameter.outer",
-      },
-      goto_next_end = {
-        ["]ef"] = "@function.outer",
-        ["]ec"] = "@class.outer",
-      },
-      goto_previous_start = {
-        ["[f"] = "@function.outer",
-        ["[c"] = "@class.outer",
-      },
-      goto_previous_end = {
-        ["[ef"] = "@function.outer",
-        ["[ec"] = "@class.outer",
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        ["<leader>ir"] = "@parameter.inner",
-        ["<leader>af"] = "@function.outer",
-        ["<leader>if"] = "@function.inner",
-      },
-      swap_previous = {
-        ["<leader>Ir"] = "@parameter.inner",
-        ["<leader>Af"] = "@function.outer",
-        ["<leader>If"] = "@function.inner",
-      },
-    },
-  },
-}
-EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype Aliases
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au! BufNewFile,BufRead *.json,*.geojson set filetype=json
+" autocmd BufNewFile,BufRead * if search('{{.\+}}', 'nw') | setlocal filetype=gotmpl | endif
 au! BufNewFile,BufRead *.yaml,*.yml set filetype=yaml
 au! BufNewFile,BufRead *.html,*.xml,*.plist set filetype=xml
 au BufNewFile,BufRead *.s,*.S set filetype=arm | set tabstop=8
@@ -263,15 +190,15 @@ augroup END
 
 colorscheme onedark
 
-highlight! link ALEErrorSign LineNr
-highlight! link ALEError ErrorMsg
+" highlight! link ALEErrorSign LineNr
+" highlight! link ALEError ErrorMsg
 
 
 
 " let g:one_allow_italics = 1
 " colorscheme one
 " call one#highlight('LineNr', 'f2bf93', '230f38', '')
-" call one#highlight('CursorLineNr', '616162', 'ffffff', '')
+" call one#highlight('CursorLineNr', '#616162', '#ffffe6, '')
 " call one#highlight('Normal', '', '1d2025', 'none')
 " call one#highlight('Title', '56b6c2', '', '')
 " call one#highlight('LineComment', '', '', 'italic')
@@ -385,12 +312,14 @@ inoremap <silent><leader>]<Esc>:NERDTreeToggle<CR>
 
 " fuzzy buffer search
 map z/ <Plug>(incsearch-fuzzy-/)
+" map /  <Plug>(incsearch-forward)
+" map ?  <Plug>(incsearch-backward)
 
 " command mode emacs bindings
 cnoremap <C-A> <C-B>
 inoremap <C-A> <C-B>
 " clear highlight
-nnoremap <silent> <C-L> :nohl<CR>
+nnoremap <silent> <C-L> :nohl <bar> :lua vim.lsp.buf.clear_references()<CR>
 
 
 " unnmap middle mouse click
@@ -413,6 +342,10 @@ command! -bang -nargs=* Rguu
   \   'rg -uu --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
+
+command! -bang -nargs=? -complete=dir Fduu
+  \ call s:fzf_command('fd -uu --type f --exclude .git --hidden --follow'.shellescape(<q-args>))
+
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
@@ -421,13 +354,25 @@ command! -bang -nargs=* GGrep
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'bat --style=numbers --color=always {} | head -500']}, <bang>0)
 
-noremap <C-F>f :Files   <CR>
+function! s:fzf_command(...)
+   let args = copy(a:000)
+   let cmd = copy(args[0])
+   call remove(args, 0)
+   let prev_default_command = $FZF_DEFAULT_COMMAND
+   let $FZF_DEFAULT_COMMAND = cmd
+   call fzf#vim#files(args, {'options': ['--layout=reverse', '--info=inline', '--preview', 'bat --style=numbers --color=always {} | head -500']})
+   let $FZF_DEFAULT_COMMAND = prev_default_command
+endfunction
+
+" autocmd User TelescopeFindPre setlocal nonumber norelativenumber
+nnoremap <C-F>f <cmd>Telescope fd<CR>
 noremap <C-F>m :Maps    <CR>
 noremap <C-F>b :Buffers <CR>
+nnoremap <space>b <cmd>Telescope buffers<cr>
 noremap <C-F>h :History:<CR>
 noremap <C-F>c :Commits <CR>
-noremap <C-F>/ :BLines <CR>
-noremap <C-F>r :Rg <CR>
+noremap <C-F>/ <cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>
+noremap <C-F>r <cmd>lua grep_string()<cr>
 noremap <C-F>g :GGrep <CR>
 
 noremap <C-\> :TagbarToggle <CR>
@@ -466,6 +411,9 @@ function! Format(formatter) range
 endfunction
 
 command! -range=% Jq <line1>,<line2>call Format("jq")
+command! -range=% Yq <line1>,<line2>call Format("yamkix -n -s")
+command! -range=% Yqk <line1>,<line2>call Format("yamkix -s")
+command! -range=% Lua <line1>,<line2>call Format("stylua --indent-width 2 --indent-type Spaces -")
 
 command! -range=% Sqlf <line1>,<line2>call Format("sql-formatter -l mysql -u")
 
@@ -554,18 +502,8 @@ function! s:fixLanguageClientHover()
 endfunction
 
 
-augroup CursorLineOnlyInActiveWindow
-  autocmd!
-  autocmd VimEnter,WinEnter,BufWinEnter * 
-  \ if !&readonly && &modifiable
-  \|     setlocal relativenumber
-  \| endif
 
-  autocmd WinLeave *
-  \ if !&readonly && &modifiable
-  \|     setlocal norelativenumber
-  \| endif
-augroup END
+
 
 " https://stackoverflow.com/questions/63906439/how-to-disable-line-numbers-in-neovim-terminal
 autocmd TermOpen * setlocal nonumber norelativenumber

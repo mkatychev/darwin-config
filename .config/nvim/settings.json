@@ -39,13 +39,13 @@
     "validate": true
   },
   "rust-analyzer": {
+    "cargo": {
+      "loadOutDirsFromCheck": true
+    },
     "rustfmt": {
       "extraArgs": [
         "+nightly"
       ]
-    },
-    "cargo": {
-      "loadOutDirsFromCheck": true
     },
     "procMacro": {
       "enable": true
