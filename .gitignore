@@ -14,6 +14,8 @@
 !.config/pgcli/*
 !.config/alacritty
 !.config/alacritty/*
+!.config/helix
+!.config/helix/*
 !.config/rustfmt
 !.config/rustfmt/*
 !.config/usr_tools

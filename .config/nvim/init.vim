@@ -166,7 +166,6 @@ set completeopt=menuone,noinsert,noselect
 " Filetype Aliases
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au! BufNewFile,BufRead *.json,*.geojson set filetype=json
-" autocmd BufNewFile,BufRead * if search('{{.\+}}', 'nw') | setlocal filetype=gotmpl | endif
 au! BufNewFile,BufRead *.yaml,*.yml set filetype=yaml
 au! BufNewFile,BufRead *.html,*.xml,*.plist set filetype=xml
 au BufNewFile,BufRead *.s,*.S set filetype=arm | set tabstop=8
