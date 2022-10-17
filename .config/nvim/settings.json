@@ -40,7 +40,10 @@
   },
   "rust-analyzer": {
     "cargo": {
-      "loadOutDirsFromCheck": true
+      "loadOutDirsFromCheck": true,
+      "buildScripts": {
+        "enable": true
+      }
     },
     "rustfmt": {
       "extraArgs": [
@@ -48,7 +51,9 @@
       ]
     },
     "procMacro": {
-      "enable": true
+      "attributes": {
+        "enable": true
+      }
     }
   },
   "gopls.env": {

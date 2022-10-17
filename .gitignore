@@ -16,6 +16,7 @@
 !.config/alacritty/*
 !.config/helix
 !.config/helix/*
+.config/helix/runtime
 !.config/rustfmt
 !.config/rustfmt/*
 !.config/usr_tools

@@ -45,40 +45,47 @@ zinit snippet OMZ::lib/git.zsh
 # zinit load zdharma/history-search-multi-word
 # command -v jira &> /dev/null  && source <(jira --completion-script-zsh)
 # command -v kx &> /dev/null  && source <(kx complete)
-command -v kubectl &> /dev/null  && source <(kubectl completion zsh)
-command -v eksctl &> /dev/null  && source <(eksctl completion zsh)
+# command -v kubectl &> /dev/null  && source <(kubectl completion zsh)
+# command -v eksctl &> /dev/null  && source <(eksctl completion zsh)
+# command -v cargo &> /dev/null && source <(rustup completions zsh cargo)
+autoload -U +X bashcompinit && bashcompinit
+source ~/.zfunc/_kubie
 # initialize theme
 # bindkey ^v vi-cmd-mode
 bindkey "^[[3~" delete-char
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
-zinit ice wait"0" atinit"zpcompinit" lucid
-zinit snippet OMZ::plugins/docker/_docker
+zinit ice wait"0" atinit"zpcompinit" lucid for \
+    zinit snippet OMZP::docker/_docker \
+    zinit snippet OMZP::docker-compose/_docker-compose \
+    zinit snippet OMZP::fd/_fd \
+    zinit snippet OMZP::ripgrep/_ripgrep
 
-zinit ice wait"0" atinit"zpcompinit" lucid
-zinit snippet OMZ::plugins/docker-compose/_docker-compose
+# zinit ice wait"0" atinit"zpcompinit" lucid
 
 
 # C.
 zinit ice wait"0" atload"unalias grv" lucid
-zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit light $tool/zsh_plugin 
+    zinit snippet OMZP::git/git.plugin.zsh
+    # zinit snippet $tool/zsh_plugin/node_theme.zsh
+
+source $tool/zsh_plugin/node_theme.zsh
+
 
 # D.
-zinit ice wait"0" lucid
-zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
-zinit snippet OMZ::plugins/aws/aws.plugin.zsh
+zinit ice wait"0" lucid for \
+    zinit snippet OMZP::colored-man-pages/colored-man-pages.plugin.zsh \
+    zinit snippet OMZP::aws/aws.plugin.zsh
 
 # F.
 zinit ice wait"0" atinit"zpcompinit" lucid
 zinit light 'Aloxaf/fzf-tab'
-zinit light 'zdharma/fast-syntax-highlighting'
+zinit light 'zdharma-continuum/fast-syntax-highlighting'
 zinit load 'djui/alias-tips'
 zinit snippet https://raw.githubusercontent.com/softmoth/zsh-vim-mode/master/zsh-vim-mode.plugin.zsh
 
 zinit ice lucid nocompile
-zinit load MenkeTechnologies/zsh-cargo-completion
 
 MODE_CURSOR_VICMD="green block"
 MODE_CURSOR_VIINS="#20d08a bar"
@@ -101,3 +108,6 @@ eval "$(zoxide init zsh)"
 
 export PNPM_HOME="/Users/mkatychev/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

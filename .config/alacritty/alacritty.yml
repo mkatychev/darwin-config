@@ -42,7 +42,7 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-   x: 0
+   x: 10
    y: 0
 
   # Spread additional padding evenly around the terminal content.
@@ -135,15 +135,6 @@ font:
   # it is recommended to set `use_thin_strokes` to `false`
   #
   # macOS >= 10.14.x:
-  #
-  # If the font quality on non-retina display looks bad then set
-  # `use_thin_strokes` to `true` and enable font smoothing by running the
-  # following command:
-  #   `defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO`
-  #
-  # This is a global setting and will require a log out or restart to take
-  # effect.
-  use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
@@ -161,7 +152,7 @@ colors:
      foreground: '#ffffff'
      background: '0x1d99f3'
 
-    bar:
+    footer_bar:
      background: '#c5c8c6'
      foreground: '#1d1f21'
   # Default colors
@@ -562,14 +553,32 @@ key_bindings:
   - { key: K, mods: Alt, chars: "\x1bk" }
   - { key: H, mods: Alt, chars: "\x1bh" }
   - { key: L, mods: Alt, chars: "\x1bl" }
+  - { key: P, mods: Alt, chars: "\x1bp" }
+  - { key: P, mods: Alt|Shift, chars: "\x1bP" }
+  - { key: Period, mods: Alt, chars: "\e." }
+  - { key: Period, mods: Alt|Shift, chars: "\e>" }
+  - { key: Comma, mods: Alt|Shift, chars: "\e<" }
+  - { key: X, mods: Alt, chars: "\ex" }
+  - { key: Key0, mods: Alt, chars: "\x1b0" }
+  - { key: Key1, mods: Alt, chars: "\x1b1" }
+  - { key: Key2, mods: Alt, chars: "\x1b2" }
+  - { key: Key3, mods: Alt, chars: "\x1b3" }
+  - { key: Key4, mods: Alt, chars: "\x1b4" }
+  - { key: Key5, mods: Alt, chars: "\x1b5" }
+  - { key: Key6, mods: Alt, chars: "\x1b6" }
+  - { key: Key7, mods: Alt, chars: "\x1b7" }
+  - { key: Key8, mods: Alt, chars: "\x1b8" }
+  - { key: Key9, mods: Alt, chars: "\x1b9" }
+  - { key: Key9, mods: Alt, chars: "\x1b9" }
   # SUPER arrow keys
   # xxd -psd
   - { key: W,  mods: Command,        chars: "…"      }
   - { key: J,  mods: Command,        chars: "\x1b[B" }
   - { key: K,  mods: Command,        chars: "\x1b[A" }
   - { key: L,  mods: Command,        chars: "\x1b[C" }
+  - { key: L,  mods: Control|Shift,        chars: "\x1b[C" }
   - { key: H,  mods: Command,        chars: "\x1b[D" }
-  - { key: U,  mods: Command,        chars: "\x1b[D" }
+  - { key: H,  mods: Control|Shift,        chars: "\x1b[D" }
   - { key: H,  mods: Command|Shift,  chars: "\x1bb"  }
   - { key: L,  mods: Command|Shift,  chars: "\x1bf"  }
   # TMUX tabs
@@ -584,8 +593,11 @@ key_bindings:
   - { key: C,          mods: Command,        chars: "\x0c"         }
   - { key: Slash,      mods: Command,        chars: "\x5c\x63\x20" }
   - { key: Backslash,  mods: Command,        chars: "\xc2"     }
-  - { key: Tab,        mods: Control|Shift,  chars: "Ø"            }
-  - { key: Tab,        mods: Control,        chars: "∏"            }
+  - { key: Tab,        mods: Control,        chars: "\x1b[9;5u"            }
+  - { key: Tab,        mods: Control|Shift,  chars: "\x1b[9;6u"            }
+  - { key: Return,      mods: Control,        chars: "\x1b[13;5u"            }
+  - { key: Return,        mods: Control|Shift,  chars: "\x1b[13;6u"            }
+
   #
   - { key: PageUp,    chars: "\x1b[5~"                      }
   - { key: PageDown,  chars: "\x1b[6~"                      }
@@ -784,7 +796,7 @@ key_bindings:
   # (macOS only)
   - { key: B,      mods: Command, mode: ~Vi, chars: "\x0c"            }
   - { key: F,      mods: Command|Shift, action: ToggleSimpleFullscreen            }
-  - { key: N,      mods: Command, action: SpawnNewInstance            }
+  - { key: N,      mods: Command, action: CreateNewWindow            }
 
 #debug:
   # Display the time it takes to redraw each frame.

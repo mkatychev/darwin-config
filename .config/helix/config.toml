@@ -3,9 +3,16 @@ theme = "onedark"
 [editor]
 true-color = true
 line-number = "relative"
-scroll-lines = 1
+scroll-lines = 3
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[keys.normal]
+'∏' = "goto_next_buffer"
+'Ø' = "goto_previous_buffer"
+"A-x" = "extend_line_above"
+'…' = ":buffer-close"
+"end" = "switch_to_uppercase"

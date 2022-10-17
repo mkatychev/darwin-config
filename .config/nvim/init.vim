@@ -5,6 +5,8 @@ let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 set expandtab
 set hidden
 set mouse=a
+set laststatus=1
+syntax off
 
 let g:rnu = get(g:, 'rnu', 1)
 " Relative number implementation
@@ -33,6 +35,8 @@ set termguicolors
 set timeoutlen=1000
 set ttimeoutlen=0
 set foldlevelstart=99
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set viewoptions-=options,folds
 " Make Russian work in normal mode.
 set langmap=АБСДЕФГЧИЙКЛМНОПЯРСТУВШХЫЗ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,абсдефгчийклмнопярстувшхыз;abcdefghijklmnopqrstuvwxyz
@@ -67,8 +71,6 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'tyru/open-browser-github.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mattn/webapi-vim'
 Plug 'itchyny/vim-gitbranch'
 " display
@@ -79,13 +81,10 @@ Plug 'joshdick/onedark.vim'
 Plug 'luochen1990/rainbow'
 " Plug 'ap/vim-css-color'
 " syntax
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'nvim-treesitter/playground'
 Plug 'ARM9/arm-syntax-vim'
 Plug 'kevinoid/vim-jsonc'
 Plug 'mtdl9/vim-log-highlighting'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 Plug 'swinman/vim-nc', { 'branch': 'scaled_error' } " G-Code highlighting
 Plug 'sirtaj/vim-openscad'
 Plug 'uarun/vim-protobuf'
@@ -93,6 +92,7 @@ Plug 'mkatychev/vim-toml'
 Plug 'ron-rs/ron.vim'
 Plug 'pest-parser/pest.vim'
 Plug 'dcharbon/vim-flatbuffers'
+Plug 'towolf/vim-helm'
 " motions
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -103,8 +103,8 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'glacambre/firenvim'
 Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar', { 'do': 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags' }
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 " Python
 " Plug 'Yggdroot/indentLine'
 " Plug 'ryanoasis/vim-devicons'
@@ -157,7 +157,7 @@ lua require('init')
 " nnoremap <silent> g] :call LanguageClient_diagnosticsNext()<CR>
 " " autoformat go code on save
 " " au! BufWritePre *.go,*.py, :call LanguageClient#textDocument_formatting_sync()
-au! BufWritePre *.go,*.rs :lua vim.lsp.buf.formatting_sync()
+au! BufWritePre *.go,*.rs,*.svelte :lua vim.lsp.buf.formatting_seq_sync()
 " " yaml inline langserver settings
 " allow completion on single var match for ncm2
 set completeopt=menuone,noinsert,noselect
@@ -166,7 +166,8 @@ set completeopt=menuone,noinsert,noselect
 " Filetype Aliases
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au! BufNewFile,BufRead *.json,*.geojson set filetype=json
-au! BufNewFile,BufRead *.yaml,*.yml set filetype=yaml
+au! BufNewFile,BufRead .env* set filetype=sh
+" au! BufNewFile,BufRead *.yaml,*.yml set filetype=yaml
 au! BufNewFile,BufRead *.html,*.xml,*.plist set filetype=xml
 au BufNewFile,BufRead *.s,*.S set filetype=arm | set tabstop=8
 
@@ -188,6 +189,10 @@ augroup colorextend
 augroup END
 
 colorscheme onedark
+
+hi LspReferenceText cterm=bold gui=italic guifg=yellow
+hi LspReferenceRead cterm=bold gui=italic guifg=yellow
+hi LspReferenceWrite cterm=bold gui=italic guifg=yellow
 
 " highlight! link ALEErrorSign LineNr
 " highlight! link ALEError ErrorMsg
@@ -221,48 +226,53 @@ let g:rainbow_active = 0
 let g:vim_json_syntax_conceal = 0
 " NERDTree/Comment setup
 " If more than one window and previous buffer was NERDTree, go back to it.
-autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
-let g:NERDCustomDelimiters = { 'sparql': { 'left': '#'} }
-let g:NERDCustomDelimiters = { 'yaml': { 'left': '#'} }
-let g:NERDCustomDelimiters = { 'openscad': { 'left': '//'} }
+" autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+autocmd BufEnter NvimTree* set cursorline
+let g:NERDCustomDelimiters = {
+\ 'sparql': { 'left': '#'}, 
+\ 'helm': { 'left': '#'},
+\ 'yaml': { 'left': '#'},
+\ 'openscad': { 'left': '//'},
+\ 'svelte': { 'left': '<!--', 'right': '-->' },
+\ }
 let g:netrw_fastbrowse = 0
 let g:NERDSpaceDelims=1
 let g:NERDDefaultAlign = 'left'
 let g:NERDToggleCheckAllLines = 1
 let g:NERDCompactSexyComs = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-" airline setup
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ' '
-let g:airline#extensions#tabline#right_alt_sep = ''
-let g:airline#extensions#hunks#enabled = 1
-let g:airline#extensions#hunks#non_zero_only = 0
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let airline#extensions#tabline#tabs_label = ''
-let airline#extensions#tabline#show_splits = 0
-"let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = ''
-let g:airline_theme='bubblegum'
-" truncate lengthy branch names
-let g:airline#extensions#branch#displayed_head_limit = 10
+" let NERDTreeMinimalUI = 1
+" let NERDTreeDirArrows = 1
+" " airline setup
+" nmap <leader>1 <Plug>AirlineSelectTab1
+" nmap <leader>2 <Plug>AirlineSelectTab2
+" nmap <leader>3 <Plug>AirlineSelectTab3
+" nmap <leader>4 <Plug>AirlineSelectTab4
+" nmap <leader>5 <Plug>AirlineSelectTab5
+" nmap <leader>6 <Plug>AirlineSelectTab6
+" nmap <leader>7 <Plug>AirlineSelectTab7
+" nmap <leader>8 <Plug>AirlineSelectTab8
+" nmap <leader>9 <Plug>AirlineSelectTab9
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#branch#enabled = 1
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = ''
+" let g:airline#extensions#tabline#right_sep = ' '
+" let g:airline#extensions#tabline#right_alt_sep = ''
+" let g:airline#extensions#hunks#enabled = 1
+" let g:airline#extensions#hunks#non_zero_only = 0
+" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" let airline#extensions#tabline#tabs_label = ''
+" let airline#extensions#tabline#show_splits = 0
+" "let g:airline_powerline_fonts = 1
+" if !exists('g:airline_symbols')
+"     let g:airline_symbols = {}
+" endif
+" let g:airline_symbols.branch = ''
+" let g:airline_theme='bubblegum'
+" " truncate lengthy branch names
+" let g:airline#extensions#branch#displayed_head_limit = 10
 
 autocmd FileType rs let b:surround_11="Option<\r>"
 autocmd FileType rs let b:surround_114="Result<\r>"
@@ -287,17 +297,9 @@ noremap <silent><F4> gg"*yG<CR>
 " Overwrite entire buffer with clipboard
 noremap <silent><F5> :%d<CR>"*P<CR>
 
-" iTerm C-Tab & C-S-Tab mapped to non ASCII chars ¯\\_(ツ)_/¯
-" <C-Tab> \x09\xe2\x88\x8f
-noremap <silent>∏ :bn<CR>
-inoremap <silent>∏ <Esc>:bn<CR>
-" <C-Shift-Tab>
-noremap <silent>Ø :bp<CR>
-inoremap <silent>Ø <Esc>:bp<CR>
 " <M-[>
 " noremap <silent>Â :NERDTree <bar> :wincmd p <bar> :NERDTreeFind<CR>
-noremap <silent><leader>[ :NERDTree <bar> :wincmd p <bar> :NERDTreeFind<CR>
-noremap <silent>Ú :tabNext<CR> 
+noremap <silent>Â :NvimTreeFindFileToggle<CR>
 noremap <D-i> dd<CR>
 " <M-]>
 " <M-i>
@@ -305,9 +307,6 @@ noremap <silent>˘ :tabnew<CR>
 " <M-I>
 " <M-W> \xe2\x80\a6
 noremap <silent>… :call CloseBuffer()<CR>
-" <M-\> \xc2\xbb
-noremap <silent><leader>] :NERDTreeToggle<CR>
-inoremap <silent><leader>]<Esc>:NERDTreeToggle<CR>
 
 " fuzzy buffer search
 map z/ <Plug>(incsearch-fuzzy-/)
@@ -330,7 +329,8 @@ nnoremap <silent> <C-L> :nohl <bar> :lua vim.lsp.buf.clear_references()<CR>
 nmap =j :%!python3.10 -m json.tool --indent 2<CR>
 
 " FZF commands
-let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
+" let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
@@ -371,7 +371,7 @@ nnoremap <space>b <cmd>Telescope buffers<cr>
 noremap <C-F>h :History:<CR>
 noremap <C-F>c :Commits <CR>
 noremap <C-F>/ <cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>
-noremap <C-F>r <cmd>lua grep_string()<cr>
+noremap <C-F>r <cmd> :Rg <CR>
 noremap <C-F>g :GGrep <CR>
 
 noremap <C-\> :TagbarToggle <CR>
@@ -381,9 +381,7 @@ noremap <C-\> :TagbarToggle <CR>
 " Functions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Print object syntax inheritance
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+map <F10> :TSHighlightCapturesUnderCursor<CR>
 
 " https://vim.fandom.com/wiki/Swapping_characters,_words_and_lines
 " To use gw to swap the current word with the next, without changing cursor position: (See note.)
@@ -397,6 +395,7 @@ vnoremap <silent> * :<C-U>
   \gvy/<C-R><C-R>=substitute(
   \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> <F2> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
 :command! Camel s#_\(\l\)#\u\1#g
 :command! Snake s#\C\(\<[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g
@@ -414,9 +413,9 @@ command! -range=% Yq <line1>,<line2>call Format("yamkix -n -s")
 command! -range=% Yqk <line1>,<line2>call Format("yamkix -s")
 command! -range=% Lua <line1>,<line2>call Format("stylua --indent-width 2 --indent-type Spaces -")
 
-command! -range=% Sqlf <line1>,<line2>call Format("sql-formatter -l mysql -u")
+command! -range=% Sqlf <line1>,<line2>call Format("sql-formatter -l mysql --config ~/.sqlf_config.json")
 
-command! -range=% Shf <line1>,<line2>call Format("shfmt -i 2")
+command! -range=% Shf <line1>,<line2>call Format("shfmt -i 2 -sr")
 
 " The function switches all windows pointing to the current buffer (that you are closing)
 " to the next buffer (or a new buffer if the current buffer is the last one).
@@ -491,6 +490,13 @@ augroup markdown_language_client_commands
     autocmd WinLeave __LCNHover__,__LCNExplainError__ ++nested call <SID>fixLanguageClientHover()
 augroup END
 
+
+" augroup remember_folds
+"   autocmd!
+"   autocmd BufWinLeave *.* mkview
+"   autocmd BufWinEnter *.* silent! loadview
+" augroup END
+
 function! s:fixLanguageClientHover()
     setlocal modifiable
     setlocal nonu nornu
@@ -499,6 +505,18 @@ function! s:fixLanguageClientHover()
     setlocal nonu nornu
     setlocal nomodifiable
 endfunction
+
+function! MoveFile(newspec)
+     let old = expand('%')
+     " could be improved:
+     if (old == a:newspec)
+         return 0
+     endif
+     exe 'sav' fnameescape(a:newspec)
+     call delete(old)
+endfunction
+
+command! -nargs=1 -complete=file -bar MoveFile call MoveFile('<args>')
 
 
 

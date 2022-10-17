@@ -2,6 +2,7 @@
 " call one#highlight('rustModPathSep', '', '1d2025', 'none')
 " call onedark#extend_highlight('rustModPathSep', {'fg': s:colors.white})
 set autoindent
+" add <Result> angle brackets as match pairs
 set mps+=<:>
 " set nofoldenable
 let g:rustfmt_command = 'rustfmt +nightly'

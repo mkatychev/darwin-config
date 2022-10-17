@@ -60,6 +60,10 @@ alias kgp="kubectl get pods"
 alias doco="docker-compose"
 alias rust-musl-builder='docker run --rm -it -v "$(pwd)":/home/rust/src aarch64-x-compile'
 
+## git
+alias gpo="git push origin"
+alias glo="git pull origin"
+
 alias mpva="mpv --no-video --term-osd-bar $@"
 gshow() {
   base=$(basename -- "$1")
@@ -153,3 +157,10 @@ kube-cfg-get() {
 
   yq e "$query" ~/.kube/config
 }
+
+settitle() {
+      export PS1="\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n$ "
+      echo -ne "\e]0;$1\a"
+}
+
+md() { mdcat "$1" | bat -p }

@@ -8,29 +8,211 @@ require("packer").startup(function()
   use("hrsh7th/cmp-path")
   use("hrsh7th/nvim-cmp") -- Autocompletion plugin
   use("jvgrootveld/telescope-zoxide")
+  use("kyazdani42/nvim-tree.lua")
+  use("natecraddock/telescope-zf-native.nvim")
   use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
   use("nvim-lua/plenary.nvim")
   use("nvim-lua/popup.nvim")
+  use("nvim-lualine/lualine.nvim")
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+  use("nvim-telescope/telescope-ui-select.nvim")
   use("nvim-telescope/telescope.nvim")
   use("nvim-treesitter/playground")
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = function()
+      require("nvim-treesitter.install").update({ with_sync = true })
+    end,
+  })
+  use("nvim-treesitter/nvim-treesitter-textobjects")
   use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
-  use("wbthomason/packer.nvim")
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-  use("natecraddock/telescope-zf-native.nvim")
   use("simrat39/rust-tools.nvim")
+  use("wbthomason/packer.nvim")
+  use("nanotee/sqls.nvim")
+  use({
+    "romgrk/barbar.nvim",
+    requires = { "kyazdani42/nvim-web-devicons" },
+  })
   -- use("olimorris/onedarkpro.nvim")
-  -- use("norcalli/nvim-colorizer.lua")
 end)
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>cd",
-  ":lua require'telescope'.extensions.zoxide.list{}<CR>",
-  { noremap = true, silent = true }
-)
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = true,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+
+-- Set barbar's options
+require("bufferline").setup({
+  -- Enable/disable animations
+  animation = false,
+
+  -- Enable/disable auto-hiding the tab bar when there is a single buffer
+  auto_hide = false,
+
+  -- Enable/disable current/total tabpages indicator (top right corner)
+  tabpages = true,
+
+  -- Enable/disable close button
+  closable = true,
+
+  -- Enables/disable clickable tabs
+  --  - left-click: go to buffer
+  --  - middle-click: delete buffer
+  clickable = true,
+
+  -- Excludes buffers from the tabline
+  -- exclude_ft = {'javascript'},
+  -- exclude_name = {'package.json'},
+
+  -- Enable/disable icons
+  -- if set to 'numbers', will show buffer index in the tabline
+  -- if set to 'both', will show buffer index and icons in the tabline
+  icons = "numbers",
+
+  -- If set, the icon color will follow its corresponding buffer
+  -- highlight group. By default, the Buffer*Icon group is linked to the
+  -- Buffer* group (see Highlighting below). Otherwise, it will take its
+  -- default value as defined by devicons.
+  icon_custom_colors = false,
+
+  -- Configure icons on the bufferline.
+  icon_separator_active = "▎",
+  icon_separator_inactive = "▎",
+  icon_close_tab = "",
+  icon_close_tab_modified = "●",
+  icon_pinned = "車",
+
+  -- If true, new buffers will be inserted at the start/end of the list.
+  -- Default is to insert after current buffer.
+  insert_at_end = false,
+  insert_at_start = false,
+
+  -- Sets the maximum padding width with which to surround each tab
+  maximum_padding = 1,
+
+  -- Sets the maximum buffer name length.
+  maximum_length = 30,
+
+  -- If set, the letters for each buffer in buffer-pick mode will be
+  -- assigned based on their name. Otherwise or in case all letters are
+  -- already assigned, the behavior is to assign letters in order of
+  -- usability (see order below)
+  semantic_letters = true,
+
+  -- New buffer letters are assigned in this order. This order is
+  -- optimal for the qwerty keyboard layout but might need adjustement
+  -- for other layouts.
+  letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
+
+  -- Sets the name of unnamed buffers. By default format is "[Buffer X]"
+  -- where X is the buffer number. But only a static string is accepted here.
+  no_name_title = nil,
+})
+
+require("lualine").setup({
+  options = {
+    icons_enabled = true,
+    theme = "auto",
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    },
+  },
+  sections = {
+    lualine_a = { "mode" },
+    lualine_b = { "branch" },
+    lualine_c = { { "filename", path = 1 } },
+    lualine_x = { "encoding", "fileformat", "filetype" },
+    lualine_y = { "progress" },
+    lualine_z = { "location" },
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = { "filename" },
+    lualine_x = { "location" },
+    lualine_y = {},
+    lualine_z = {},
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {},
+})
+
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+-- Move to previous/next
+map("n", "<C-S-Tab>", "<Cmd>BufferPrevious<CR>", opts)
+map("n", "<C-Tab>", "<Cmd>BufferNext<CR>", opts)
+
+map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
+map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
+map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
+map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
+map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", opts)
+map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", opts)
+map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", opts)
+map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", opts)
+map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
+map("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
+map("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
+map("n", "<A-S-p>", "<Cmd>BufferPick<CR>", opts)
+-- Re-order to previous/next
+map("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)
+map("n", "<A->>", "<Cmd>BufferMoveNext<CR>", opts)
+-- Sort automatically by...
+map("n", "<leader>1", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
+map("n", "<leader>q", "<Cmd>BufferOrderByDirectory<CR>", opts)
+map("n", "<leader>a", "<Cmd>BufferOrderByLanguage<CR>", opts)
+map("n", "<leader>z", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
+
+map("n", "<leader>cd", ":lua require'telescope'.extensions.zoxide.list{}<CR>", opts)
+
+local nvim_tree_events = require("nvim-tree.events")
+local bufferline_state = require("bufferline.state")
+
+local function get_tree_size()
+  return require("nvim-tree.view").View.width
+end
+
+nvim_tree_events.subscribe("TreeOpen", function()
+  bufferline_state.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe("Resize", function()
+  bufferline_state.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe("TreeClose", function()
+  bufferline_state.set_offset(0)
+end)
 
 require("telescope").setup({
   extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown({
+        -- even more opts
+      }),
+    },
     ["zf-native"] = {
       -- options for sorting file-like items
       file = {
@@ -81,6 +263,7 @@ require("telescope").setup({
 -- | `!fire`   | inverse-exact-match        | Items that do not include `fire`     |
 -- | `!^music` | inverse-prefix-exact-match | Items that do not start with `music` |
 -- | `!.mp3$`  | inverse-suffix-exact-match | Items that do not end with `.mp3`    |
+require("telescope").load_extension("ui-select")
 require("telescope").load_extension("zf-native")
 
 -- require("colorizer").setup()
@@ -151,12 +334,18 @@ function _G.grep_string()
   })
 end
 
+function _G.live_grep()
+  require("telescope.builtin").live_grep({
+    disable_coordiantes = true,
+  })
+end
+
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 vim.diagnostic.config({
-  underline = true,
+  underline = false,
   signs = true,
   update_in_insert = false,
   severity_sort = true,
@@ -231,11 +420,27 @@ require("rust-tools").setup({
       border = nil,
     },
   },
-  server = { on_attach = on_attach, capabilities = capabilities },
+  server = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      ["rust-analyzer"] = {
+        cargo = {
+          loadOutDirsFromCheck = true,
+          buildScripts = { enable = true },
+          procMacro = { enable = true, attributes = { enable = true } },
+          hover = { linksInHover = true },
+        },
+      },
+    },
+  },
 })
 
+require("lspconfig").sqlls.setup({})
 local servers = {
   tsserver = {},
+  svelte = {},
+  ccls = {},
   -- rust_analyzer = {
   --   settings = {
   --     ["rust-analyzer"] = {
@@ -249,6 +454,18 @@ local servers = {
     settings = {
       gopls = {
         linksInHover = false,
+      },
+    },
+  },
+  pyright = {},
+  sqls = {},
+  yamlls = {
+    settings = {
+      yaml = {
+        schemas = {
+          ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+          ["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
+        },
       },
     },
   },
@@ -320,9 +537,9 @@ cmp.setup({
       require("luasnip").lsp_expand(args.body)
     end,
   },
-  mapping = {
-    ["<C-p>"] = cmp.mapping.select_prev_item(),
-    ["<C-n>"] = cmp.mapping.select_next_item(),
+  mapping = cmp.mapping.preset.insert({
+    ["<Up>"] = cmp.mapping.select_prev_item(),
+    ["<Down>"] = cmp.mapping.select_next_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
@@ -349,7 +566,7 @@ cmp.setup({
         fallback()
       end
     end,
-  },
+  }),
   sources = {
     { name = "buffer" },
     { name = "nvim_lsp" },
@@ -400,6 +617,7 @@ cmp.setup({
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
     { name = "path" },
   }, {
@@ -407,8 +625,47 @@ cmp.setup.cmdline(":", {
   }),
 })
 
+local textobject_all = function(prefix, inner, outer)
+  return {
+    [prefix .. inner .. "B"] = "@block.inner",
+    [prefix .. outer .. "B"] = "@block.outer",
+    [prefix .. inner .. "C"] = "@call.inner",
+    [prefix .. outer .. "C"] = "@call.outer",
+    [prefix .. inner .. "c"] = "@class.inner",
+    [prefix .. outer .. "c"] = "@class.outer",
+    [prefix .. outer .. "/"] = "@comment.outer",
+    [prefix .. inner .. "b"] = "@conditional.inner",
+    [prefix .. outer .. "b"] = "@conditional.outer",
+    [prefix .. inner .. "f"] = "@function.inner",
+    [prefix .. outer .. "f"] = "@function.outer",
+    [prefix .. "g"] = "@function_block",
+    [prefix .. inner .. "l"] = "@loop.inner",
+    [prefix .. outer .. "l"] = "@loop.outer",
+    [prefix .. inner .. "p"] = "@parameter.inner",
+    [prefix .. outer .. "p"] = "@parameter.outer",
+    [prefix .. outer .. "t"] = "@statement.outer",
+  }
+end
+
 -- TreeSitter
+local textobject_outer = function(prefix)
+  return {
+    [prefix .. "B"] = "@block.outer",
+    [prefix .. "C"] = "@call.outer",
+    [prefix .. "c"] = "@class.outer",
+    [prefix .. "/"] = "@comment.outer",
+    [prefix .. "b"] = "@conditional.outer",
+    [prefix .. "f"] = "@function.outer",
+    [prefix .. "g"] = "@function_block",
+    [prefix .. "l"] = "@loop.outer",
+    [prefix .. "p"] = "@parameter.outer",
+    [prefix .. "t"] = "@statement.outer",
+    [prefix .. "a"] = "@match_arm",
+  }
+end
+
 require("nvim-treesitter.configs").setup({
+  indent = { enable = true },
   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = { "swift", "phpdoc" },
   highlight = {
@@ -447,73 +704,36 @@ require("nvim-treesitter.configs").setup({
       border = "none",
       peek_definition_code = {
         ["<space>k"] = "@function.outer",
-        ["<leader>dF"] = "@class.outer",
+        ["<space>c"] = "@class.outer",
+        ["<space>C"] = "@call.outer",
+        ["<space>t"] = "@statement.outer",
+        ["<space>p"] = "@parameter.outer",
       },
     },
 
     select = {
       enable = true,
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["iB"] = "@block.inner",
-        ["aB"] = "@block.outer",
-        ["iC"] = "@call.inner",
-        ["aC"] = "@call.outer",
-        ["ic"] = "@class.inner",
-        ["ac"] = "@class.outer",
-        ["a/"] = "@comment.outer",
-        ["ib"] = "@conditional.inner",
-        ["ab"] = "@conditional.outer",
-        ["ir"] = "@frame.inner",
-        ["ar"] = "@frame.outer",
-        ["if"] = "@function.inner",
-        ["af"] = "@function.outer",
-        ["ag"] = "@function_block",
-        ["il"] = "@loop.inner",
-        ["al"] = "@loop.outer",
-        ["ip"] = "@parameter.inner",
-        ["ap"] = "@parameter.outer",
-        ["it"] = "@statement.inner",
-        ["at"] = "@statement.outer",
-      },
+      -- You can use the capture groups defined in textobjects.scm
+      keymaps = textobject_all("", "i", "a"),
     },
     move = {
       enable = true,
       set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        ["]f"] = "@function.outer",
-        ["]c"] = "@class.outer",
-        ["]r"] = "@parameter.outer",
-        ["]t"] = "@statement.outer",
-      },
-      goto_next_end = {
-        ["]ef"] = "@function.outer",
-        ["]ec"] = "@class.outer",
-        ["]et"] = "@statement.outer",
-      },
-      goto_previous_start = {
-        ["[f"] = "@function.outer",
-        ["[c"] = "@class.outer",
-        ["[t"] = "@statement.outer",
-      },
-      goto_previous_end = {
-        ["[ef"] = "@function.outer",
-        ["[ec"] = "@class.outer",
-        ["[et"] = "@statement.outer",
-      },
+      goto_next_start = textobject_all("]", "i", ""),
+      goto_next_end = textobject_all("]e", "i", ""),
+      goto_previous_start = textobject_all("[", "i", ""),
+      goto_previous_end = textobject_all("[e", "i", ""),
     },
     swap = {
       enable = true,
-      swap_next = {
-        ["<leader>ir"] = "@parameter.inner",
-        ["<leader>af"] = "@function.outer",
-        ["<leader>if"] = "@function.inner",
-      },
-      swap_previous = {
-        ["<leader>Ir"] = "@parameter.inner",
-        ["<leader>Af"] = "@function.outer",
-        ["<leader>If"] = "@function.inner",
-      },
+      swap_next = textobject_all("}", "i", "a"),
+      swap_previous = textobject_all("{", "i", "a"),
     },
   },
+})
+
+require("nvim-treesitter.highlight").set_custom_captures({
+  -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+  ["function.macro"] = "Constant",
+  -- ["operator"] = "WarningMsg",
 })

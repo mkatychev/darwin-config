@@ -49,7 +49,7 @@
 
 [delta "basic"]
     commit-decoration-style = omit
-    syntax-theme = Monokai
+    syntax-theme = Monokai Extended
     keep-plus-minus-markers = true
     line-numbers = false
     file-style = blue
