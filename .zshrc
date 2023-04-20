@@ -39,8 +39,8 @@ autoload -Uz _zinit
 setopt promptsubst
 ZINIT[MUTE_WARNINGS]=1
 # B.
-zinit ice wait"0" lucid
-zinit snippet OMZ::lib/git.zsh
+# zinit ice wait"0" lucid
+# zinit snippet OMZ::lib/git.zsh
 
 # zinit load zdharma/history-search-multi-word
 # command -v jira &> /dev/null  && source <(jira --completion-script-zsh)
@@ -66,7 +66,7 @@ zinit ice wait"0" atinit"zpcompinit" lucid for \
 
 
 # C.
-zinit ice wait"0" atload"unalias grv" lucid
+zinit ice wait"0" atload"unalias glo" lucid
     zinit snippet OMZP::git/git.plugin.zsh
     # zinit snippet $tool/zsh_plugin/node_theme.zsh
 

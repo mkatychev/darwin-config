@@ -3,7 +3,7 @@
 " call onedark#extend_highlight('rustModPathSep', {'fg': s:colors.white})
 set autoindent
 " add <Result> angle brackets as match pairs
-set mps+=<:>
+" set mps+=<:>
 " set nofoldenable
 let g:rustfmt_command = 'rustfmt +nightly'
 let g:surround_111="Option<\r>"
@@ -23,3 +23,5 @@ let g:rainbow_conf = {
             \       }
             \   }
             \}
+let @s="\<Esc>ggOuse error_stack as es;\<Esc>``"
+let @c="\<Esc>vac:s/Error/es::&\<CR>"

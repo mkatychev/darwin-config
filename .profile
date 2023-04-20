@@ -13,7 +13,7 @@ export PATH=$GEM_PATH/bin:$PATH
 export PATH=/usr/local/lib/ruby/gems/2.6.0/bin:$PATH
 export PATH=/usr/local/opt/ruby/bin:$PATH
 export PATH=~/Library/Python/3.9/bin:$PATH
-# export PATH=$HOME/.nix-profile/bin:$PATH
+export PATH=$HOME/.nix-profile/bin:$PATH
 
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
@@ -21,7 +21,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=/usr/local/Homebrew/bin:$PATH
 export PATH=$HOME/.symlinks:$PATH
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# End Nix
 export PATH="/usr/local/Homebrew/opt/openssl@3/bin:$PATH"
 export PATH=~/.local/bin:$PATH
 export PATH=$PATH:/Users/mkatychev/.linkerd2/bin
@@ -30,3 +30,8 @@ export PATH=$PATH:/Users/mkatychev/.linkerd2/bin
 export PATH="$PATH:$HOME/.rvm/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# tree sitter compilation
+export CC="gcc-12"
+export DYLD_LIBRARY_PATH=/Library/Developer/CommandLineTools/usr/lib/
+# export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK="1"

@@ -7,6 +7,7 @@ export mov=$HOME/Movies
 export ff=/Applications/Firefox.app/Contents/MacOS/firefox
 export nv=$cfg/nvim
 export nvl=$cfg/nvim/lua/init.lua
+export nvlt=$cfg/nvim/lua/treesitter.lua
 export nvv=$cfg/nvim/init.vim
 export zsha=$HOME/.zshrc.aliases
 export zshl=$HOME/.zshrc.local
@@ -26,7 +27,7 @@ alias gitconf="(mv $HOME/.git $HOME/.got || mv $HOME/.got $HOME/.git) 2> /dev/nu
 alias batt="BAT_PAGER=$HOME/.config/usr_tools/bat_pager.sh bat"
 alias ls=exa
 alias python3=/usr/local/bin/python3
-alias pip=/usr/local/bin/pip3
+alias pip=pip3.11
 alias pyatom="source ~/.config/atomenv/bin/activate"
 alias firefox="open -a Firefox"
 alias ls.='exa -T --all -I=".git"'
@@ -49,7 +50,7 @@ alias esen="trans es:en"
 alias duostrip='pbpaste | sd "[ \n\t]+" " " | pbcopy'
 alias ssh='TERM=xterm-color ssh'
 alias nv=nvim
-alias py=python3
+alias py=python3.11
 alias zq="zoxide query"
 
 alias hist="history 1 -1"
