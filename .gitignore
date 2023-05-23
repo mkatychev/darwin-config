@@ -8,7 +8,7 @@
 !.config/helix/*
 !.config/iterm/
 !.config/iterm/*
-!.config/nvim
+!.config/nvim/
 !.config/nvim/**/*
 !.config/pgcli
 !.config/pgcli/*
