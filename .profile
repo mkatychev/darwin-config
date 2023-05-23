@@ -32,6 +32,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # tree sitter compilation
-export CC="gcc-12"
+export CC="llvm-gcc"
 export DYLD_LIBRARY_PATH=/Library/Developer/CommandLineTools/usr/lib/
 # export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK="1"

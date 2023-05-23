@@ -1,5 +1,6 @@
+*
 !*.terminfo
-!.config/
+!.config
 !.config/alacritty
 !.config/alacritty/*
 !.config/bat/
@@ -8,7 +9,7 @@
 !.config/helix/*
 !.config/iterm/
 !.config/iterm/*
-!.config/nvim/
+!.config/nvim
 !.config/nvim/**/*
 !.config/pgcli
 !.config/pgcli/*
@@ -34,7 +35,6 @@
 !.zshrc
 !.zshrc.aliases
 !com.googlecode.iterm2.plist
-*
 *.zwc
 .DS_Store
 .config/helix/runtime
@@ -43,3 +43,4 @@
 .config/pgcli/log
 .ipython/**
 .ptpython/history
+.config/nvim/plugin/packer_compiled.lua

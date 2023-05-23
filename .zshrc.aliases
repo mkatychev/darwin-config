@@ -165,3 +165,12 @@ settitle() {
 }
 
 md() { mdcat "$1" | bat -p }
+
+ccheck() { clear && tmux clear-history && cargo check "${@}" }
+alias check="cargo check"
+alias c="cargo check"
+
+
+mdown() {
+  open -a "MacDown" "$1"
+}

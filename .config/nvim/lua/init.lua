@@ -33,27 +33,10 @@ require("packer").startup(function()
   use("rcarriga/nvim-notify")
   use { "saecki/crates.nvim", requires = { "nvim-lua/plenary.nvim" } }
   use { "numToStr/Comment.nvim" }
-  use { "kylechui/nvim-surround", tag = "*" }
-  use {
-    "nvim-neorg/neorg",
-    config = function()
-      load = {
-        require("neorg").setup {
-          ["core.defaults"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                work = "~/notes/work",
-                home = "~/notes/home",
-              },
-            },
-          },
-        },
-      }
-    end,
-    run = ":Neorg sync-parsers",
-    requires = "nvim-lua/plenary.nvim",
-  }
+  -- use { "kylechui/nvim-surround", tag = "*" }
+  use("echasnovski/mini.surround")
+  use("HiPhish/nvim-ts-rainbow2")
+  use("ggandor/leap.nvim")
   use {
     "ibhagwan/fzf-lua",
     requires = { "nvim-tree/nvim-web-devicons" },
@@ -65,10 +48,73 @@ require("packer").startup(function()
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   }
+  use {
+    "nvim-neorg/neorg",
+    after = "nvim-treesitter", -- You may want to specify Telescope here as well
+    run = ":Neorg sync-parsers",
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/Documents/notes",
+              },
+            },
+          },
+        },
+      }
+    end,
+    requires = "nvim-lua/plenary.nvim",
+  }
 end)
-require("nvim-surround").setup()
-require("Comment").setup()
 
+-- require('leap').add_default_mappings()
+require("mini.surround").setup(
+{
+  -- Add custom surroundings to be used on top of builtin ones. For more
+  -- information with examples, see `:h MiniSurround.config`.
+  custom_surroundings = nil,
+
+  -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
+  highlight_duration = 500,
+
+  -- Module mappings. Use `''` (empty string) to disable one.
+  mappings = {
+    add = 'sa', -- Add surrounding in Normal and Visual modes
+    delete = 'sd', -- Delete surrounding
+    find = 'sf', -- Find surrounding (to the right)
+    find_left = 'sF', -- Find surrounding (to the left)
+    highlight = 'sh', -- Highlight surrounding
+    replace = 'sr', -- Replace surrounding
+    update_n_lines = 'sn', -- Update `n_lines`
+
+    suffix_last = 'l', -- Suffix to search with "prev" method
+    suffix_next = 'n', -- Suffix to search with "next" method
+  },
+
+  -- Number of lines within which surrounding is searched
+  n_lines = 20,
+
+  -- Whether to respect selection type:
+  -- - Place surroundings on separate lines in linewise mode.
+  -- - Place surroundings on each line in blockwise mode.
+  respect_selection_type = false,
+
+  -- How to search for surrounding (first inside current line, then inside
+  -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
+  -- 'cover_or_nearest', 'next', 'prev', 'nearest'. For more details,
+  -- see `:h MiniSurround.config`.
+  search_method = 'cover',
+
+  -- Whether to disable showing non-error feedback
+  silent = false,
+}
+)
+require("Comment").setup()
+-- require("neorg").setup()
 vim.opt.expandtab = true
 vim.opt.hidden = true
 vim.opt.mouse = "a"
@@ -93,6 +139,11 @@ autocmd("InsertEnter", {
   callback = function() vim.opt.relativenumber = false end,
 })
 
+autocmd("BufWritePost", {
+  group = vim.api.nvim_create_augroup("PACKER", { clear = true }),
+  pattern = "plugins.lua",
+  command = "source <afile> | PackerCompile",
+})
 augroup("RelNumInActiveNormalWindow", { clear = true })
 autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
   group = "RelNumInActiveNormalWindow",
@@ -149,7 +200,7 @@ require("git-conflict").setup {
 }
 
 -- Set barbar's options
-require("bufferline").setup {
+require("barbar").setup {
   -- Enable/disable animations
   animation = false,
 
@@ -165,16 +216,16 @@ require("bufferline").setup {
 
   icons = {
     -- Configure the base icons on the bufferline.
-    buffer_index = false,
+    buffer_index = true,
     buffer_number = false,
     button = false,
     -- Enables / disables diagnostic symbols
-    -- diagnostics = false,
-    --   [vim.diagnostic.severity.ERROR] = { enabled = true, icon = "ﬀ" },
-    --   [vim.diagnostic.severity.WARN] = { enabled = false },
-    --   [vim.diagnostic.severity.INFO] = { enabled = false },
-    --   [vim.diagnostic.severity.HINT] = { enabled = true },
-    -- },
+    diagnostics = {
+      [vim.diagnostic.severity.ERROR] = { enabled = true },
+      --   [vim.diagnostic.severity.WARN] = { enabled = false },
+      --   [vim.diagnostic.severity.INFO] = { enabled = false },
+      --   [vim.diagnostic.severity.HINT] = { enabled = true },
+    },
     filetype = {
       -- Sets the icon's highlight group.
       -- If false, will use nvim-web-devicons colors
@@ -419,6 +470,10 @@ require("rust-tools").setup {
         check = {
           extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" },
         },
+        -- checkOnSave = {
+        --   command = "check",
+        --   extraArgs = { "--all" },
+        -- },
       },
     },
   },
