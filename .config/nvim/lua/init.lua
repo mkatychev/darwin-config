@@ -37,6 +37,7 @@ require("packer").startup(function()
   use("echasnovski/mini.surround")
   use("HiPhish/nvim-ts-rainbow2")
   use("ggandor/leap.nvim")
+  use("nickel-lang/vim-nickel")
   use {
     "ibhagwan/fzf-lua",
     requires = { "nvim-tree/nvim-web-devicons" },
@@ -56,9 +57,16 @@ require("packer").startup(function()
       require("neorg").setup {
         load = {
           ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.journal"] = {
+            config = {
+              strategy = "flat",
+              workspace = "notes",
+            },
+          }, -- Loads default behaviour
           ["core.concealer"] = {}, -- Adds pretty icons to your documents
           ["core.dirman"] = { -- Manages Neorg workspaces
             config = {
+              default_workspace = "notes",
               workspaces = {
                 notes = "~/Documents/notes",
               },
@@ -72,8 +80,7 @@ require("packer").startup(function()
 end)
 
 -- require('leap').add_default_mappings()
-require("mini.surround").setup(
-{
+require("mini.surround").setup {
   -- Add custom surroundings to be used on top of builtin ones. For more
   -- information with examples, see `:h MiniSurround.config`.
   custom_surroundings = nil,
@@ -83,16 +90,16 @@ require("mini.surround").setup(
 
   -- Module mappings. Use `''` (empty string) to disable one.
   mappings = {
-    add = 'sa', -- Add surrounding in Normal and Visual modes
-    delete = 'sd', -- Delete surrounding
-    find = 'sf', -- Find surrounding (to the right)
-    find_left = 'sF', -- Find surrounding (to the left)
-    highlight = 'sh', -- Highlight surrounding
-    replace = 'sr', -- Replace surrounding
-    update_n_lines = 'sn', -- Update `n_lines`
+    add = "qa", -- Add surrounding in Normal and Visual modes
+    delete = "qd", -- Delete surrounding
+    find = "qf", -- Find surrounding (to the right)
+    find_left = "qF", -- Find surrounding (to the left)
+    highlight = "qh", -- Highlight surrounding
+    replace = "qr", -- Replace surrounding
+    update_n_lines = "qn", -- Update `n_lines`
 
-    suffix_last = 'l', -- Suffix to search with "prev" method
-    suffix_next = 'n', -- Suffix to search with "next" method
+    suffix_last = "l", -- Suffix to search with "prev" method
+    suffix_next = "n", -- Suffix to search with "next" method
   },
 
   -- Number of lines within which surrounding is searched
@@ -107,12 +114,11 @@ require("mini.surround").setup(
   -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
   -- 'cover_or_nearest', 'next', 'prev', 'nearest'. For more details,
   -- see `:h MiniSurround.config`.
-  search_method = 'cover',
+  search_method = "cover",
 
   -- Whether to disable showing non-error feedback
   silent = false,
 }
-)
 require("Comment").setup()
 -- require("neorg").setup()
 vim.opt.expandtab = true
@@ -138,6 +144,13 @@ autocmd("InsertLeave", {
 autocmd("InsertEnter", {
   callback = function() vim.opt.relativenumber = false end,
 })
+-- autocmd FileType myft let b:match_words = 'something:else'`
+-- autocmd ("FileType", {
+--   pattern = { 'nix' },
+--   callback = function()
+--     vim.b.match_words = 'let:in'
+--   end
+-- })
 
 autocmd("BufWritePost", {
   group = vim.api.nvim_create_augroup("PACKER", { clear = true }),
@@ -416,6 +429,8 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
 local on_attach = function(client, bufnr)
+  -- turn off lsp syntax highlighting
+  client.server_capabilities.semanticTokensProvider = nil
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -467,9 +482,9 @@ require("rust-tools").setup {
           buildScripts = { enable = true },
         },
         procMacro = { enable = true },
-        check = {
-          extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" },
-        },
+        -- check = {
+        --   extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" },
+        -- },
         -- checkOnSave = {
         --   command = "check",
         --   extraArgs = { "--all" },
@@ -484,6 +499,7 @@ local servers = {
   tsserver = {},
   svelte = {},
   ccls = {},
+  nickel_ls = {},
   -- rust_analyzer = {
   --   settings = {
   --     ["rust-analyzer"] = {
@@ -505,7 +521,7 @@ local servers = {
     settings = {
       yaml = {
         schemas = {
-          ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+          ["https://gist.githubusercontent.com/mkatychev/59065a932fa69be567380d724cecdd3f/raw/177e24f0cfdfcf102376dcf59fe0b867f1ebbf53/github-workflow.json"] = "/.github/workflows/*",
           ["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
         },
       },

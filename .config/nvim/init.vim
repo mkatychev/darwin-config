@@ -67,38 +67,20 @@ Plug 'tyru/open-browser-github.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'mattn/webapi-vim'
 Plug 'itchyny/vim-gitbranch'
-" display
-" Plug 'joshdick/onedark.vim'
-" Plug 'Th3Whit3Wolf/one-nvim'
-" Plug 'blueyed/vim-diminactive'
-" Plug 'rakr/vim-one'
-Plug 'luochen1990/rainbow'
 " Plug 'ap/vim-css-color'
 " syntax
 Plug 'ARM9/arm-syntax-vim'
-Plug 'kevinoid/vim-jsonc'
 Plug 'mtdl9/vim-log-highlighting'
 " Plug 'plasticboy/vim-markdown'
 Plug 'swinman/vim-nc', { 'branch': 'scaled_error' } " G-Code highlighting
 Plug 'sirtaj/vim-openscad'
-" Plug 'uarun/vim-protobuf'
-Plug 'ron-rs/ron.vim'
 Plug 'dcharbon/vim-flatbuffers'
 " motions
 Plug 'tpope/vim-repeat'
-" Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-" Plug 'triglav/vim-visual-increment'
 " misc
 Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar', { 'do': 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags' }
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" Python
-" Plug 'Yggdroot/indentLine'
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'AndrewRadev/dsf.vim'
-" Rust
 " Tmux
 Plug 'sunaku/tmux-navigate'
 call plug#end()

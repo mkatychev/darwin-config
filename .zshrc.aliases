@@ -18,6 +18,7 @@ export go=$doc/go
 export tool=$cfg/usr_tools
 export nt=$doc/notes
 export js=$doc/js
+export nix=$doc/nix
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 alias pipup="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
@@ -167,6 +168,9 @@ settitle() {
 md() { mdcat "$1" | bat -p }
 
 ccheck() { clear && tmux clear-history && cargo check "${@}" }
+ccheckt() { clear && tmux clear-history && cargo check --profile test }
+ctest() { clear && tmux clear-history && cargo test -- --nocapture "${@}" }
+ccmd() { clear && tmux clear-history && "${@}" }
 alias check="cargo check"
 alias c="cargo check"
 

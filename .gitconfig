@@ -25,7 +25,8 @@
     alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	conflicts = diff --name-only --diff-filter=U
+    conflicts = diff --name-only --diff-filter=U
+    branchm = "!git branch --move $2 $3 && git push $1 :$2 $3 --set-upstream #"
 ; [url "git@github.com:"]
 ;     insteadOf = https://github.com/
 [credential]
@@ -57,3 +58,5 @@
     hunk-header-file-style = omit
     hunk-header-style = omit
     commit-style = omit
+[push]
+	autoSetupRemote = true
