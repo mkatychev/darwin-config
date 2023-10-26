@@ -33,17 +33,17 @@ my_set_prompt() {
   if gitstatus_query MY && [[ $VCS_STATUS_RESULT == ok-sync ]]; then
     PROMPT+="$GIT_PROMPT_PREFIX$CYAN${${VCS_STATUS_LOCAL_BRANCH:-@${VCS_STATUS_COMMIT}}//\%/%%} "  # escape %
     if [[ $VCS_STATUS_NUM_UNTRACKED -gt 1 ]]; then
-      PROMPT+="$YELLOW "
+      PROMPT+="$YELLOW󰄷 "
     elif [[ $VCS_STATUS_NUM_UNTRACKED -eq 1 ]]; then
-      PROMPT+="$YELLOW "
+      PROMPT+="$YELLOW󰄱 "
     fi
     if [[ $VCS_STATUS_NUM_UNSTAGED -gt 1 ]]; then
-      PROMPT+="$RED "
+      PROMPT+="$RED󰄶 "
     elif [[ $VCS_STATUS_NUM_UNSTAGED -eq 1 ]]; then
-      PROMPT+="$RED "
+      PROMPT+="$RED󰄮 "
     fi
     if [[ $VCS_STATUS_NUM_STAGED -gt 1 ]]; then
-      PROMPT+="$GREEN "
+      PROMPT+="$GREEN󰄸 "
     elif [[ $VCS_STATUS_NUM_STAGED -eq 1 ]]; then
       PROMPT+="$GREEN "
     fi

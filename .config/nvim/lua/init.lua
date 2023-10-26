@@ -25,7 +25,7 @@ require("packer").startup(function()
   use("nvim-treesitter/nvim-treesitter-textobjects")
   use("IndianBoy42/tree-sitter-just")
   use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
-  use("simrat39/rust-tools.nvim")
+  use("MunifTanjim/rust-tools.nvim")
   use("wbthomason/packer.nvim")
   use { "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
   use("navarasu/onedark.nvim")
@@ -38,6 +38,7 @@ require("packer").startup(function()
   use("HiPhish/nvim-ts-rainbow2")
   use("ggandor/leap.nvim")
   use("nickel-lang/vim-nickel")
+  use("lewis6991/gitsigns.nvim")
   use {
     "ibhagwan/fzf-lua",
     requires = { "nvim-tree/nvim-web-devicons" },
@@ -79,6 +80,7 @@ require("packer").startup(function()
   }
 end)
 
+require('gitsigns').setup()
 -- require('leap').add_default_mappings()
 require("mini.surround").setup {
   -- Add custom surroundings to be used on top of builtin ones. For more
@@ -482,9 +484,9 @@ require("rust-tools").setup {
           buildScripts = { enable = true },
         },
         procMacro = { enable = true },
-        -- check = {
-        --   extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" },
-        -- },
+        check = {
+          extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" },
+        },
         -- checkOnSave = {
         --   command = "check",
         --   extraArgs = { "--all" },
@@ -517,16 +519,16 @@ local servers = {
     },
   },
   pyright = {},
-  yamlls = {
-    settings = {
-      yaml = {
-        schemas = {
-          ["https://gist.githubusercontent.com/mkatychev/59065a932fa69be567380d724cecdd3f/raw/177e24f0cfdfcf102376dcf59fe0b867f1ebbf53/github-workflow.json"] = "/.github/workflows/*",
-          ["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
-        },
-      },
-    },
-  },
+  -- yamlls = {
+  --   settings = {
+  --     yaml = {
+  --       schemas = {
+  --         ["https://gist.githubusercontent.com/mkatychev/59065a932fa69be567380d724cecdd3f/raw/177e24f0cfdfcf102376dcf59fe0b867f1ebbf53/github-workflow.json"] = "/.github/workflows/*",
+  --         ["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
+  --       },
+  --     },
+  --   },
+  -- },
 
   lua_ls = {
     settings = {

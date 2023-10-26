@@ -3,7 +3,7 @@ name = "v"
 file-types = ["v"]
 injection-regex = "v"
 roots = ["v.mod"]
-language-server = { command = "vls" }
+language-servers = ["vls"]
 comment-token = "//"
 auto-format = true
 scope = "source.v"
@@ -14,4 +14,4 @@ source = { git = "https://github.com/nedpals/tree-sitter-v", rev = "bdfb52859392
 
 [[language]]
 name = "lua"
-language-server = { command = "lua-language-server" }
+language-servers =  ["lua-language-server" ]

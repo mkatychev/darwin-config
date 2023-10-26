@@ -66,6 +66,8 @@ alias rust-musl-builder='docker run --rm -it -v "$(pwd)":/home/rust/src aarch64-
 alias gpo="git push origin"
 alias glo="git pull origin"
 
+alias qt="open -a 'QuickTime Player' $@"
+
 alias mpva="mpv --no-video --term-osd-bar $@"
 gshow() {
   base=$(basename -- "$1")

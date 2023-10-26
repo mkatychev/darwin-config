@@ -264,6 +264,7 @@ command! -range=% Lua let b:winview = winsaveview() |
 
 
 
+
 " The function switches all windows pointing to the current buffer (that you are closing)
 " to the next buffer (or a new buffer if the current buffer is the last one).
 "
@@ -307,6 +308,13 @@ endfunction
 "   autocmd BufWinLeave *.* mkview
 "   autocmd BufWinEnter *.* silent! loadview
 " augroup END
+"
+function Gdev()
+     let file = expand('%')
+     exe 'Gedit develop:' . file
+endfunction
+
+command! Gdev call Gdev()
 
 
 
