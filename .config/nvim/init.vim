@@ -38,8 +38,8 @@ set langmap=АБСДЕФГЧИЙКЛМНОПЯРСТУВШХЫЗ;ABCDEFGHIJKLMNO
 " set signcolumn=number # hides current line if error on line, follow up
 set signcolumn=yes
 set nocompatible
-nmap <M-/> <Plug>(comment_toggle_linewise_current)
-vmap <M-/> <Plug>(comment_toggle_linewise_visual)
+" nmap <M-/> <Plug>(comment_toggle_linewise_current)
+" vmap <M-/> <Plug>(comment_toggle_linewise_visual)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Prelude configs
@@ -57,33 +57,28 @@ set t_8f=[38;2;%lu;%lu;%lum
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " '<,'>sort/.*\//
-call plug#begin('~/.vim/plugged')
+" call plug#begin('~/.vim/plugged')
 " Language Client
 " searching
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Git
-Plug 'tyru/open-browser-github.vim'
-Plug 'tyru/open-browser.vim'
-Plug 'mattn/webapi-vim'
-Plug 'itchyny/vim-gitbranch'
 " Plug 'ap/vim-css-color'
 " syntax
-Plug 'ARM9/arm-syntax-vim'
-Plug 'mtdl9/vim-log-highlighting'
-" Plug 'plasticboy/vim-markdown'
-Plug 'swinman/vim-nc', { 'branch': 'scaled_error' } " G-Code highlighting
-Plug 'sirtaj/vim-openscad'
-Plug 'dcharbon/vim-flatbuffers'
-" motions
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive'
-" misc
-Plug 'godlygeek/tabular'
-Plug 'majutsushi/tagbar', { 'do': 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags' }
-" Tmux
-Plug 'sunaku/tmux-navigate'
-call plug#end()
+" Plug 'ARM9/arm-syntax-vim'
+" Plug 'mtdl9/vim-log-highlighting'
+" Plug 'swinman/vim-nc', { 'branch': 'scaled_error' } " G-Code highlighting
+" " Plug 'sirtaj/vim-openscad'
+" " Plug 'dcharbon/vim-flatbuffers'
+" " motions
+" Plug 'tpope/vim-repeat'
+" Plug 'tpope/vim-fugitive'
+" " misc
+" Plug 'godlygeek/tabular'
+" Plug 'majutsushi/tagbar', { 'do': 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags' }
+" " Tmux
+" Plug 'sunaku/tmux-navigate'
+" call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LanguageClient
@@ -98,10 +93,18 @@ set completeopt=menuone,noinsert,noselect
 " Filetype Aliases
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au! BufNewFile,BufRead *.json,*.geojson set filetype=json
+au! BufNewFile,BufRead *.fbs :syntax on
 au! BufNewFile,BufRead .env* set filetype=sh
 " au! BufNewFile,BufRead *.yaml,*.yml set filetype=yaml
 au! BufNewFile,BufRead *.html,*.xml,*.plist set filetype=xml
 au BufNewFile,BufRead *.s,*.S set filetype=arm | set tabstop=8
+" au VimEnter,BufWinEnter,BufRead,BufNewFile justfile setlocal commentstring=#\ %s
+" au VimEnter,BufWinEnter,BufRead,BufNewFile *.just setlocal filetype=just | commentstring=#\ %s
+" au VimEnter,BufWinEnter,BufRead,BufNewFile justfile setlocal filetype=just | commentstring=#\ %s
+" au VimEnter,BufWinEnter,BufRead,BufNewFile Justfile setlocal filetype=just | commentstring=#\ %s
+" au VimEnter,BufWinEnter,BufRead,BufNewFile .justfile setlocal filetype=just | commentstring=#\ %s
+" au VimEnter,BufWinEnter,BufRead,BufNewFile .Justfile setlocal filetype=just | commentstring=#\ %s
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc Global Vars

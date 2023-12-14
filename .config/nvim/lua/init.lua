@@ -1,59 +1,82 @@
-local use = require("packer").use
-require("packer").startup(function()
-  use("L3MON4D3/LuaSnip") -- Snippets plugin
-  use("gfanto/fzf-lsp.nvim") -- fzf for lsp
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-cmdline")
-  use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
-  use("hrsh7th/cmp-path")
-  use("hrsh7th/nvim-cmp") -- Autocompletion plugin
-  use("jvgrootveld/telescope-zoxide")
-  use("natecraddock/telescope-zf-native.nvim")
-  use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
-  use("nvim-lua/plenary.nvim")
-  use("nvim-lua/popup.nvim")
-  use("nvim-lualine/lualine.nvim")
-  use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-  use("nvim-telescope/telescope-ui-select.nvim")
-  use("nvim-telescope/telescope.nvim")
-  use("nvim-treesitter/playground")
-  use {
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system {
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  }
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  { "tyru/open-browser-github.vim", dependencies = "tyru/open-browser.vim" },
+  { "tyru/open-browser.vim" },
+  { "mattn/webapi-vim" },
+  { "itchyny/vim-gitbranch" },
+  { "dcharbon/vim-flatbuffers" },
+  { "ARM9/arm-syntax-vim" },
+  { "mtdl9/vim-log-highlighting" },
+  { "tpope/vim-repeat" },
+  { "tpope/vim-fugitive" },
+  { "godlygeek/tabular" },
+  { "sunaku/tmux-navigate" },
+  { "majutsushi/tagbar", build = "brew install --HEAD universal-ctags/universal-ctags/universal-ctags" },
+  { "L3MON4D3/LuaSnip" }, -- Snippets plugin
+  { "gfanto/fzf-lsp.nvim" }, -- fzf for lsp
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-cmdline" },
+  { "hrsh7th/cmp-nvim-lsp" }, -- LSP source for nvim-cmp
+  { "hrsh7th/cmp-path" },
+  { "hrsh7th/nvim-cmp" }, -- Autocompletion plugin
+  { "jvgrootveld/telescope-zoxide" },
+  { "natecraddock/telescope-zf-native.nvim" },
+  { "neovim/nvim-lspconfig" }, -- Collection of configurations for built-in LSP client
+  { "nvim-lua/plenary.nvim" },
+  { "nvim-lua/popup.nvim" },
+  { "nvim-lualine/lualine.nvim" },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  { "nvim-telescope/telescope-ui-select.nvim" },
+  { "nvim-telescope/telescope.nvim" },
+  { "nvim-treesitter/playground" },
+  {
     "nvim-treesitter/nvim-treesitter",
-    run = function() require("nvim-treesitter.install").update { with_sync = true } end,
-  }
-  use("ngalaiko/tree-sitter-go-template")
-  use("nvim-treesitter/nvim-treesitter-textobjects")
-  use("IndianBoy42/tree-sitter-just")
-  use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
-  use("MunifTanjim/rust-tools.nvim")
-  use("wbthomason/packer.nvim")
-  use { "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
-  use("navarasu/onedark.nvim")
-  use { "akinsho/git-conflict.nvim", tag = "*" }
-  use("rcarriga/nvim-notify")
-  use { "saecki/crates.nvim", requires = { "nvim-lua/plenary.nvim" } }
-  use { "numToStr/Comment.nvim" }
+    build = function() require("nvim-treesitter.install").update { with_sync = true } end,
+  },
+  { "ngalaiko/tree-sitter-go-template" },
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
+  { "IndianBoy42/tree-sitter-just" },
+  { 'junegunn/fzf.vim' },
+  { 'junegunn/fzf' },
+  { "saadparwaiz1/cmp_luasnip" }, -- Snippets source for nvim-cmp
+  { "MunifTanjim/rust-tools.nvim" },
+  { "romgrk/barbar.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  { "navarasu/onedark.nvim" },
+  { "akinsho/git-conflict.nvim", version = "*" },
+  { "rcarriga/nvim-notify" },
+  { "saecki/crates.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+  { "numToStr/Comment.nvim" },
   -- use { "kylechui/nvim-surround", tag = "*" }
-  use("echasnovski/mini.surround")
-  use("HiPhish/nvim-ts-rainbow2")
-  use("ggandor/leap.nvim")
-  use("nickel-lang/vim-nickel")
-  use("lewis6991/gitsigns.nvim")
-  use {
+  { "echasnovski/mini.surround" },
+  { "HiPhish/nvim-ts-rainbow2" },
+  { "ggandor/leap.nvim" },
+  { "nickel-lang/vim-nickel" },
+  {
     "ibhagwan/fzf-lua",
-    requires = { "nvim-tree/nvim-web-devicons" },
-  }
-  use {
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
     "andymass/vim-matchup",
-    setup = function()
+    init = function()
       -- may set any options here
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
-  }
-  use {
+  },
+  {
     "nvim-neorg/neorg",
-    after = "nvim-treesitter", -- You may want to specify Telescope here as well
-    run = ":Neorg sync-parsers",
+    build = ":Neorg sync-parsers",
     config = function()
       require("neorg").setup {
         load = {
@@ -76,11 +99,10 @@ require("packer").startup(function()
         },
       }
     end,
-    requires = "nvim-lua/plenary.nvim",
-  }
-end)
+    dependencies = "nvim-lua/plenary.nvim",
+  },
+}, {})
 
-require('gitsigns').setup()
 -- require('leap').add_default_mappings()
 require("mini.surround").setup {
   -- Add custom surroundings to be used on top of builtin ones. For more
@@ -121,7 +143,21 @@ require("mini.surround").setup {
   -- Whether to disable showing non-error feedback
   silent = false,
 }
-require("Comment").setup()
+require("Comment").setup({
+  toggler = {
+        ---Line-comment toggle keymap
+        line = '<M-/>',
+        ---Block-comment toggle keymap
+        block = '<M-?>',
+    },
+      opleader = {
+        ---Line-comment keymap
+        line = '<M-/>',
+        ---Block-comment keymap
+        block = '<M-?>',
+    },
+
+})
 -- require("neorg").setup()
 vim.opt.expandtab = true
 vim.opt.hidden = true
@@ -511,13 +547,13 @@ local servers = {
   --     },
   --   },
   -- },
-  gopls = {
-    settings = {
-      gopls = {
-        linksInHover = false,
-      },
-    },
-  },
+  -- gopls = {
+  --   settings = {
+  --     gopls = {
+  --       linksInHover = false,
+  --     },
+  --   },
+  -- },
   pyright = {},
   -- yamlls = {
   --   settings = {

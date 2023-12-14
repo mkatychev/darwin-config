@@ -170,6 +170,7 @@ settitle() {
 md() { mdcat "$1" | bat -p }
 
 ccheck() { clear && tmux clear-history && cargo check "${@}" }
+cchecke() { clear && tmux clear-history && RUSTFLAGS=-Awarnings cargo check "${@}" }
 ccheckt() { clear && tmux clear-history && cargo check --profile test }
 ctest() { clear && tmux clear-history && cargo test -- --nocapture "${@}" }
 ccmd() { clear && tmux clear-history && "${@}" }
