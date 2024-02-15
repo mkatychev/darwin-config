@@ -26,13 +26,13 @@ alias cdp="$HOME/Documents/python/"
 alias cdn="$HOME/Documents/notes/"
 alias gitconf="(mv $HOME/.git $HOME/.got || mv $HOME/.got $HOME/.git) 2> /dev/null"
 alias batt="BAT_PAGER=$HOME/.config/usr_tools/bat_pager.sh bat"
-alias ls=exa
+alias ls=eza
 alias python3=/usr/local/bin/python3
 alias pip=pip3.11
 alias pyatom="source ~/.config/atomenv/bin/activate"
 alias firefox="open -a Firefox"
-alias ls.='exa -T --all -I=".git"'
-alias lst='exa -T -I=".git" --git-ignore'
+alias ls.='eza -T --all -I=".git"'
+alias lst='eza -T -I=".git" --git-ignore'
 alias cdg='cd $(git rev-parse --show-toplevel)'
 alias gv='git mv'
 alias brewnewer="brew upgrade"
@@ -170,9 +170,9 @@ settitle() {
 md() { mdcat "$1" | bat -p }
 
 ccheck() { clear && tmux clear-history && cargo check "${@}" }
-cchecke() { clear && tmux clear-history && RUSTFLAGS=-Awarnings cargo check "${@}" }
-ccheckt() { clear && tmux clear-history && cargo check --profile test }
-ctest() { clear && tmux clear-history && cargo test -- --nocapture "${@}" }
+cchecke() { clear && tmux clear-history && RUSTFLAGS=-Awarnings cargo -q check "${@}" }
+ccheckt() { clear && tmux clear-history && cargo -q check --profile test }
+ctest() { clear && tmux clear-history && cargo -q test -- --nocapture "${@}" }
 ccmd() { clear && tmux clear-history && "${@}" }
 alias check="cargo check"
 alias c="cargo check"

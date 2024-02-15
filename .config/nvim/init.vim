@@ -211,6 +211,7 @@ noremap <C-F>g :GGrep <CR>
 
 noremap <C-\> :TagbarToggle <CR>
 
+xnoremap <silent><leader>c :'<,'>GetCommitLink<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
@@ -259,6 +260,7 @@ endfunction
 command! -range=% Sqlf let b:winview = winsaveview() |
             \ <line1>,<line2>call <SID>Format2("sql-formatter --config ~/.sqlf_config.json")
 command! -range=% Jq <line1>,<line2>call Format("jq")
+command! -range=% Typos <line1>,<line2>call Format("typos -w -")
 command! -range=% Shf <line1>,<line2>call Format("shfmt -i 2 -sr")
 command! -range=% Yq <line1>,<line2>call Format("yamkix -n -s")
 command! -range=% Yqk <line1>,<line2>call Format("yamkix -s")

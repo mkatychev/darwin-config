@@ -102,7 +102,7 @@ require("onedark").setup({
     ["@keyword"] = { fg = c.red },
     ["@field"] = { fg = c.red },
     ["@namespace"] = { fg = c.blue },
-    ["@function"] = { fg = c.blue },
+    ["@module"] = { fg = c.blue },
     ["@variable.builtin"] = { fg = c.blue },
     -- ["@variable"] = { fg = c.red },
     ["@operator"] = { fg = c.purple },
@@ -112,6 +112,9 @@ require("onedark").setup({
     ["@constructor"] = { fg = c.blue },
     ["@constructor.builtin"] = { fg = c.cyan },
     ["@constant"] = { fg = c.cyan },
+    ["@function"] = { fg = c.blue },
+    ["@function.macro"] = { fg = c.blue },
+    -- ["@type"] = { fg = c.blue },
   }, -- Override highlight groups
 })
 

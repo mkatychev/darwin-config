@@ -11,9 +11,24 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+require("lazy").setup {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      local configs = require("nvim-treesitter.configs")
+
+      configs.setup {
+        ensure_installed = { "rust", "lua", "vim", "vimdoc", "query" },
+        sync_install = false,
+        highlight = { enable = true },
+        indent = { enable = true },
+      }
+    end,
+  },
   { "tyru/open-browser-github.vim", dependencies = "tyru/open-browser.vim" },
   { "tyru/open-browser.vim" },
+  { "knsh14/vim-github-link" },
   { "mattn/webapi-vim" },
   { "itchyny/vim-gitbranch" },
   { "dcharbon/vim-flatbuffers" },
@@ -40,28 +55,22 @@ require("lazy").setup({
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { "nvim-telescope/telescope-ui-select.nvim" },
   { "nvim-telescope/telescope.nvim" },
-  { "nvim-treesitter/playground" },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = function() require("nvim-treesitter.install").update { with_sync = true } end,
-  },
   { "ngalaiko/tree-sitter-go-template" },
   { "nvim-treesitter/nvim-treesitter-textobjects" },
-  { "IndianBoy42/tree-sitter-just" },
-  { 'junegunn/fzf.vim' },
-  { 'junegunn/fzf' },
+  { "nvim-treesitter/playground" },
+  {dir = "/Users/mkatychev/Documents/tree-sitter/tree-sitter-just"},
+  -- {"vmchale/just-vim"},
+  { "junegunn/fzf.vim" },
+  { "junegunn/fzf" },
   { "saadparwaiz1/cmp_luasnip" }, -- Snippets source for nvim-cmp
   { "MunifTanjim/rust-tools.nvim" },
   { "romgrk/barbar.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "navarasu/onedark.nvim" },
   { "akinsho/git-conflict.nvim", version = "*" },
-  { "rcarriga/nvim-notify" },
-  { "saecki/crates.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
   { "numToStr/Comment.nvim" },
   -- use { "kylechui/nvim-surround", tag = "*" }
   { "echasnovski/mini.surround" },
   { "HiPhish/nvim-ts-rainbow2" },
-  { "ggandor/leap.nvim" },
   { "nickel-lang/vim-nickel" },
   {
     "ibhagwan/fzf-lua",
@@ -101,7 +110,7 @@ require("lazy").setup({
     end,
     dependencies = "nvim-lua/plenary.nvim",
   },
-}, {})
+}
 
 -- require('leap').add_default_mappings()
 require("mini.surround").setup {
@@ -143,21 +152,20 @@ require("mini.surround").setup {
   -- Whether to disable showing non-error feedback
   silent = false,
 }
-require("Comment").setup({
+require("Comment").setup {
   toggler = {
-        ---Line-comment toggle keymap
-        line = '<M-/>',
-        ---Block-comment toggle keymap
-        block = '<M-?>',
-    },
-      opleader = {
-        ---Line-comment keymap
-        line = '<M-/>',
-        ---Block-comment keymap
-        block = '<M-?>',
-    },
-
-})
+    ---Line-comment toggle keymap
+    line = "<M-/>",
+    ---Block-comment toggle keymap
+    block = "<M-?>",
+  },
+  opleader = {
+    ---Line-comment keymap
+    line = "<M-/>",
+    ---Block-comment keymap
+    block = "<M-?>",
+  },
+}
 -- require("neorg").setup()
 vim.opt.expandtab = true
 vim.opt.hidden = true
@@ -547,13 +555,13 @@ local servers = {
   --     },
   --   },
   -- },
-  -- gopls = {
-  --   settings = {
-  --     gopls = {
-  --       linksInHover = false,
-  --     },
-  --   },
-  -- },
+  gopls = {
+    settings = {
+      gopls = {
+        linksInHover = false,
+      },
+    },
+  },
   pyright = {},
   -- yamlls = {
   --   settings = {
@@ -662,7 +670,6 @@ cmp.setup {
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "path" },
-    { name = "crates" },
   },
   sorting = {
     comparators = {
@@ -716,9 +723,20 @@ cmp.setup.cmdline(":", {
   }),
 })
 
-require("treesitter")
-require("tree-sitter-just").setup {}
+-- require("nvim-treesitter.install").compilers = { "gcc-12" }
+
+require("_treesitter")
+require("_theme")
+
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.just = {
+  install_info = {
+    url = "/Users/mkatychev/Documents/tree-sitter/tree-sitter-just", -- local path or git repo
+    files = { "src/parser.c", "src/scanner.c" },
+    -- use_makefile = true -- this may be necessary on MacOS (try if you see compiler errors)
+  },
+  maintainers = { "@IndianBoy42" },
+}
 parser_config.gotmpl = {
   install_info = {
     url = "https://github.com/ngalaiko/tree-sitter-go-template",
@@ -727,8 +745,6 @@ parser_config.gotmpl = {
   filetype = "gotmpl",
   used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" },
 }
-
-require("theme")
 
 require("lualine").setup {
   options = {
@@ -826,13 +842,3 @@ function lsp_clients()
 end
 
 vim.api.nvim_create_user_command("OpenCargo", require("rust-tools").open_cargo_toml.open_cargo_toml, {})
-local crates = require("crates")
-crates.setup { disable_invalid_feature_diagnostic = true }
-crates.toggle()
-vim.keymap.set("n", "<leader>co", require("rust-tools").open_cargo_toml.open_cargo_toml, opts)
-vim.keymap.set("n", "<leader>cf", crates.show_features_popup, opts)
-vim.keymap.set("n", "<leader>cK", crates.show_crate_popup, opts)
-vim.keymap.set("n", "<leader>cD", crates.show_dependencies_popup, opts)
-vim.keymap.set("n", "<leader>ct", crates.toggle, opts)
-vim.keymap.set("n", "<leader>cr", crates.reload, opts)
-vim.keymap.set("n", "<leader>cv", crates.show_versions_popup, opts)
